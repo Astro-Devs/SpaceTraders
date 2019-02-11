@@ -1,7 +1,8 @@
-package edu.gatech.cs2340.spacetraders
+package edu.gatech.cs2340.spacetraders.Views
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import edu.gatech.cs2340.spacetraders.R
 
 class MainActivity : AppCompatActivity() {
 
