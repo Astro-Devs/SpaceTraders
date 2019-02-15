@@ -6,33 +6,148 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Views.MainActivity">
-
     <TextView
+            android:text="placeholder"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:id="@+id/textView"/>
+            android:layout_height="21dp" tools:layout_editor_absoluteY="459dp"
+            android:id="@+id/points4"
+            app:layout_constraintStart_toEndOf="@+id/minus4" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/plus4" android:layout_marginEnd="8dp"/>
+    <TextView
+            android:text="placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="372dp"
+            android:id="@+id/points3"
+            app:layout_constraintStart_toEndOf="@+id/minus3" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/plus3" android:layout_marginEnd="8dp"/>
     <Button
-            android:text="Win"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/winButton" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="288dp" android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="150dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="150dp" android:background="@color/wincolor"/>
+            android:text="-"
+            android:layout_width="53dp"
+            android:layout_height="47dp"
+            android:id="@+id/minus2"
+            tools:layout_editor_absoluteY="272dp" app:layout_constraintStart_toEndOf="@+id/fighter"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/plus2"
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.316"/>
     <Button
-            android:text="Lose"
+            android:text="-"
+            android:layout_width="53dp"
+            android:layout_height="47dp"
+            android:id="@+id/minus3"
+            tools:layout_editor_absoluteY="358dp" app:layout_constraintStart_toEndOf="@+id/trader"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/plus3"
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.316"/>
+    <Button
+            android:text="-"
+            android:layout_width="53dp"
+            android:layout_height="47dp"
+            android:id="@+id/minus4"
+            tools:layout_editor_absoluteY="445dp" app:layout_constraintStart_toEndOf="@+id/engineer"
+            android:layout_marginStart="36dp" app:layout_constraintEnd_toStartOf="@+id/plus4"
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.042"/>
+    <Button
+            android:text="+"
+            android:layout_width="53dp"
+            android:layout_height="47dp"
+            tools:layout_editor_absoluteX="290dp" android:id="@+id/plus4" android:layout_marginBottom="52dp"
+            app:layout_constraintBottom_toTopOf="@+id/doneButton"/>
+    <Button
+            android:text="+"
+            android:layout_width="53dp"
+            android:layout_height="47dp"
+            tools:layout_editor_absoluteX="290dp" android:id="@+id/plus3" android:layout_marginBottom="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/plus4"/>
+    <TextView
+            android:text="Pilot"
+            android:layout_width="77dp"
+            android:layout_height="25dp"
+            tools:layout_editor_absoluteX="46dp" android:id="@+id/pilot"
+            android:layout_marginBottom="64dp"
+            app:layout_constraintBottom_toTopOf="@+id/fighter"/>
+    <TextView
+            android:text="Trader"
+            android:layout_width="77dp"
+            android:layout_height="25dp"
+            tools:layout_editor_absoluteX="46dp" android:id="@+id/trader" android:layout_marginBottom="64dp"
+            app:layout_constraintBottom_toTopOf="@+id/engineer"/>
+    <TextView
+            android:text="Player Name"
+            android:layout_width="112dp"
+            android:layout_height="36dp" android:id="@+id/playerName"
+            android:layout_marginTop="52dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.498"/>
+    <TextView
+            android:text="Difficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:id="@+id/difficulty" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/playerName"
+            android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/playerName"/>
+    <Spinner
+            android:layout_width="395dp"
+            android:layout_height="44dp"
+            android:id="@+id/difficultySpinner" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/difficulty" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:spinnerMode="dropdown"/>
+    <Button
+            android:text="Done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/loseButton" android:layout_marginBottom="11dp"
-            app:layout_constraintBottom_toTopOf="@+id/winButton" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="229dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:background="@color/colorAccent"
-            android:backgroundTint="@color/colorPrimary"/>
-
+            android:id="@+id/doneButton" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/difficultySpinner" app:layout_constraintVertical_bias="0.735"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+            android:text="Fighter"
+            android:layout_width="77dp"
+            android:layout_height="25dp"
+            tools:layout_editor_absoluteX="46dp" android:id="@+id/fighter" android:layout_marginBottom="64dp"
+            app:layout_constraintBottom_toTopOf="@+id/trader"/>
+    <TextView
+            android:text="Engineer"
+            android:layout_width="77dp"
+            android:layout_height="25dp"
+            tools:layout_editor_absoluteX="46dp" android:id="@+id/engineer"
+            app:layout_constraintBottom_toTopOf="@+id/doneButton" android:layout_marginBottom="64dp"/>
+    <Button
+            android:text="+"
+            android:layout_width="53dp"
+            android:layout_height="47dp"
+            android:id="@+id/plus" android:layout_marginBottom="44dp"
+            app:layout_constraintBottom_toTopOf="@+id/plus2"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/difficultySpinner"
+            app:layout_constraintVertical_bias="1.0" tools:layout_editor_absoluteX="290dp"/>
+    <Button
+            android:text="-"
+            android:layout_width="53dp"
+            android:layout_height="47dp"
+            android:id="@+id/minus"
+            tools:layout_editor_absoluteY="181dp" app:layout_constraintStart_toEndOf="@+id/pilot"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/plus"
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.316"/>
+    <Button
+            android:text="+"
+            android:layout_width="53dp"
+            android:layout_height="47dp"
+            tools:layout_editor_absoluteX="290dp" android:id="@+id/plus2" android:layout_marginBottom="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/plus3"/>
+    <TextView
+            android:text="placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="193dp"
+            android:id="@+id/points" app:layout_constraintStart_toEndOf="@+id/minus" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/plus" android:layout_marginEnd="8dp"/>
+    <TextView
+            android:text="placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="283dp"
+            android:id="@+id/points2"
+            app:layout_constraintStart_toEndOf="@+id/minus2" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/plus2" android:layout_marginEnd="8dp"/>
 </android.support.constraint.ConstraintLayout>
