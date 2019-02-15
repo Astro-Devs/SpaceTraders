@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.spacetraders.Entity
+package edu.gatech.cs2340.spacetraders.entity
 
 enum class GameDifficulty {
     BEGINNER,

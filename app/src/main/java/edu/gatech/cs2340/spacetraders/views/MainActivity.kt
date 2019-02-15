@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.spacetraders.Views
+package edu.gatech.cs2340.spacetraders.views
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
