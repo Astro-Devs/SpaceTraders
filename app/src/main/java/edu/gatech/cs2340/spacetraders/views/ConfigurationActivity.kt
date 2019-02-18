@@ -39,6 +39,14 @@ class ConfigurationActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(ConfigViewModel::class.java)
     }
 
+    /**
+     * Button handler for the done game/player creation button
+     *
+     * Button handler checks for valid input from fields and creates game and player instance.
+     * If invalid data, shows an error message.
+     *
+     * @param view the button that was pressed
+     */
     fun onDonePressed(view : View) {
         var name : String? = nameField.getText().toString()
         var pilotPts : Int = Integer.parseInt(pilotField.getText().toString())
