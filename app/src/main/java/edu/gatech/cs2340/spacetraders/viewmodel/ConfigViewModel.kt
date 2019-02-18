@@ -1,15 +1,16 @@
 package edu.gatech.cs2340.spacetraders.viewmodel
 
 import android.arch.lifecycle.AndroidViewModel
+import android.arch.lifecycle.ViewModel
 import edu.gatech.cs2340.spacetraders.entity.GameDifficulty
 import edu.gatech.cs2340.spacetraders.entity.Player
 import edu.gatech.cs2340.spacetraders.model.ModelFacade
 
-class ConfigViewModel() {
+class ConfigViewModel() : ViewModel() {
 
     var modelFacade : ModelFacade = ModelFacade.getInstance()
 
-    fun onOk(name : String, pilotPts : Int, engineerPts : Int, traderPts : Int, fighterPts : Int,
+    fun onOk(name : String?, pilotPts : Int, engineerPts : Int, traderPts : Int, fighterPts : Int,
                      gameDiff : GameDifficulty) : Boolean {
         if (name != null && name.length >= 1 && (pilotPts + engineerPts + traderPts + fighterPts) == 16) {
 
