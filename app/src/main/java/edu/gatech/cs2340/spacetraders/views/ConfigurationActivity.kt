@@ -50,7 +50,9 @@ class ConfigurationActivity : AppCompatActivity() {
         var isValid : Boolean = viewModel.onOk(name, pilotPts , engineerPts, traderPts, fighterPts, gameDiff)
 
         if(!isValid) {
-            Toast.makeText(this, "Invalid attributes", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Invalid attributes", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "New player created!", Toast.LENGTH_LONG).show()
         }
     }
 
