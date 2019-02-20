@@ -6,6 +6,10 @@ import edu.gatech.cs2340.spacetraders.entity.GameDifficulty
 import edu.gatech.cs2340.spacetraders.entity.Player
 import edu.gatech.cs2340.spacetraders.model.ModelFacade
 
+/**
+ * The ViewModel class which allows the Configuration
+ * Activity to pass in its fields to the models
+ */
 class ConfigViewModel() : ViewModel() {
 
     var modelFacade : ModelFacade = ModelFacade.getInstance()

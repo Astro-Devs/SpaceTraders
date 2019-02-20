@@ -9,6 +9,11 @@ import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.GameDifficulty
 import edu.gatech.cs2340.spacetraders.viewmodel.ConfigViewModel
 
+/**
+ * The Configuration Activity View class
+ * that allows the user to input their desired
+ * attributes to create a customized game
+ */
 class ConfigurationActivity : AppCompatActivity() {
     private lateinit var viewModel : ConfigViewModel
 
