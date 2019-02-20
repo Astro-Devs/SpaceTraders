@@ -24,6 +24,7 @@ class ModelFacade private constructor() {
      * Creates an instance of the game with the player's given attributes
      * @param difficulty the game difficulty to play the game on
      * @param player the player instance which represents the user
+     * @return the new instance of the game with the given attributes
      */
     fun createGame(difficulty: GameDifficulty, player: Player): Game {
         newGame = Game(difficulty, player)
