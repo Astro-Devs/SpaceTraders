@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.spacetraders.entity
 
 /**
- * Enum class for Ship
+ * Enum that represents the player's ship
  */
 enum class Ship {
     GNAT
