@@ -16,6 +16,14 @@ class Universe {
         return Coordinates(Random.nextInt(100), Random.nextInt(100))
     }
 
+    val map : HashMap<Coordinates, SolarSystem> = HashMap()
+
+    fun coordinatesToPlanets() : Void {
+        while (map.size < 10) {
+            
+        }
+    }
+
     val hamlet : SolarSystem = SolarSystem("Hamlet", Coordinates(0, 0), TechLevels.levels[Random.nextInt(TechLevels.levels.size)], Resources.resourceLevel[Random.nextInt(
         Resources.resourceLevel.size)])
 
