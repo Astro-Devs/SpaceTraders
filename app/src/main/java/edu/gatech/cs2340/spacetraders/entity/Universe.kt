@@ -4,6 +4,9 @@ import kotlin.math.abs
 import kotlin.math.hypot
 import kotlin.random.Random
 
+/**
+ * Everything happens here
+ */
 class Universe {
     fun distance(p1 : Coordinates, p2 : Coordinates) : Double {
         return hypot(abs(p2.xPositionLocal - p1.xPositionLocal) as Double, abs(p2.yPositionLocal - p1.yPositionLocal) as Double)
@@ -12,4 +15,8 @@ class Universe {
     fun randomCoordinatesGenerator() : Coordinates {
         return Coordinates(Random.nextInt(100), Random.nextInt(100))
     }
+
+    val hamlet : SolarSystem = SolarSystem("Hamlet", Coordinates(0, 0), TechLevels.levels[Random.nextInt(TechLevels.levels.size)], Resources.resourceLevel[Random.nextInt(
+        Resources.resourceLevel.size)])
+
 }

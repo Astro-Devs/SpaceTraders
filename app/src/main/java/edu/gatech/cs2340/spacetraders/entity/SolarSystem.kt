@@ -11,17 +11,17 @@ import kotlin.random.Random
  * @param techLevel the corresponding tech level of the planet
  * @param resources the corresponding resource level of the planet
  */
-enum class SolarSystem(val planetName : String, val location : Coordinates,
+class SolarSystem(val planetName : String, val location : Coordinates,
                        val techLevel : TechLevels, val resources : Resources) {
 
-    HAMLET("Hamlet", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
-    HELENA("Helena", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
-    KLAATU("Klaatu", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
-    POLLUX("Pollux", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
-    TANUGA("Tanuga", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
-    BRAX("Brax", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
-    FROLIX("Frolix", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
-    DENEVA("Deneva", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
-    ZUUL("Zuul", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
-    UTOPIA("Utopia", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)])
+//    val hamlet : SolarSystem = SolarSystem("Hamlet", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
+//    HELENA("Helena", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
+//    KLAATU("Klaatu", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
+//    POLLUX("Pollux", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
+//    TANUGA("Tanuga", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
+//    BRAX("Brax", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
+//    FROLIX("Frolix", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
+//    DENEVA("Deneva", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
+//    ZUUL("Zuul", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
+//    UTOPIA("Utopia", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)])
 }

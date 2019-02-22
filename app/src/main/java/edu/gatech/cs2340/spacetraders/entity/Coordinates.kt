@@ -19,4 +19,15 @@ class Coordinates(xPosition : Int, yPosition : Int) {
     val xPositionLocal : Int = xPosition
     val yPositionLocal : Int = yPosition
 
+    override fun hashCode(): Int {
+        return 3697 * xPositionLocal + 1229 * yPositionLocal
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (other == null || other !is Coordinates) {
+            return false
+        }
+        return this.xPositionLocal == other.xPositionLocal
+                && this.yPositionLocal == other.yPositionLocal
+    }
 }
