@@ -67,8 +67,8 @@ class Universe {
         "Merik")
 
     /**
-     * Randomly select a name, tech level, resource level, and coordinates,
-     * create a planet with these attributes, and add it to the map
+     * Randomly select names, tech levels, resource levels, and coordinates,
+     * create 10 planet with these attributes, and add them to the map
      */
     fun createPlanets() {
         while (map.size < 10) {
