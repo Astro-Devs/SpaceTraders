@@ -17,5 +17,9 @@ enum class Resources(val level: Int) {
     WEIRDMUSHROOMS(9),
     LOTSOFHERBS(10),
     ARTISTIC(11),
-    WARLIKE(12)
+    WARLIKE(12);
+
+    companion object ResourceLevel {
+        val resourceLevel : Array<Resources> = Resources.values()
+    }
 }

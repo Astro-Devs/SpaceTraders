@@ -12,6 +12,10 @@ enum class TechLevels(val level: Int) {
     EARLYINDUSTRIAL(4),
     INDUSTRIAL(5),
     POST_INDUSTRIAL(6),
-    HITECH(7)
+    HITECH(7);
+
+    companion object Levels {
+        val levels : Array<TechLevels> = TechLevels.values()
+    }
 
 }
