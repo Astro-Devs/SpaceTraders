@@ -30,4 +30,8 @@ class Coordinates(xPosition : Int, yPosition : Int) {
         return this.xPositionLocal == other.xPositionLocal
                 && this.yPositionLocal == other.yPositionLocal
     }
+
+    override fun toString(): String {
+        return "($xPositionLocal, $yPositionLocal)"
+    }
 }

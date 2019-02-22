@@ -14,6 +14,9 @@ import kotlin.random.Random
 class SolarSystem(val planetName : String, val location : Coordinates,
                        val techLevel : TechLevels, val resources : Resources) {
 
+    override fun toString(): String {
+        return "$planetName\n$location\n$techLevel\n$resources"
+    }
 //    val hamlet : SolarSystem = SolarSystem("Hamlet", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
 //    HELENA("Helena", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),
 //    KLAATU("Klaatu", Coordinates(0, 0), levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)]),

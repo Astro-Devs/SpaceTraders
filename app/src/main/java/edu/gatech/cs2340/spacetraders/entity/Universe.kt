@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetraders.entity
 
+import android.arch.lifecycle.Transformations.map
+import android.util.Log
 import edu.gatech.cs2340.spacetraders.entity.Resources.ResourceLevel.resourceLevel
 import edu.gatech.cs2340.spacetraders.entity.TechLevels.Levels.levels
 import kotlin.math.abs
@@ -70,6 +72,9 @@ class Universe {
         while (map.size < 10) {
             val coords : Coordinates = randomCoordinatesGenerator()
             map[coords] = SolarSystem(names.removeAt(Random.nextInt(names.size)), coords, levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)])
+        }
+        for ((key, value) in map) {
+            Log.d("Solar System: ", value.toString())
         }
     }
 
