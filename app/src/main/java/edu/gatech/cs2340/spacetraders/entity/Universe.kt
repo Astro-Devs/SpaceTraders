@@ -8,10 +8,23 @@ import kotlin.random.Random
  * Everything happens here
  */
 class Universe {
+
+    /**
+     * Calculate the distance between two planets
+     *
+     * @param p1 : coordinates for planet 1
+     * @param p2 : coordinates for planet 2
+     * @return distance between the coordinates for planets 1 and 2
+     */
     fun distance(p1 : Coordinates, p2 : Coordinates) : Double {
         return hypot(abs(p2.xPositionLocal - p1.xPositionLocal) as Double, abs(p2.yPositionLocal - p1.yPositionLocal) as Double)
     }
 
+    /**
+     * Randomly generate coordinates
+     *
+     * @return the randomly generated coordinates
+     */
     fun randomCoordinatesGenerator() : Coordinates {
         return Coordinates(Random.nextInt(100), Random.nextInt(100))
     }
