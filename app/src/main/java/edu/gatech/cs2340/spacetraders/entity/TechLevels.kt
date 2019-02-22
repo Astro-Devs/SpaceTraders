@@ -14,6 +14,10 @@ enum class TechLevels(val level: Int) {
     POST_INDUSTRIAL(6),
     HITECH(7);
 
+    /**
+     * Companion object Levels for the TechLevels
+     * in order to access the ordinal values as an array
+     */
     companion object Levels {
         val levels : Array<TechLevels> = TechLevels.values()
     }

@@ -19,6 +19,10 @@ enum class Resources(val level: Int) {
     ARTISTIC(11),
     WARLIKE(12);
 
+    /**
+     * Companion object for the Resources class
+     * in order to access the ordinal values as an array
+     */
     companion object ResourceLevel {
         val resourceLevel : Array<Resources> = Resources.values()
     }

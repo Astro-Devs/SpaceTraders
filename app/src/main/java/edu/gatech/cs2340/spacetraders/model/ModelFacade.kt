@@ -10,6 +10,9 @@ import edu.gatech.cs2340.spacetraders.entity.Player
  * to interact with its attributes
  */
 class ModelFacade private constructor() {
+    /**
+     * Companion object for the model facade
+     */
     companion object {
         var modelFac : ModelFacade = ModelFacade()
         lateinit var newGame: Game
