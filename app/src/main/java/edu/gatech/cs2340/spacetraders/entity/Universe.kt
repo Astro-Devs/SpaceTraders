@@ -66,10 +66,16 @@ class Universe {
         "Mentar",		// The Psilon home system in Master of Orion
         "Merik")
 
-    fun coordinatesToPlanets() {
+    /**
+     * Randomly select a name, tech level, resource level, and coordinates,
+     * create a planet with these attributes, and add it to the map
+     */
+    fun createPlanets() {
         while (map.size < 10) {
             val coords : Coordinates = randomCoordinatesGenerator()
-            map[coords] = SolarSystem(names.removeAt(Random.nextInt(names.size)), coords, levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)])
+            map[coords] = SolarSystem(names.removeAt(Random.nextInt(names.size)),
+                coords, levels[Random.nextInt(levels.size)],
+                resourceLevel[Random.nextInt(resourceLevel.size)])
         }
     }
 
