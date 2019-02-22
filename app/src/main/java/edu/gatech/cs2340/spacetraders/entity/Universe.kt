@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetraders.entity
 
+import edu.gatech.cs2340.spacetraders.entity.Resources.ResourceLevel.resourceLevel
+import edu.gatech.cs2340.spacetraders.entity.TechLevels.Levels.levels
 import kotlin.math.abs
 import kotlin.math.hypot
 import kotlin.random.Random
@@ -30,14 +32,45 @@ class Universe {
     }
 
     val map : HashMap<Coordinates, SolarSystem> = HashMap()
+    val names = arrayListOf<String>("Festen",		// A great Scandinavian movie
+        "Fourmi",		// An ant, in French
+        "Frolix",		// A solar system in one of Philip K. Dick's novels
+        "Gemulon",
+        "Guinifer",		// One way of writing the name of king Arthur's wife
+        "Hades",		// The underworld
+        "Hamlet",		// From Shakespeare
+        "Helena",		// Of Troy
+        "Hulst",		// A Dutch plant
+        "Iodine",		// An element
+        "Iralius",
+        "Janus",		// A seldom encountered Dutch boy's name
+        "Japori",
+        "Jarada",
+        "Jason",		// A Greek hero
+        "Kaylon",
+        "Khefka",
+        "Kira",			// My dog's name
+        "Klaatu",		// From a classic SF movie
+        "Klaestron",
+        "Korma",		// An Indian sauce
+        "Kravat",		// Interesting spelling of the French word for "tie"
+        "Krios",
+        "Laertes",		// A king in a Greek tragedy
+        "Largo",
+        "Lave",			// The starting system in Elite
+        "Ligon",
+        "Lowry",		// The name of the "hero" in Terry Gilliam's "Brazil"
+        "Magrat",		// The second of the witches in Pratchett's Discworld
+        "Malcoria",
+        "Melina",
+        "Mentar",		// The Psilon home system in Master of Orion
+        "Merik")
 
-    fun coordinatesToPlanets() : Void {
+    fun coordinatesToPlanets() {
         while (map.size < 10) {
-            
+            val coords : Coordinates = randomCoordinatesGenerator()
+            map[coords] = SolarSystem(names.removeAt(Random.nextInt(names.size)), coords, levels[Random.nextInt(levels.size)], resourceLevel[Random.nextInt(resourceLevel.size)])
         }
     }
-
-    val hamlet : SolarSystem = SolarSystem("Hamlet", Coordinates(0, 0), TechLevels.levels[Random.nextInt(TechLevels.levels.size)], Resources.resourceLevel[Random.nextInt(
-        Resources.resourceLevel.size)])
 
 }
