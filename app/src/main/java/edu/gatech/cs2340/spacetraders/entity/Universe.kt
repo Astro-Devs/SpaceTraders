@@ -80,7 +80,7 @@ class Universe {
                 resourceLevel[Random.nextInt(resourceLevel.size)])
         }
         for ((key, value) in map) {
-            Log.d("Solar System: ", value.toString())
+            Log.d("Solar System: ", key.toString() + " " + value.toString())
         }
     }
 

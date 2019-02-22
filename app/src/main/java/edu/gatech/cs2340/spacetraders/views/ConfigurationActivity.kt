@@ -61,7 +61,6 @@ class ConfigurationActivity : AppCompatActivity() {
         var gameDiff : GameDifficulty = diffSpinner.getSelectedItem() as GameDifficulty
 
         var isValid : Boolean = viewModel.onOk(name, pilotPts , engineerPts, traderPts, fighterPts, gameDiff)
-
         if(!isValid) {
             Toast.makeText(this, "Invalid attributes", Toast.LENGTH_LONG).show()
         } else {

@@ -4,6 +4,7 @@ import android.util.Log
 import edu.gatech.cs2340.spacetraders.entity.Game
 import edu.gatech.cs2340.spacetraders.entity.GameDifficulty
 import edu.gatech.cs2340.spacetraders.entity.Player
+import edu.gatech.cs2340.spacetraders.entity.Universe
 
 /**
  * Facade for the Model entities that allows to ViewModel
@@ -32,6 +33,8 @@ class ModelFacade private constructor() {
     fun createGame(difficulty: GameDifficulty, player: Player): Game {
         newGame = Game(difficulty, player)
         Log.d("Test", newGame.toString())
+        val uni = Universe()
+        uni.createPlanets()
         return newGame
     }
 }
