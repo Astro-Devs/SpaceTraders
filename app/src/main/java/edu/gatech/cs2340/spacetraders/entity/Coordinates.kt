@@ -8,7 +8,7 @@ class Coordinates {
         val pointA = pointA
         val pointB = pointB
     }
-    
+
     fun distance(p1 : Point, p2 : Point) : Double {
         return hypot(abs(p2.pointA - p1.pointA) as Double, abs(p2.pointB - p1.pointB) as Double)
     }
