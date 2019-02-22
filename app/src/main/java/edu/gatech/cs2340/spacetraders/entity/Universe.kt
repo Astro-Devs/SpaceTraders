@@ -5,7 +5,7 @@ import kotlin.math.hypot
 import kotlin.random.Random
 
 /**
- * Everything happens here
+ * Universe class that represents the structurer for managing solar systems
  */
 class Universe {
 
