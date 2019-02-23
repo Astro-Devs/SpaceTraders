@@ -160,7 +160,7 @@ class Universe {
      * create 10 planet with these attributes, and add them to the map
      */
     fun createPlanets() {
-        while (map.size < 10) {
+        while (map.size < 20) {
             val coords : Coordinates = randomCoordinatesGenerator()
             if (!map.containsKey(coords)) {
                 map[coords] = SolarSystem(names.removeAt(Random.nextInt(names.size)),
@@ -169,7 +169,21 @@ class Universe {
             }
         }
         for ((key, value) in map) {
-            Log.d("Solar System: ", key.toString() + " \n" + value.toString())
+            largeLog("Solar System: ", key.toString() + " \n" + value.toString())
+        }
+    }
+
+    /**
+     * Workaround to 4000 byte limit to a log entry, printing to the logcat
+     * @param tag the tag to search in the logcat
+     * @param content the message to print to logcat
+     */
+    private fun largeLog(tag: String, content: String) {
+        if (content.length > 4000) {
+            Log.d(tag, content.substring(0, 4000))
+            largeLog(tag, content.substring(4000))
+        } else {
+            Log.d(tag, content)
         }
     }
 
