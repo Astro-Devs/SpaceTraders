@@ -1,6 +1,5 @@
 package edu.gatech.cs2340.spacetraders.entity
 
-import android.arch.lifecycle.Transformations.map
 import android.util.Log
 import edu.gatech.cs2340.spacetraders.entity.Resources.ResourceLevel.resourceLevel
 import edu.gatech.cs2340.spacetraders.entity.TechLevels.Levels.levels
@@ -157,7 +156,7 @@ class Universe {
 
     /**
      * Randomly select names, tech levels, resource levels, and coordinates,
-     * create 10 planet with these attributes, and add them to the map
+     * create 20 planets with these attributes, and add them to the map
      */
     fun createPlanets() {
         while (map.size < 20) {
