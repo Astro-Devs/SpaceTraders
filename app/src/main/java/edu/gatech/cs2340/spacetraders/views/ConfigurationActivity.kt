@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.spacetraders.views
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -40,7 +41,6 @@ class ConfigurationActivity : AppCompatActivity() {
         diffSpinner.setAdapter(diffAdapter)
 
 
-
         viewModel = ViewModelProviders.of(this).get(ConfigViewModel::class.java)
     }
 
@@ -65,6 +65,8 @@ class ConfigurationActivity : AppCompatActivity() {
             Toast.makeText(this, "Invalid attributes", Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(this, "New player created!", Toast.LENGTH_LONG).show()
+            val universeIntent = Intent(view.context, UniverseActivity::class.java)
+            startActivityForResult(universeIntent, 0)
         }
     }
 
