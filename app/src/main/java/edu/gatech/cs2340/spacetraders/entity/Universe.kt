@@ -21,7 +21,7 @@ class Universe {
      * @return distance between the coordinates for planets 1 and 2
      */
     fun distance(p1 : Coordinates, p2 : Coordinates) : Double {
-        return hypot(abs(p2.xPositionLocal - p1.xPositionLocal) as Double, abs(p2.yPositionLocal - p1.yPositionLocal) as Double)
+        return hypot(abs(p2.xPositionLocal - p1.xPositionLocal).toDouble(), abs(p2.yPositionLocal - p1.yPositionLocal) as Double)
     }
 
     /**
@@ -75,12 +75,14 @@ class Universe {
     fun createPlanets() {
         while (map.size < 10) {
             val coords : Coordinates = randomCoordinatesGenerator()
-            map[coords] = SolarSystem(names.removeAt(Random.nextInt(names.size)),
-                coords, levels[Random.nextInt(levels.size)],
-                resourceLevel[Random.nextInt(resourceLevel.size)])
+            if (!map.containsKey(coords)) {
+                map[coords] = SolarSystem(names.removeAt(Random.nextInt(names.size)),
+                    coords, levels[Random.nextInt(levels.size)],
+                    resourceLevel[Random.nextInt(resourceLevel.size)])
+            }
         }
         for ((key, value) in map) {
-            Log.d("Solar System: ", key.toString() + " " + value.toString())
+            Log.d("Solar System: ", key.toString() + " \n" + value.toString())
         }
     }
 
