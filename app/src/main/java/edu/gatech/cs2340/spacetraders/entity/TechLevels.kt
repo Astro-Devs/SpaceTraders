@@ -3,6 +3,7 @@ package edu.gatech.cs2340.spacetraders.entity
 /**
  * Enum that lists the different tech levels
  * for the solar systems
+ * @param level the number corresponding to the tech level
  */
 enum class TechLevels(val level: Int) {
     PREAGRICULTURE(0),

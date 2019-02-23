@@ -3,6 +3,7 @@ package edu.gatech.cs2340.spacetraders.entity
 /**
  * Enum that lists the different resources
  * for the solar systems
+ * @param level the number corresponding to the resources
  */
 enum class Resources(val level: Int) {
     NOSPECIALRESOURCES(0),
