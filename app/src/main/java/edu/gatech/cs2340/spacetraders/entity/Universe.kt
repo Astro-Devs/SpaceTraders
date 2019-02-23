@@ -20,7 +20,7 @@ class Universe {
      * @return distance between the coordinates for planets 1 and 2
      */
     fun distance(p1 : Coordinates, p2 : Coordinates) : Double {
-        return hypot(abs(p2.xPositionLocal - p1.xPositionLocal).toDouble(), abs(p2.yPositionLocal - p1.yPositionLocal) as Double)
+        return hypot(abs(p2.xPositionLocal - p1.xPositionLocal).toDouble(), abs(p2.yPositionLocal - p1.yPositionLocal).toDouble())
     }
 
     /**
