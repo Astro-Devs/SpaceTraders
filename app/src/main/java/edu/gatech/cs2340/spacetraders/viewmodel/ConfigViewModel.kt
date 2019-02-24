@@ -31,7 +31,7 @@ class ConfigViewModel() : ViewModel() {
 
             //call modelFacade functions to create game/player instance
             var arrSkill : IntArray = intArrayOf(pilotPts, engineerPts, traderPts, fighterPts)
-            var player: Player = Player(name, arrSkill)
+            var player = Player(name, arrSkill)
             modelFacade.createGame(gameDiff, player)
             //
 

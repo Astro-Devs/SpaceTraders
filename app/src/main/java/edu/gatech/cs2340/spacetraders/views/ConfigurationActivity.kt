@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetraders.views
 
+import android.app.PendingIntent.getActivity
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -65,7 +66,7 @@ class ConfigurationActivity : AppCompatActivity() {
             Toast.makeText(this, "Invalid attributes", Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(this, "New player created!", Toast.LENGTH_LONG).show()
-            val universeIntent = Intent(view.context, UniverseActivity::class.java)
+            val universeIntent = Intent(applicationContext, UniverseActivity::class.java)
             startActivityForResult(universeIntent, 0)
         }
     }

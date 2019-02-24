@@ -1,10 +1,7 @@
 package edu.gatech.cs2340.spacetraders.model
 
 import android.util.Log
-import edu.gatech.cs2340.spacetraders.entity.Game
-import edu.gatech.cs2340.spacetraders.entity.GameDifficulty
-import edu.gatech.cs2340.spacetraders.entity.Player
-import edu.gatech.cs2340.spacetraders.entity.Universe
+import edu.gatech.cs2340.spacetraders.entity.*
 
 /**
  * Facade for the Model entities that allows to ViewModel
@@ -24,6 +21,7 @@ class ModelFacade private constructor() {
 
     }
 
+    val uni = Universe()
     /**
      * Creates an instance of the game with the player's given attributes
      * @param difficulty the game difficulty to play the game on
@@ -33,8 +31,11 @@ class ModelFacade private constructor() {
     fun createGame(difficulty: GameDifficulty, player: Player): Game {
         newGame = Game(difficulty, player)
         Log.d("Test", newGame.toString())
-        val uni = Universe()
         uni.createPlanets()
         return newGame
+    }
+
+    fun getUniverseMap() : Map<Coordinates, SolarSystem> {
+        return uni.map
     }
 }
