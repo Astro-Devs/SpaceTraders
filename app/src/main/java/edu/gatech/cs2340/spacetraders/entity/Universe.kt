@@ -172,6 +172,11 @@ class Universe {
         }
     }
 
+    inline fun <reified T> toArray(list: List<*>): Array<T> {
+        return (list as List<T>).toTypedArray()
+    }
+
+
     /**
      * Workaround to 4000 byte limit to a log entry, printing to the logcat
      * @param tag the tag to search in the logcat
