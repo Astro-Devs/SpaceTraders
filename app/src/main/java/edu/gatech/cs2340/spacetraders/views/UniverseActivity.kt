@@ -8,6 +8,6 @@ class UniverseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.universe_layout)
+        setContentView(R.layout.universe_layout_scrolling)
     }
 }
