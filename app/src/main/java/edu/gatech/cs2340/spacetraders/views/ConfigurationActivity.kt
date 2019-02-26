@@ -3,6 +3,7 @@ package edu.gatech.cs2340.spacetraders.views
 import android.app.PendingIntent.getActivity
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
+import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -25,10 +26,13 @@ class ConfigurationActivity : AppCompatActivity() {
     private lateinit var fighterField : EditText
     private lateinit var traderField : EditText
     private lateinit var engineerField : EditText
+    private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config)
+
+        mediaPlayer = MediaPlayer.create(applicationContext, R.raw.alienloadingscreen)
 
         nameField = findViewById(R.id.playerName)
         diffSpinner = findViewById(R.id.difficultySpinner)
@@ -39,8 +43,10 @@ class ConfigurationActivity : AppCompatActivity() {
 
         var diffAdapter : ArrayAdapter<GameDifficulty> = ArrayAdapter<GameDifficulty>(this, android.R.layout.simple_spinner_item, GameDifficulty.values())
         diffAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        diffSpinner.setAdapter(diffAdapter)
+        diffSpinner.adapter = diffAdapter
 
+        mediaPlayer.start()
+        mediaPlayer.isLooping = true
 
         viewModel = ViewModelProviders.of(this).get(ConfigViewModel::class.java)
     }
@@ -66,6 +72,7 @@ class ConfigurationActivity : AppCompatActivity() {
             Toast.makeText(this, "Invalid attributes", Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(this, "New player created!", Toast.LENGTH_LONG).show()
+            mediaPlayer.stop()
             val universeIntent = Intent(applicationContext, UniverseActivity::class.java)
             startActivityForResult(universeIntent, 0)
         }
