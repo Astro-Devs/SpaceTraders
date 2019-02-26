@@ -26,13 +26,10 @@ class ConfigurationActivity : AppCompatActivity() {
     private lateinit var fighterField : EditText
     private lateinit var traderField : EditText
     private lateinit var engineerField : EditText
-    private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config)
-
-        mediaPlayer = MediaPlayer.create(applicationContext, R.raw.alienloadingscreen)
 
         nameField = findViewById(R.id.playerName)
         diffSpinner = findViewById(R.id.difficultySpinner)
@@ -45,8 +42,6 @@ class ConfigurationActivity : AppCompatActivity() {
         diffAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         diffSpinner.adapter = diffAdapter
 
-        mediaPlayer.start()
-        mediaPlayer.isLooping = true
 
         viewModel = ViewModelProviders.of(this).get(ConfigViewModel::class.java)
     }
@@ -59,7 +54,7 @@ class ConfigurationActivity : AppCompatActivity() {
      *
      * @param view the button that was pressed
      */
-    fun onDonePressed(view : View) {
+    fun onDonePressed(view: View) {
         var name : String? = nameField.getText().toString()
         var pilotPts : Int = Integer.parseInt(pilotField.getText().toString())
         var engineerPts : Int = Integer.parseInt(engineerField.getText().toString())
@@ -72,7 +67,6 @@ class ConfigurationActivity : AppCompatActivity() {
             Toast.makeText(this, "Invalid attributes", Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(this, "New player created!", Toast.LENGTH_LONG).show()
-            mediaPlayer.stop()
             val universeIntent = Intent(applicationContext, UniverseActivity::class.java)
             startActivityForResult(universeIntent, 0)
         }
