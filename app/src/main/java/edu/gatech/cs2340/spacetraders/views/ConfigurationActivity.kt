@@ -46,6 +46,7 @@ class ConfigurationActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(ConfigViewModel::class.java)
     }
 
+
     /**
      * Button handler for the done game/player creation button
      *
@@ -67,6 +68,7 @@ class ConfigurationActivity : AppCompatActivity() {
             Toast.makeText(this, "Invalid attributes", Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(this, "New player created!", Toast.LENGTH_LONG).show()
+            StartActivity.keepPlaying = false
             val universeIntent = Intent(applicationContext, UniverseActivity::class.java)
             startActivityForResult(universeIntent, 0)
         }

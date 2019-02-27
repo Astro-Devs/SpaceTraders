@@ -9,6 +9,10 @@ import edu.gatech.cs2340.spacetraders.R
 
 class StartActivity : AppCompatActivity() {
 
+    companion object MediaPlayerObj{
+        var keepPlaying: Boolean = false;
+    }
+
     private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +35,15 @@ class StartActivity : AppCompatActivity() {
         mediaPlayer.start()
     }
 
+    override fun onStop() {
+        super.onStop()
+        if (!keepPlaying) {
+            mediaPlayer.pause()
+        }
+    }
+
     fun onNewGamePressed(view: View) {
-        mediaPlayer.stop()
+        keepPlaying = true
         val configintent = Intent(applicationContext, ConfigurationActivity::class.java)
         startActivityForResult(configintent, 0)
     }
