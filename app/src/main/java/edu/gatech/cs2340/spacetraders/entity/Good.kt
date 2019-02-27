@@ -3,7 +3,6 @@ package edu.gatech.cs2340.spacetraders.entity
 /**
  * Good class that represents a trade good (product) that can be traded
  *
- * @param name Name of the good
  * @param MTLP Minimum Tech Level to Produce this resource (You can't buy on planets below this level)
  * @param MTLU Minimum Tech Level to Use this resource (You can't sell on planets below this level)
  * @param TTP Tech Level which produces the most of this item
@@ -16,9 +15,18 @@ package edu.gatech.cs2340.spacetraders.entity
  * @param MTH Max price offered in space trade with random trader (not on a planet)
  *
  */
-class Good(val name : String, val MTLP : TechLevels, val MTLU : TechLevels, val TTP: TechLevels, val IPL : Float,
+enum class Good(val MTLP : TechLevels, val MTLU : TechLevels, val TTP: TechLevels, val IPL : Float,
            val Var : Float, val IE: RadicalPriceIncreaseEvent, val CR: PlanetCondition, val ER: PlanetCondition,
            val MTL: Float, val MTH: Float) {
+    WATER(TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, 0.0f,
+        0.0f, RadicalPriceIncreaseEvent.DEFAULT, PlanetCondition.DEFAULT, PlanetCondition.DEFAULT,
+        0.0f, 0.0f),
+    FUR(TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, 0.0f,
+        0.0f, RadicalPriceIncreaseEvent.DEFAULT, PlanetCondition.DEFAULT, PlanetCondition.DEFAULT,
+        0.0f, 0.0f),
+    FOOD(TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, 0.0f,
+        0.0f, RadicalPriceIncreaseEvent.DEFAULT, PlanetCondition.DEFAULT, PlanetCondition.DEFAULT,
+        0.0f, 0.0f);
 
     override fun toString(): String {
         return "Name: $name, MTLP: $MTLP, MTLU: $MTLU, TTP: $TTP, IPL: $IPL, \n" +
