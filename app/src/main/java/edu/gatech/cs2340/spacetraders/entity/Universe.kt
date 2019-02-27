@@ -159,6 +159,8 @@ class Universe {
      * create 20 planets with these attributes, and add them to the map
      */
     fun createPlanets() {
+        map[Coordinates(0, 0)] = SolarSystem("Home Park",
+        Coordinates(0, 0), levels[0], resourceLevel[0])
         while (map.size < 20) {
             val coords : Coordinates = randomCoordinatesGenerator()
             if (!map.containsKey(coords)) {

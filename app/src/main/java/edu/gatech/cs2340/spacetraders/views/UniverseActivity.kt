@@ -40,7 +40,7 @@ class UniverseActivity : AppCompatActivity() {
     fun populateUniverseData() {
 
         var planet1Name : TextView = findViewById(R.id.planet1ID)
-        planet1Name.setText("PLANET 1: " + planetMap.get(planetKeys.elementAt(0))?.planetName)
+        planet1Name.setText("PLANET 1: " + planetMap[Coordinates(0, 0)]?.planetName)
 
         var planet2Name : TextView = findViewById(R.id.planet2ID)
         planet2Name.setText("PLANET 2: " + planetMap.get(planetKeys.elementAt(1))?.planetName)
@@ -51,7 +51,10 @@ class UniverseActivity : AppCompatActivity() {
         var planet4Name : TextView = findViewById(R.id.planet4ID)
         planet4Name.setText("PLANET 4: " + planetMap.get(planetKeys.elementAt(3))?.planetName)
 
-        var planet5Name : TextView = findViewById(R.id.planet1ID)
-        planet5Name.setText("PLANET 5: " + planetMap.get(planetKeys.elementAt(0))?.planetName)
+        var planet5Name : TextView = findViewById(R.id.planet5ID)
+        planet5Name.setText("PLANET 5: " + planetMap.get(planetKeys.elementAt(4))?.planetName)
+
+        var planet6Name : TextView = findViewById(R.id.planet6ID)
+        planet6Name.setText("PLANET 6: " + planetMap.get(planetKeys.elementAt(5))?.planetName)
     }
 }
