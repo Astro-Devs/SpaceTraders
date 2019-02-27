@@ -14,22 +14,25 @@ package edu.gatech.cs2340.spacetraders.entity
  * @param MTL Min price offered in space trade with random trader (not on a planet)
  * @param MTH Max price offered in space trade with random trader (not on a planet)
  *
+ * See https://stackoverflow.com/questions/53160024/kotlin-enum-with-multiple-parameter
+ *
  */
-enum class Products(val MTLP : TechLevels, val MTLU : TechLevels, val TTP: TechLevels, val IPL : Float,
-           val Var : Float, val IE: RadicalPriceIncreaseEvent, val CR: PlanetCondition, val ER: PlanetCondition,
-           val MTL: Float, val MTH: Float) {
-    WATER(TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, 0.0f,
-        0.0f, RadicalPriceIncreaseEvent.DEFAULT, PlanetCondition.DEFAULT, PlanetCondition.DEFAULT,
-        0.0f, 0.0f),
-    FUR(TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, 0.0f,
-        0.0f, RadicalPriceIncreaseEvent.DEFAULT, PlanetCondition.DEFAULT, PlanetCondition.DEFAULT,
-        0.0f, 0.0f),
-    FOOD(TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, 0.0f,
-        0.0f, RadicalPriceIncreaseEvent.DEFAULT, PlanetCondition.DEFAULT, PlanetCondition.DEFAULT,
-        0.0f, 0.0f);
+enum class Products(val productName: String, val MTLP : TechLevels, val MTLU : TechLevels, val TTP: TechLevels,
+                    val IPL : Float, val Var : Float, val IE: RadicalPriceIncreaseEvent, val CR: PlanetCondition,
+                    val ER: PlanetCondition, val MTL: Float, val MTH: Float) {
+
+    WATER("Water", TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE,
+        0.0f, 0.0f, RadicalPriceIncreaseEvent.DEFAULT, PlanetCondition.DEFAULT,
+        PlanetCondition.DEFAULT, 0.0f, 0.0f),
+    FUR("Fur", TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE,
+        0.0f, 0.0f, RadicalPriceIncreaseEvent.DEFAULT, PlanetCondition.DEFAULT,
+        PlanetCondition.DEFAULT, 0.0f, 0.0f),
+    FOOD("Food", TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE,
+        0.0f, 0.0f, RadicalPriceIncreaseEvent.DEFAULT, PlanetCondition.DEFAULT,
+        PlanetCondition.DEFAULT, 0.0f, 0.0f);
 
     override fun toString(): String {
-        return "Name: $name, MTLP: $MTLP, MTLU: $MTLU, TTP: $TTP, IPL: $IPL, \n" +
+        return "Name: $productName, MTLP: $MTLP, MTLU: $MTLU, TTP: $TTP, IPL: $IPL, \n" +
                 "Var: $Var, IE: $IE, CR: $CR, ER: $ER, MTL: $MTL, MTH: $MTH"
     }
 
