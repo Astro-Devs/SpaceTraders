@@ -22,6 +22,7 @@ class ModelFacade private constructor() {
     }
 
     val uni = Universe()
+
     /**
      * Creates an instance of the game with the player's given attributes
      * @param difficulty the game difficulty to play the game on
@@ -35,6 +36,10 @@ class ModelFacade private constructor() {
         return newGame
     }
 
+    /**
+     * Getter for the universe map
+     * @return the map of the universe
+     */
     fun getUniverseMap() : Map<Coordinates, SolarSystem> {
         return uni.map
     }

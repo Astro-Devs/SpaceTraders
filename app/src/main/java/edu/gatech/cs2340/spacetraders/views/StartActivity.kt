@@ -7,6 +7,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import edu.gatech.cs2340.spacetraders.R
 
+/**
+ * The Start Activity View class,
+ * which shows the first screen allowing the user to start or load a game
+ */
 class StartActivity : AppCompatActivity() {
 
     companion object MediaPlayerObj{
@@ -42,6 +46,9 @@ class StartActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Handle the functionality of the "new game" button
+     */
     fun onNewGamePressed(view: View) {
         keepPlaying = true
         val configintent = Intent(applicationContext, ConfigurationActivity::class.java)

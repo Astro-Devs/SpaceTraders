@@ -11,6 +11,9 @@ import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.ConfigViewModel
 import edu.gatech.cs2340.spacetraders.viewmodel.UniverseViewModel
 
+/**
+ * The Universe Activity View class that displays the universe and its planets.
+ */
 class UniverseActivity : AppCompatActivity() {
 
     private lateinit var viewModel : UniverseViewModel
@@ -31,6 +34,9 @@ class UniverseActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Populate the view with data about each planet in the universe.
+     */
     fun populateUniverseData() {
 
         var planet1Name : TextView = findViewById(R.id.planet1ID)
