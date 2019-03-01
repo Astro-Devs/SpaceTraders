@@ -120,6 +120,10 @@ class Game(difficulty: GameDifficulty, player: Player){
         return marketPlace.sell(player, product, quantity)
     }
 
+    fun getPlayerInventory() : Map<Products, Int> {
+        return player.getInventoryMap()
+    }
+
     override fun toString(): String {
         return "Game with difficulty: $difficulty, " + player.toString()
     }

@@ -1,10 +1,12 @@
 package edu.gatech.cs2340.spacetraders.views
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
+import android.widget.Button
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.Coordinates
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
@@ -19,6 +21,7 @@ class UniverseActivity : AppCompatActivity() {
     private lateinit var viewModel : UniverseViewModel
     private lateinit var planetMap : Map<Coordinates, SolarSystem>
     private lateinit var planetKeys : Set<Coordinates>
+    private lateinit var btnViewInventory : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +31,14 @@ class UniverseActivity : AppCompatActivity() {
 
         planetMap = viewModel.populateUniverseView()
         planetKeys = planetMap.keys
+
+        btnViewInventory = findViewById(R.id.btnViewInventory)
+        btnViewInventory.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(view: View): Unit {
+            val inventoryIntent = Intent(applicationContext, InventoryActivity::class.java)
+            startActivityForResult(inventoryIntent, 0)
+            }
+        })
 
         this.populateUniverseData()
 
