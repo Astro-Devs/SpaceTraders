@@ -48,8 +48,9 @@ class StartActivity : AppCompatActivity() {
 
     /**
      * Handle the functionality of the "new game" button
+     * @param view the view to prevent the app from crashing
      */
-    fun onNewGamePressed(view: View) {
+    fun onNewGamePressed(view : View) {
         keepPlaying = true
         val configintent = Intent(applicationContext, ConfigurationActivity::class.java)
         startActivityForResult(configintent, 0)

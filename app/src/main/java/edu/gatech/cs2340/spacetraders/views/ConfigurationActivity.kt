@@ -1,9 +1,7 @@
 package edu.gatech.cs2340.spacetraders.views
 
-import android.app.PendingIntent.getActivity
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -38,7 +36,7 @@ class ConfigurationActivity : AppCompatActivity() {
         traderField = findViewById(R.id.traderPts)
         engineerField = findViewById(R.id.engineerPts)
 
-        var diffAdapter : ArrayAdapter<GameDifficulty> = ArrayAdapter<GameDifficulty>(this, android.R.layout.simple_spinner_item, GameDifficulty.values())
+        var diffAdapter : ArrayAdapter<GameDifficulty> = ArrayAdapter<GameDifficulty>(this, R.layout.white_spinner_item, GameDifficulty.values())
         diffAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         diffSpinner.adapter = diffAdapter
 
