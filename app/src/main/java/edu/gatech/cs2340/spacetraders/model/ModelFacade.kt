@@ -43,4 +43,8 @@ class ModelFacade private constructor() {
     fun getUniverseMap() : Map<Coordinates, SolarSystem> {
         return newGame.getUniverseMap()
     }
+
+    fun getInventoryMap() : Map<Products, Int> {
+        return newGame.getPlayerInventory()
+    }
 }

@@ -36,6 +36,10 @@ class Player constructor(val name : String, var skillArr : IntArray, var credits
         playerInventory.remove(product, quantity)
     }
 
+    fun getInventoryMap() : Map<Products, Int> {
+        return playerInventory.productMap
+    }
+
     override fun toString(): String {
         return "Player with name: $name, Pilot Pts: ${skillArr[0]}, Engineer Pts: ${skillArr[1]}, " +
                 "Trader Pts: ${skillArr[2]}, Fighter Pts: ${skillArr[3]}, Credits: $credits, Ship: $ship, " +
