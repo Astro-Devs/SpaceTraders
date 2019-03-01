@@ -22,15 +22,20 @@ class Game(difficulty: GameDifficulty, player: Player){
     }
 
     /**
-     * Getter for the retrieving the universe map that when given a Coordinate, it return the Solar System at that
+     * Getter for retrieving the universe map that when given a Coordinate, it return the Solar System at that
      * coordinate if it exists
+     *
+     * @return the map of the universe
      */
     fun getUniverseMap() : Map<Coordinates, SolarSystem> {
         return universe.map
     }
 
     /**
-     * Creates the marketPlace based on the
+     * Creates the marketPlace based on the player's current location
+     *
+     * Initialize the marketPlace, stock the marketPlace with appropriate products, and initialize priceMap given the
+     * Solar System's parameters
      */
     fun initializeMarketPlace() {
         val playerLocation : Coordinates = player.getLocation()
@@ -58,23 +63,60 @@ class Game(difficulty: GameDifficulty, player: Player){
         //
     }
 
+    /**
+     * Getter for a set of entries, where each entry is a (product, quantity) pair that corresponds to a
+     * buyable product and its inventory quantity
+     *
+     * @return a set of entries, where each entry is a (product, quantity) pair that corresponds to a buyable product
+     * and its inventory quantity
+     */
     fun getBuyableProducts() : MutableSet<MutableMap.MutableEntry<Products, Int>> {
         return marketPlace.getBuyableProducts()
     }
 
+    /**
+     * Getter for a set of entries, where each entry is a (product, quantity) pair that corresponds to a
+     * sellable product and its inventory quantity
+     *
+     * @return a set of entries, where each entry is a (product, quantity) pair that corresponds to a sellable product
+     * and its inventory quantity
+     */
     fun getSellableProducts() : MutableSet<MutableMap.MutableEntry<Products, Int>> {
         return marketPlace.getSellableProducts(player.playerInventory)
     }
 
+
+    /**
+     * Getter for the priceMap corresponding to the current marketPlace. When given a product, the priceMap returns
+     * that products price
+     *
+     * @return the priceMap corresponding to the current marketPlace
+     */
     fun getPriceMap() : HashMap<Products, Int> {
         return marketPlace.priceMap
     }
 
-    fun buy(player : Player, product : Products, quantity : Int) {
+    /**
+     * Process a "buy" transaction between player and the current Solar System
+     *
+     * @param player the player buying the products
+     * @param product the product the player is buying
+     * @param quantity the amount of the product the player is buying
+     * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough cargo capacity", 2 = "Not enough credits"
+     */
+    fun buy(player : Player, product : Products, quantity : Int) : Int {
         return marketPlace.buy(player, product, quantity)
     }
 
-    fun sell(player : Player, product : Products, quantity : Int) {
+    /**
+     * Process a "sell" transaction between player and the current Solar System
+     *
+     * @param player the player selling the products
+     * @param product the product the player is selling
+     * @param quantity the amount of the product the player is selling
+     * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough of the product owned"
+     */
+    fun sell(player : Player, product : Products, quantity : Int) : Int {
         return marketPlace.sell(player, product, quantity)
     }
 

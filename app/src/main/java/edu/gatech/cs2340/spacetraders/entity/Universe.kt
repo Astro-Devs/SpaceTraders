@@ -174,14 +174,32 @@ class Universe {
         }
     }
 
+    /**
+     * Getter for the Solar System at "coordinates" tech level
+     *
+     * @param coordinates the location of the Solar System you want to get from
+     * @return the tech level of the Solar System
+     */
     fun getPlanetTechLevel(coordinates : Coordinates) : TechLevels {
         return map[coordinates]!!.techLevel
     }
 
+    /**
+     * Getter for the Solar System at "coordinates" resource level
+     *
+     * @param coordinates the location of the Solar System you want to get from
+     * @return the resource level of the Solar System
+     */
     fun getPlanetResources(coordinates : Coordinates) : Resources {
         return map[coordinates]!!.resources
     }
 
+    /**
+     * Getter for the Solar System at "coordinates" Inventory
+     *
+     * @param coordinates the location of the Solar System you want to get from
+     * @return the Inventory of the Solar System
+     */
     fun getPlanetInventory(coordinates : Coordinates) : Inventory {
         return map[coordinates]!!.planetInventory
     }

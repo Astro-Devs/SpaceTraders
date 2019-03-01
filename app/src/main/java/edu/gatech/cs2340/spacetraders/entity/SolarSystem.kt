@@ -12,7 +12,6 @@ class SolarSystem(val planetName : String, val location : Coordinates,
                        val techLevel : TechLevels, val resources : Resources) {
 
     var planetInventory : Inventory = Inventory()
-    var restockThreshold : Int = 0
 
     override fun toString(): String {
         return "$planetName\n$location\n$techLevel\n$resources\n" + planetInventory.toString()

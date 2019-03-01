@@ -12,26 +12,59 @@ class Player constructor(val name : String, var skillArr : IntArray, var credits
 
     var playerInventory : Inventory = Inventory()
 
+    /**
+     * Getter for the current location of the Player
+     *
+     * @return the Player's current location
+     */
     fun getLocation() : Coordinates {
         return ship.location
     }
 
+    /**
+     * Getter for the total amount of all products in Inventory
+     *
+     * @return the total amount of all products in Inventory
+     */
     fun getTotalAmountInInventory() : Int {
         return playerInventory.getTotalAmountofProducts()
     }
 
+    /**
+     * Getter for the amount of "product" in Inventory
+     *
+     * @param product the product to get the amount of from the Inventory
+     * @return the amount of the product in the Inventory
+     */
     fun getAmountOf(product : Products) : Int {
         return playerInventory.getAmountOf(product)
     }
 
+    /**
+     * Getter for the ships cargo capacity
+     *
+     * @return the ships cargo capacity
+     */
     fun getShipCargoCapacity() : Int {
-        return ship.shipType.cargoCapacity
+        return ship.getCargoCapacity()
     }
 
+    /**
+     * Adds "quantity" products to player's Inventory
+     *
+     * @param product the product to add into Inventory
+     * @param quantity the amount of the product to add into Inventory
+     */
     fun addToInventory(product : Products, quantity : Int) {
         playerInventory.add(product, quantity)
     }
 
+    /**
+     * Removes "quantity" products from player's Inventory
+     *
+     * @param product the product to remove from Inventory
+     * @param quantity the amount of the product to remove from Inventory
+     */
     fun removeFromInventory(product : Products, quantity: Int) {
         playerInventory.remove(product, quantity)
     }
