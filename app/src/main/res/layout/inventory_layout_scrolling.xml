@@ -27,7 +27,7 @@
             android:orientation="vertical"
             android:layout_marginTop="120dp">
 
-            <!--PLANET 1-->
+            <!--PRODUCT 1-->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -47,52 +47,87 @@
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="PLANET 1: "
-                            android:id="@+id/planet1ID"
+                            android:text="PRODUCT 1: "
+                            android:id="@+id/product1ID"
                     />
 
                     <ImageView
                             android:src="@drawable/planet1"
                             android:layout_width="wrap_content"
-                            android:layout_below="@+id/planet1ID"
+                            android:layout_below="@+id/product1ID"
                             android:layout_height="180dp"
-                            android:id="@+id/planet1img"
+                            android:id="@+id/product1img"
                     />
 
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_toRightOf="@+id/planet1img"
-                            android:layout_below="@+id/planet1ID"
-                            android:text="LOCATION: (0, 0) "
-                            android:id="@+id/planet1Location"
+                            android:layout_toRightOf="@+id/product1img"
+                            android:layout_below="@+id/product1ID"
+                            android:text="AMOUNT: "
+                            android:id="@+id/product1amount"
                     />
 
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@+id/planet1img"
-                            android:layout_below="@+id/planet1Location"
-                            android:text="RES:  "
-                            android:id="@+id/planet1Resource"
-                    />
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@+id/planet1img"
-                            android:layout_below="@+id/planet1Resource"
-                            android:text="TECH LEV:  "
-                            android:id="@+id/planet1Tech"
-                    />
 
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/planet1img"
+                            android:layout_below="@+id/product1img"
                     />
 
                 </RelativeLayout>
             ></android.support.v7.widget.CardView>
+
+            <!--PRODUCT 2-->
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    app:cardElevation="8dp"
+                    app:cardCornerRadius="8dp"
+            >
+
+
+                <RelativeLayout android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="PRODUCT 2: "
+                            android:id="@+id/product2ID"
+                    />
+
+                    <ImageView
+                            android:src="@drawable/planet1"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/product2ID"
+                            android:layout_height="180dp"
+                            android:id="@+id/product2img"
+                    />
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/product2img"
+                            android:layout_below="@+id/product2ID"
+                            android:text="AMOUNT: "
+                            android:id="@+id/product2amount"
+                    />
+
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/product2img"
+                    />
+
+                </RelativeLayout>
+                ></android.support.v7.widget.CardView>
 
             <!-- EMPTY HOLDER -->
             <android.support.v7.widget.CardView

@@ -67,8 +67,10 @@ class ConfigurationActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "New player created!", Toast.LENGTH_LONG).show()
             StartActivity.keepPlaying = false
-            val universeIntent = Intent(applicationContext, UniverseActivity::class.java)
-            startActivityForResult(universeIntent, 0)
+//            val universeIntent = Intent(applicationContext, UniverseActivity::class.java)
+//            startActivityForResult(universeIntent, 0)
+            val inventoryIntent = Intent(applicationContext, InventoryActivity::class.java)
+            startActivityForResult(inventoryIntent, 0)
         }
     }
 
