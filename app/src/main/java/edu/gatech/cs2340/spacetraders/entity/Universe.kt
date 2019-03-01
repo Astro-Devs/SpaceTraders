@@ -174,6 +174,18 @@ class Universe {
         }
     }
 
+    fun getPlanetTechLevel(coordinates : Coordinates) : TechLevels {
+        return map[coordinates]!!.techLevel
+    }
+
+    fun getPlanetResources(coordinates : Coordinates) : Resources {
+        return map[coordinates]!!.resources
+    }
+
+    fun getPlanetInventory(coordinates : Coordinates) : Inventory {
+        return map[coordinates]!!.planetInventory
+    }
+
     inline fun <reified T> toArray(list: List<*>): Array<T> {
         return (list as List<T>).toTypedArray()
     }

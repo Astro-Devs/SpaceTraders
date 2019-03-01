@@ -1,8 +1,5 @@
 package edu.gatech.cs2340.spacetraders.entity
 
-import edu.gatech.cs2340.spacetraders.entity.Resources.ResourceLevel.resourceLevel
-import edu.gatech.cs2340.spacetraders.entity.TechLevels.Levels.levels
-import kotlin.random.Random
 
 /**
  * Solar System class that represents each instance of a planet
@@ -14,8 +11,11 @@ import kotlin.random.Random
 class SolarSystem(val planetName : String, val location : Coordinates,
                        val techLevel : TechLevels, val resources : Resources) {
 
+    var planetInventory : Inventory = Inventory()
+    var restockThreshold : Int = 0
+
     override fun toString(): String {
-        return "$planetName\n$location\n$techLevel\n$resources"
+        return "$planetName\n$location\n$techLevel\n$resources\n" + planetInventory.toString()
     }
 
 }
