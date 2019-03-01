@@ -13,15 +13,25 @@ class Game(difficulty: GameDifficulty, player: Player){
     var universe : Universe = Universe()
     lateinit var marketPlace : MarketPlace
 
+    /**
+     * Randomly select names, tech levels, resource levels, and coordinates,
+     * create 20 planets with these attributes, and add them to the map
+     */
     fun createPlanets() {
         universe.createPlanets()
     }
 
+    /**
+     * Getter for the retrieving the universe map that when given a Coordinate, it return the Solar System at that
+     * coordinate if it exists
+     */
     fun getUniverseMap() : Map<Coordinates, SolarSystem> {
         return universe.map
     }
 
-
+    /**
+     * Creates the marketPlace based on the
+     */
     fun initializeMarketPlace() {
         val playerLocation : Coordinates = player.getLocation()
         val currentPlanetInventory : Inventory = universe.getPlanetInventory(playerLocation)

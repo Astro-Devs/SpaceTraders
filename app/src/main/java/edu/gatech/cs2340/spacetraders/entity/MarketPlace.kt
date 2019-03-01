@@ -11,7 +11,7 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
     var priceMap : HashMap<Products, Int> = HashMap()
 
     fun stockInventory() {
-        val initialStockAmount : Int = planetInventory.getTotalAmountofProducts()
+        val initialStockAmount : Int = this.getTotalAmountOfBuyableProducts()
         for (currentProduct : Products in productArray) {
             if (techLevel.level >= currentProduct.MTLP.level) {
                 if (initialStockAmount <= planetInventory.capacity/2) {
@@ -30,7 +30,7 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
                 }
             }
         }
-        planetInventory.capacity = planetInventory.getTotalAmountofProducts()
+        planetInventory.capacity = this.getTotalAmountOfBuyableProducts()
     }
 
     fun initializePrices(player : Player) {
@@ -62,6 +62,11 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
             }
         }
         return sellableSet
+    }
+
+    fun getTotalAmountOfBuyableProducts() : Int {
+        val buyableSet : Set<MutableMap.MutableEntry<Products, Int>> = this.getBuyableProducts()
+        return buyableSet.size
     }
 
     fun calculatePrice(product : Products) : Int {
