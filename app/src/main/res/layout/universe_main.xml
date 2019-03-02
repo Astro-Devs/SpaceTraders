@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/universebackground"
+                android:focusableInTouchMode="true"
+>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Universe"
+              android:textColor="#FFFFFF"
+              android:textSize="34dp"
+              android:layout_marginTop="34dp"
+              android:layout_centerHorizontal="true"
+              android:id="@+id/titleUniverse"/>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="120dp">
+
+            <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@android:color/transparent"
+                    android:layout_weight="1"
+                    android:id="@+id/planetListView"
+            >
+
+            </ListView>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
