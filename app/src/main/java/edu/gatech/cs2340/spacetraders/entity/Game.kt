@@ -27,8 +27,8 @@ class Game(difficulty: GameDifficulty, player: Player){
      *
      * @return the map of the universe
      */
-    fun getUniverseMap() : Map<Coordinates, SolarSystem> {
-        return universe.map
+    fun getUniverseArray() : ArrayList<SolarSystem> {
+        return universe.getPlanetArray()
     }
 
     /**

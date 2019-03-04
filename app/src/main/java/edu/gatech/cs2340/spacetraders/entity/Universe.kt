@@ -204,8 +204,10 @@ class Universe {
         return map[coordinates]!!.planetInventory
     }
 
-    inline fun <reified T> toArray(list: List<*>): Array<T> {
-        return (list as List<T>).toTypedArray()
+
+    fun getPlanetArray(): ArrayList<SolarSystem> {
+        var values: Collection<SolarSystem> = map.values
+        return ArrayList(values)
     }
 
 

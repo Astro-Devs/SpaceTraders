@@ -16,7 +16,7 @@ class UniverseViewModel : ViewModel() {
      * Populate the universe view using the universe map
      * @return the map of the universe
      */
-    fun populateUniverseView() : Map<Coordinates, SolarSystem> {
-        return modelFacade.getUniverseMap()
+    fun populateUniverseView() : ArrayList<SolarSystem> {
+        return modelFacade.getUniverseArray()
     }
 }

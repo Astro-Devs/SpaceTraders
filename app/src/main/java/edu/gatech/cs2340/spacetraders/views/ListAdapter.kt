@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 
 class ListAdapter(context: Context, myList: ArrayList<SolarSystem>) : BaseAdapter() {
 
-    class ListViewHolder: RelativeLayout {
+
+    class ListViewHolder: LinearLayout {
         private var myContext: Context
 
         constructor(context: Context, attributes: AttributeSet) : super(context, attributes) {

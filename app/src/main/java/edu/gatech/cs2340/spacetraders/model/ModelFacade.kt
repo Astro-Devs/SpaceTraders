@@ -40,8 +40,8 @@ class ModelFacade private constructor() {
      * Getter for the universe map
      * @return the map of the universe
      */
-    fun getUniverseMap() : Map<Coordinates, SolarSystem> {
-        return newGame.getUniverseMap()
+    fun getUniverseArray() : ArrayList<SolarSystem> {
+        return newGame.getUniverseArray()
     }
 
     fun getInventoryMap() : Map<Products, Int> {

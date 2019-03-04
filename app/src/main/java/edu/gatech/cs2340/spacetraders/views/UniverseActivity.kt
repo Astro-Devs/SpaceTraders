@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
 import android.widget.Button
+import android.widget.EditText
+import android.widget.ListView
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.Coordinates
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
@@ -18,19 +20,24 @@ import edu.gatech.cs2340.spacetraders.viewmodel.UniverseViewModel
  */
 class UniverseActivity : AppCompatActivity() {
 
-    private lateinit var viewModel : UniverseViewModel
-    private lateinit var planetMap : Map<Coordinates, SolarSystem>
-    private lateinit var planetKeys : Set<Coordinates>
+    private lateinit var planetArray: ArrayList<SolarSystem>
     private lateinit var btnViewInventory : Button
+    private lateinit var planetListview : ListView
+    private lateinit var listAdapter: ListAdapter
+    private lateinit var viewModel : UniverseViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.universe_layout_scrolling)
 
         viewModel = ViewModelProviders.of(this).get(UniverseViewModel::class.java)
+        planetArray = viewModel.populateUniverseView()
 
-        planetMap = viewModel.populateUniverseView()
-        planetKeys = planetMap.keys
+//        planetListview = findViewById(R.id.planetListView)
+//        listAdapter = ListAdapter(this@UniverseActivity, planetArray)
+//        planetListview.adapter = listAdapter
+
+        this.populateUniverseData()
 
         btnViewInventory = findViewById(R.id.btnViewInventory)
         btnViewInventory.setOnClickListener(object: View.OnClickListener {
@@ -40,9 +47,6 @@ class UniverseActivity : AppCompatActivity() {
             }
         })
 
-        this.populateUniverseData()
-
-
     }
 
     /**
@@ -50,22 +54,5 @@ class UniverseActivity : AppCompatActivity() {
      */
     fun populateUniverseData() {
 
-        var planet1Name : TextView = findViewById(R.id.planet1ID)
-        planet1Name.setText("PLANET 1: " + planetMap[Coordinates(0, 0)]?.planetName)
-
-        var planet2Name : TextView = findViewById(R.id.planet2ID)
-        planet2Name.setText("PLANET 2: " + planetMap.get(planetKeys.elementAt(1))?.planetName)
-
-        var planet3Name : TextView = findViewById(R.id.planet3ID)
-        planet3Name.setText("PLANET 3: " + planetMap.get(planetKeys.elementAt(2))?.planetName)
-
-        var planet4Name : TextView = findViewById(R.id.planet4ID)
-        planet4Name.setText("PLANET 4: " + planetMap.get(planetKeys.elementAt(3))?.planetName)
-
-        var planet5Name : TextView = findViewById(R.id.planet5ID)
-        planet5Name.setText("PLANET 5: " + planetMap.get(planetKeys.elementAt(4))?.planetName)
-
-        var planet6Name : TextView = findViewById(R.id.planet6ID)
-        planet6Name.setText("PLANET 6: " + planetMap.get(planetKeys.elementAt(5))?.planetName)
     }
 }
