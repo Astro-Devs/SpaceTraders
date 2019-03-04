@@ -5,57 +5,65 @@
                                     android:layout_height="wrap_content"
                                     android:layout_margin="6dp"
                                     android:layout_marginBottom="16dp"
-                                    android:layout_marginLeft="16dp"
-                                    android:layout_marginRight="16dp"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="8dp"
                                     app:cardElevation="8dp"
                                     app:cardCornerRadius="8dp"
                                     android:id="@+id/uni_card"
 >
     <RelativeLayout android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    android:layout_height="match_parent">
 
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/planetName"
-            />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/placeholder"
+        />
 
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_below="@+id/planetName"
-                    android:layout_height="180dp"
-                    android:id="@+id/planetIMG"
-            />
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/placeholder"
+                android:layout_height="180dp"
+                android:id="@+id/planetIMG"
+        />
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/planetIMG"
-                    android:layout_below="@+id/planetName"
-                    android:id="@+id/planetLocation"
-            />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/planetIMG"
+                android:layout_below="@+id/placeholder"
+                android:id="@+id/planetName"
+        />
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/planetIMG"
-                    android:layout_below="@+id/planetLocation"
-                    android:id="@+id/planetResource"
-            />
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/planetIMG"
-                    android:layout_below="@+id/planetResource"
-                    android:id="@+id/planetTech"
-            />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/planetIMG"
+                android:layout_below="@+id/planetName"
+                android:id="@+id/planetLocation"
+        />
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/planetIMG"
-            />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/planetIMG"
+                android:layout_below="@+id/planetLocation"
+                android:id="@+id/planetResource"
+        />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/planetIMG"
+                android:layout_below="@+id/planetResource"
+                android:id="@+id/planetTech"
+        />
 
-        </RelativeLayout>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/planetIMG"
+        />
+
+    </RelativeLayout>
 </android.support.v7.widget.CardView>
