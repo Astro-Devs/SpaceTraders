@@ -5,14 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.TextView
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ListView
 import edu.gatech.cs2340.spacetraders.R
-import edu.gatech.cs2340.spacetraders.entity.Coordinates
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
-import edu.gatech.cs2340.spacetraders.viewmodel.ConfigViewModel
 import edu.gatech.cs2340.spacetraders.viewmodel.UniverseViewModel
 
 /**
@@ -28,7 +24,7 @@ class UniverseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.universe_layout_scrolling)
+        setContentView(R.layout.universe_scrolling)
 
         viewModel = ViewModelProviders.of(this).get(UniverseViewModel::class.java)
         planetArray = viewModel.populateUniverseView()

@@ -28,7 +28,7 @@ class ListAdapter(context: Context, myList: ArrayList<SolarSystem>) : BaseAdapte
 
         private fun setup() {
             var inflater = myContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            inflater.inflate(R.layout.universe_list_row_layout, this)
+            inflater.inflate(R.layout.universe_card, this)
         }
 
     }
