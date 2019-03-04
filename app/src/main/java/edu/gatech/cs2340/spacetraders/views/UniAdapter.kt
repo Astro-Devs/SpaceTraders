@@ -32,9 +32,11 @@ class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
     }
 
     private var solarList: List<SolarSystem>
+    private var imgList = ArrayList<Int>()
 
     constructor(solarList: List<SolarSystem>): super() {
         this.solarList = solarList
+        populatePlanetImages()
     }
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
@@ -56,5 +58,29 @@ class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
         uniViewHolder.location.setText("Location: (${solarList.get(i).location.xPositionLocal}, ${solarList.get(i).location.yPositionLocal})")
         uniViewHolder.res.setText("Res: " + solarList.get(i).resources)
         uniViewHolder.techlev.setText("Tech: " + solarList.get(i).techLevel)
+        uniViewHolder.img.setImageResource(imgList.get(i))
+    }
+
+    fun populatePlanetImages() {
+        imgList.add(R.drawable.planet1)
+        imgList.add(R.drawable.planet2)
+        imgList.add(R.drawable.planet3)
+        imgList.add(R.drawable.planet4)
+        imgList.add(R.drawable.planet5)
+        imgList.add(R.drawable.planet6)
+        imgList.add(R.drawable.planet7)
+        imgList.add(R.drawable.planet8)
+        imgList.add(R.drawable.planet9)
+        imgList.add(R.drawable.planet10)
+        imgList.add(R.drawable.planet11)
+        imgList.add(R.drawable.planet12)
+        imgList.add(R.drawable.planet13)
+        imgList.add(R.drawable.planet14)
+        imgList.add(R.drawable.planet15)
+        imgList.add(R.drawable.planet16)
+        imgList.add(R.drawable.planet17)
+        imgList.add(R.drawable.planet18)
+        imgList.add(R.drawable.planet19)
+        imgList.add(R.drawable.planet20)
     }
 }
