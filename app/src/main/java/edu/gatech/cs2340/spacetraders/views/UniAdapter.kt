@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
+import java.util.*
 
 class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
 
@@ -82,5 +83,6 @@ class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
         imgList.add(R.drawable.planet18)
         imgList.add(R.drawable.planet19)
         imgList.add(R.drawable.planet20)
+        Collections.shuffle(imgList)
     }
 }
