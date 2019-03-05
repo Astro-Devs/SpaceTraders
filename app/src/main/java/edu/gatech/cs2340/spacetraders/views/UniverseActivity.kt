@@ -1,10 +1,12 @@
 package edu.gatech.cs2340.spacetraders.views
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import android.widget.Button
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
@@ -28,18 +30,22 @@ class UniverseActivity : AppCompatActivity() {
         planetArray = viewModel.populateUniverseView()
 
         recycler = findViewById(R.id.universe_recycler) as RecyclerView
-        var llm: LinearLayoutManager = LinearLayoutManager(this)
+        var llm = LinearLayoutManager(this)
         recycler.layoutManager = llm
+
+        //This needs to be set to false if we have a larger solar system size
+        recycler.setHasFixedSize(true)
 
         this.populateUniverseData()
 
-//        btnViewInventory = findViewById(R.id.btnViewInventory)
-//        btnViewInventory.setOnClickListener(object: View.OnClickListener {
-//            override fun onClick(view: View): Unit {
-//            val inventoryIntent = Intent(applicationContext, InventoryActivity::class.java)
-//            startActivityForResult(inventoryIntent, 0)
-//            }
-//        })
+        btnViewInventory = findViewById(R.id.btnViewInventory)
+
+        btnViewInventory.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(view: View): Unit {
+                val inventoryIntent = Intent(applicationContext, InventoryActivity::class.java)
+                startActivityForResult(inventoryIntent, 0)
+            }
+        })
 
     }
 
