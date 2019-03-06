@@ -35,11 +35,12 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22dp"
+            android:textSize="30dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="12dp"
             android:textColor="#FFFFFF"
             android:text="1000 cred"
+            android:fontFamily="@font/soham"
             android:layout_alignRight="@+id/tokenImg"
             android:id="@+id/creditsText"
     />
