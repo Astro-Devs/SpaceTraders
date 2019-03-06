@@ -38,7 +38,7 @@ class UniverseActivity : AppCompatActivity() {
 
         this.populateUniverseData()
 
-        btnViewInventory = findViewById(R.id.btnViewInventory)
+        btnViewInventory = findViewById(R.id.buyMarketButton)
 
         btnViewInventory.setOnClickListener(object: View.OnClickListener {
             override fun onClick(view: View): Unit {
