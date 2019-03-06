@@ -5,6 +5,7 @@ import edu.gatech.cs2340.spacetraders.entity.Resources.ResourceLevel.resourceLev
 import edu.gatech.cs2340.spacetraders.entity.TechLevels.Levels.levels
 import kotlin.math.abs
 import kotlin.math.hypot
+import kotlin.math.min
 import kotlin.random.Random
 
 /**
@@ -207,7 +208,17 @@ class Universe {
 
     fun getPlanetArray(): ArrayList<SolarSystem> {
         var values: Collection<SolarSystem> = map.values
-        return ArrayList(values)
+        var unsorted : ArrayList<SolarSystem> = ArrayList(values)
+        val sorted : ArrayList<SolarSystem> = ArrayList()
+        for (j in 0 .. 19) {
+            var smallest = 0
+            for (i in unsorted.indices) {
+                smallest = if (distance(Coordinates(0, 0), unsorted[smallest].location) <
+                    distance(Coordinates(0, 0), unsorted[i].location)) smallest else i
+            }
+            sorted.add(unsorted.removeAt(smallest))
+        }
+        return sorted
     }
 
 
