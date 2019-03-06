@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.UniverseViewModel
@@ -37,6 +38,9 @@ class UniverseActivity : AppCompatActivity() {
         recycler.setHasFixedSize(true)
 
         this.populateUniverseData()
+
+        var creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay.setText(viewModel.getPlayerCreds())
 
         btnViewInventory = findViewById(R.id.buyMarketButton)
 

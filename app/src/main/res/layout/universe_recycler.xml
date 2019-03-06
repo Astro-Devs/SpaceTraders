@@ -11,7 +11,8 @@
             android:text="UNIVERSE"
             android:textColor="@android:color/white"
             android:textAlignment="center"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="16dp"
             android:textSize="36dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
@@ -19,6 +20,29 @@
             android:id="@+id/titleUniverse"
     />
 
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxWidth="180dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="6dp"
+            android:src="@drawable/tokenblock"
+            android:id="@+id/tokenImg"
+    />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="12dp"
+            android:textColor="#FFFFFF"
+            android:text="1000 cred"
+            android:layout_alignRight="@+id/tokenImg"
+            android:id="@+id/creditsText"
+    />
     <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:id="@+id/universe_recycler"

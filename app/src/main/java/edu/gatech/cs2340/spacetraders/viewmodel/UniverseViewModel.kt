@@ -19,4 +19,8 @@ class UniverseViewModel : ViewModel() {
     fun populateUniverseView() : ArrayList<SolarSystem> {
         return modelFacade.getUniverseArray()
     }
+
+    fun getPlayerCreds(): Int {
+        return modelFacade.getPlayerCredits()
+    }
 }

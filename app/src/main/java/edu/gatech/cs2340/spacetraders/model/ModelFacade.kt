@@ -47,4 +47,8 @@ class ModelFacade private constructor() {
     fun getInventoryMap() : Map<Products, Int> {
         return newGame.getPlayerInventory()
     }
+
+    fun getPlayerCredits() : Int {
+        return getPlayerCredits()
+    }
 }

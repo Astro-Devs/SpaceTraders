@@ -8,10 +8,10 @@ import android.util.Log
  * @param player the instance of the player that represents the user
  */
 class Game(difficulty: GameDifficulty, player: Player){
-    val player = player
-    val difficulty = difficulty
-    var universe : Universe = Universe()
-    lateinit var marketPlace : MarketPlace
+    private val player = player
+    private val difficulty = difficulty
+    private var universe : Universe = Universe()
+    private lateinit var marketPlace : MarketPlace
 
     /**
      * Randomly select names, tech levels, resource levels, and coordinates,
@@ -128,7 +128,9 @@ class Game(difficulty: GameDifficulty, player: Player){
         return "Game with difficulty: $difficulty, " + player.toString()
     }
 
-
+    fun getPlayerCredits(): Int {
+        return player.credits
+    }
 
 
 }

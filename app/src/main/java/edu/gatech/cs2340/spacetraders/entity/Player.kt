@@ -12,6 +12,7 @@ class Player constructor(val name : String, var skillArr : IntArray, var credits
 
     var playerInventory : Inventory = Inventory()
 
+
     /**
      * Getter for the current location of the Player
      *
