@@ -49,6 +49,6 @@ class ModelFacade private constructor() {
     }
 
     fun getPlayerCredits() : Int {
-        return getPlayerCredits()
+        return newGame.getPlayerCredits()
     }
 }
