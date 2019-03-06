@@ -23,8 +23,9 @@
 
         <ImageView
                 android:layout_width="wrap_content"
-                android:layout_below="@+id/placeholder"
-                android:layout_height="180dp"
+                android:adjustViewBounds="true"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
                 android:id="@+id/planetIMG"
         />
 
@@ -32,15 +33,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/planetIMG"
-                android:layout_below="@+id/placeholder"
+                android:fontFamily="@font/soham"
                 android:id="@+id/planetName"
-        />
+                android:textSize="24sp" android:textStyle="bold"/>
 
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/planetIMG"
                 android:layout_below="@+id/planetName"
+                android:fontFamily="@font/soham"
+                android:textSize="21sp" android:textStyle="bold"
                 android:id="@+id/planetLocation"
         />
 
@@ -49,6 +52,8 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/planetIMG"
                 android:layout_below="@+id/planetLocation"
+                android:fontFamily="@font/soham"
+                android:textSize="21sp" android:textStyle="bold"
                 android:id="@+id/planetResource"
         />
         <TextView
@@ -56,6 +61,8 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/planetIMG"
                 android:layout_below="@+id/planetResource"
+                android:fontFamily="@font/soham"
+                android:textSize="21sp" android:textStyle="bold"
                 android:id="@+id/planetTech"
         />
 
