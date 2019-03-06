@@ -40,6 +40,7 @@
             android:layout_marginTop="12dp"
             android:textColor="#FFFFFF"
             android:text="1000 cred"
+            android:fontFamily="@font/soham"
             android:layout_alignRight="@+id/tokenImg"
             android:id="@+id/creditsText"
     />
