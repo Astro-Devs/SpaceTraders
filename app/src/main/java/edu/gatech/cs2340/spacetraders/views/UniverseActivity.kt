@@ -46,7 +46,7 @@ class UniverseActivity : AppCompatActivity() {
 
         btnViewInventory.setOnClickListener(object: View.OnClickListener {
             override fun onClick(view: View): Unit {
-                val inventoryIntent = Intent(applicationContext, InventoryActivity::class.java)
+                val inventoryIntent = Intent(applicationContext, MarketActivity::class.java)
                 startActivityForResult(inventoryIntent, 0)
             }
         })

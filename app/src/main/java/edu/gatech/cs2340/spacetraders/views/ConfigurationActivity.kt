@@ -74,7 +74,7 @@ class ConfigurationActivity : AppCompatActivity() {
             StartActivity.keepPlaying = false
             val universeIntent = Intent(applicationContext, UniverseActivity::class.java)
             startActivityForResult(universeIntent, 0)
-//            val inventoryIntent = Intent(applicationContext, InventoryActivity::class.java)
+//            val inventoryIntent = Intent(applicationContext, MarketActivity::class.java)
 //            startActivityForResult(inventoryIntent, 0)
         }
     }

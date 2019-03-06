@@ -44,8 +44,16 @@ class ModelFacade private constructor() {
         return newGame.getUniverseArray()
     }
 
-    fun getInventoryMap() : Map<Products, Int> {
-        return newGame.getPlayerInventory()
+    fun getBuyableMarket() : Set<MutableMap.MutableEntry<Products, Int>> {
+        return newGame.getBuyableProducts()
+    }
+
+    fun getSellableMarket() : Set<MutableMap.MutableEntry<Products, Int>> {
+        return newGame.getSellableProducts()
+    }
+
+    fun getPriceMap() : HashMap<Products, Int> {
+        return newGame.getPriceMap()
     }
 
     fun getPlayerCredits() : Int {
