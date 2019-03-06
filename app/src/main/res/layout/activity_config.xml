@@ -79,7 +79,7 @@
             android:inputType="textPersonName" android:fontFamily="@font/soham" android:textSize="30sp"
             android:hint="Player Name"
             android:gravity="center"
-            android:textColorHint="#808080" android:text="Soham the Space Trader"/>
+            android:textColorHint="#808080" android:text="Space Soham"/>
     <Spinner
             android:layout_width="280dp"
             android:layout_height="41dp"
