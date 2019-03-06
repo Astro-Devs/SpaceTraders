@@ -40,7 +40,7 @@ class UniverseActivity : AppCompatActivity() {
         this.populateUniverseData()
 
         var creditsDisplay: TextView = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds())
+        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
 
         btnViewInventory = findViewById(R.id.buyMarketButton)
 
