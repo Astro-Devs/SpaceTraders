@@ -2,6 +2,7 @@ package edu.gatech.cs2340.spacetraders.views
 
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import android.widget.TextView
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.Products
 import edu.gatech.cs2340.spacetraders.viewmodel.InventoryViewModel
+import java.lang.Exception
 
 class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 
@@ -69,14 +71,22 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
             marketViewHolder.transactionButton.setText("Buy")
             marketViewHolder.transactionButton.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(view: View): Unit {
-                    viewModel.buy(productSet.elementAt(i).key, productSet.elementAt(i).value)
+                    try {
+                        viewModel.buy(productSet.elementAt(i).key, productSet.elementAt(i).value)
+                    } catch (e: Exception) {
+                        Log.d("Buy", "Buy set is empty, cannot sell anymore")
+                    }
                 }
             })
         } else {
             marketViewHolder.transactionButton.setText("Sell")
             marketViewHolder.transactionButton.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(view: View): Unit {
-                    viewModel.sell(productSet.elementAt(i).key, productSet.elementAt(i).value)
+                    try {
+                        viewModel.sell(productSet.elementAt(i).key, productSet.elementAt(i).value)
+                    } catch (e: Exception) {
+                        Log.d("Sell", "Sell set is empty, cannot sell anymore")
+                    }
                 }
             })
         }
