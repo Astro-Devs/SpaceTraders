@@ -1,17 +1,12 @@
 package edu.gatech.cs2340.spacetraders.views
 
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import android.graphics.Typeface
-import android.text.Layout
-import android.view.ViewGroup
 import edu.gatech.cs2340.spacetraders.R
-import edu.gatech.cs2340.spacetraders.entity.Game
 import edu.gatech.cs2340.spacetraders.entity.GameDifficulty
 import edu.gatech.cs2340.spacetraders.viewmodel.ConfigViewModel
 
@@ -74,7 +69,7 @@ class ConfigurationActivity : AppCompatActivity() {
             StartActivity.keepPlaying = false
             val universeIntent = Intent(applicationContext, UniverseActivity::class.java)
             startActivityForResult(universeIntent, 0)
-//            val inventoryIntent = Intent(applicationContext, MarketActivity::class.java)
+//            val inventoryIntent = Intent(applicationContext, BuyMarketActivity::class.java)
 //            startActivityForResult(inventoryIntent, 0)
         }
     }

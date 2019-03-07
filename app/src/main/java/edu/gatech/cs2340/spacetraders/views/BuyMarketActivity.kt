@@ -12,10 +12,11 @@ import edu.gatech.cs2340.spacetraders.viewmodel.InventoryViewModel
 /**
  * The Universe Activity View class that displays the universe and its planets.
  */
-class MarketActivity : AppCompatActivity() {
+class BuyMarketActivity : AppCompatActivity() {
 
     private lateinit var viewModel : InventoryViewModel
     private lateinit var productBuySet: Set<MutableMap.MutableEntry<Products, Int>>
+    private lateinit var productPrice: HashMap<Products, Int>
     private lateinit var recycler: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +26,7 @@ class MarketActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(InventoryViewModel::class.java)
 
         productBuySet = viewModel.getBuyableMarket()
+        productPrice = viewModel.getPriceMap()
 
         recycler = findViewById(R.id.market_recycler) as RecyclerView
         var llm = LinearLayoutManager(this)
@@ -43,7 +45,7 @@ class MarketActivity : AppCompatActivity() {
      * Populate the view with data about each planet in the universe.
      */
     fun populateMarketData() {
-        var adapter = MarketAdapter(productBuySet)
+        var adapter = MarketAdapter(productBuySet, productPrice, true, viewModel)
         recycler.adapter = adapter
     }
 }

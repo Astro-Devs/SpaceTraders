@@ -26,4 +26,12 @@ class InventoryViewModel : ViewModel() {
     fun getPriceMap() : HashMap<Products, Int> {
         return modelFacade.getPriceMap()
     }
+
+    fun sell(products: Products, quantity: Int): Int {
+        return modelFacade.sell(products, quantity)
+    }
+
+    fun buy(products: Products, quantity: Int): Int {
+        return modelFacade.buy(products, quantity)
+    }
 }
