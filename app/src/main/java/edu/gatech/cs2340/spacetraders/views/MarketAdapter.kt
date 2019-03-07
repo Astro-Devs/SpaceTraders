@@ -26,10 +26,12 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
         }
     }
 
-    private var productMap: Set<MutableMap.MutableEntry<Products, Int>>
+    private var productSet: Set<MutableMap.MutableEntry<Products, Int>>
+    private var priceMap: HashMap<Products, Int>
 
-    constructor(productMap: Set<MutableMap.MutableEntry<Products, Int>>): super() {
-        this.productMap = productMap
+    constructor(productMap: Set<MutableMap.MutableEntry<Products, Int>>, priceMap: HashMap<Products, Int>): super() {
+        this.productSet = productMap
+        this.priceMap = priceMap
     }
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
@@ -43,12 +45,12 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
     }
 
     override fun getItemCount(): Int {
-        return productMap.size
+        return productSet.size
     }
 
     override fun onBindViewHolder(marketViewHolder: MarketViewHolder, i: Int) {
-        marketViewHolder.name.setText("Product: " + productMap.elementAt(i).key.name)
-        marketViewHolder.number.setText("Quantity: " + productMap.elementAt(i).value)
-        marketViewHolder.price.setText("Price: " + productMap.elementAt(i))
+        marketViewHolder.name.setText("Product: " + productSet.elementAt(i).key.name)
+        marketViewHolder.number.setText("Quantity: " + productSet.elementAt(i).value)
+        marketViewHolder.price.setText("Price: " + priceMap.get(productSet.elementAt(i).key) + " credits")
     }
 }

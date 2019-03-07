@@ -19,7 +19,8 @@ import edu.gatech.cs2340.spacetraders.viewmodel.UniverseViewModel
 class UniverseActivity : AppCompatActivity() {
 
     private lateinit var planetArray: ArrayList<SolarSystem>
-    private lateinit var btnViewInventory : Button
+    private lateinit var buyMarketButton : Button
+    private lateinit var sellMarketButton : Button
     private lateinit var viewModel : UniverseViewModel
     private lateinit var recycler: RecyclerView
 
@@ -42,11 +43,20 @@ class UniverseActivity : AppCompatActivity() {
         var creditsDisplay: TextView = findViewById(R.id.creditsText)
         creditsDisplay.setText(viewModel.getPlayerCreds().toString())
 
-        btnViewInventory = findViewById(R.id.buyMarketButton)
+        buyMarketButton = findViewById(R.id.buyMarketButton)
 
-        btnViewInventory.setOnClickListener(object: View.OnClickListener {
+        buyMarketButton.setOnClickListener(object: View.OnClickListener {
             override fun onClick(view: View): Unit {
-                val inventoryIntent = Intent(applicationContext, MarketActivity::class.java)
+                val inventoryIntent = Intent(applicationContext, BuyMarketActivity::class.java)
+                startActivityForResult(inventoryIntent, 0)
+            }
+        })
+
+        sellMarketButton = findViewById(R.id.sellMarketButton)
+
+        sellMarketButton.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(view: View): Unit {
+                val inventoryIntent = Intent(applicationContext, SellMarketActivity::class.java)
                 startActivityForResult(inventoryIntent, 0)
             }
         })
