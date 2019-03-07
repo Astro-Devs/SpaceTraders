@@ -45,7 +45,7 @@ class SellMarketActivity : AppCompatActivity() {
      * Populate the view with data about each planet in the universe.
      */
     fun populateMarketData() {
-        var adapter = MarketAdapter(productSellSet, productPrice)
+        var adapter = MarketAdapter(productSellSet, productPrice, false, viewModel)
         recycler.adapter = adapter
     }
 }

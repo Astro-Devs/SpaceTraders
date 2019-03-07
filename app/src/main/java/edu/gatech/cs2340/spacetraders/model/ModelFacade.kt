@@ -59,4 +59,12 @@ class ModelFacade private constructor() {
     fun getPlayerCredits() : Int {
         return newGame.getPlayerCredits()
     }
+
+    fun sell(products: Products, quantity: Int): Int {
+        return newGame.sell(newGame.getPlayer(), products, quantity)
+    }
+
+    fun buy(products: Products, quantity: Int): Int {
+        return newGame.buy(newGame.getPlayer(), products, quantity)
+    }
 }
