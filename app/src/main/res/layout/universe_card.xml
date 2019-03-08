@@ -12,7 +12,7 @@
                                     android:id="@+id/uni_card"
 >
     <RelativeLayout android:layout_width="match_parent"
-                    android:layout_height="185dp"
+                    android:layout_height="90dp"
                     android:background="@drawable/universebackground"
                     >
 
@@ -28,7 +28,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/planetIMG"
+                android:layout_toRightOf="@+id/planetIMG"
                 android:fontFamily="@font/soham"
                 android:id="@+id/planetNameText"
                 android:textSize="24sp" android:textStyle="bold" android:textColor="@android:color/white"
@@ -37,7 +37,6 @@
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/planetIMG"
                 android:layout_toRightOf="@id/planetNameText"
                 android:fontFamily="@font/soham"
                 android:id="@+id/planetName"
@@ -47,6 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetName"
+                android:layout_toRightOf="@+id/planetIMG"
                 android:fontFamily="@font/soham"
                 android:textSize="21sp" android:textStyle="bold"
                 android:id="@+id/planetLocationText"
@@ -67,6 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetLocation"
+                android:layout_toRightOf="@+id/planetIMG"
                 android:fontFamily="@font/soham"
                 android:textSize="21sp" android:textStyle="bold"
                 android:id="@+id/planetResourceText"
@@ -86,6 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetResource"
+                android:layout_toRightOf="@+id/planetIMG"
                 android:fontFamily="@font/soham"
                 android:textSize="21sp" android:textStyle="bold"
                 android:id="@+id/planetTechText" android:text="Tech: " android:layout_marginTop="0dp"
