@@ -12,17 +12,23 @@
                                     android:id="@+id/market_card"
 >
     <RelativeLayout android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="120dp"
+                    android:background="@drawable/universebackground">
 
         <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:id="@+id/productName"
+                  android:textSize="24sp" android:textStyle="bold" android:textColor="@android:color/white"
+                  android:fontFamily="@font/soham"
+
         />
 
         <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:id="@+id/productPrice"
                   android:layout_below="@+id/productName"
+                  android:textSize="24sp" android:textStyle="bold" android:textColor="@android:color/white"
+                  android:fontFamily="@font/soham"
         />
 
         <TextView
@@ -30,12 +36,16 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/productNumber"
                 android:layout_below="@+id/productPrice"
+                android:textSize="24sp" android:textStyle="bold" android:textColor="@android:color/white"
+                android:fontFamily="@font/soham"
         />
 
         <Button android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/transactionButton"
                 android:layout_below="@+id/productNumber"
+                android:textSize="24sp" android:textStyle="bold"
+                android:fontFamily="@font/soham"
         />
 
 
