@@ -14,7 +14,7 @@ import edu.gatech.cs2340.spacetraders.R
 class StartActivity : AppCompatActivity() {
 
     companion object MediaPlayerObj{
-        var keepPlaying: Boolean = false;
+        var keepPlaying: Boolean = false
     }
 
     private lateinit var mediaPlayer: MediaPlayer
@@ -52,7 +52,7 @@ class StartActivity : AppCompatActivity() {
      */
     fun onNewGamePressed(view : View) {
         keepPlaying = true
-        val configintent = Intent(applicationContext, ConfigurationActivity::class.java)
-        startActivityForResult(configintent, 0)
+        val configIntent = Intent(applicationContext, ConfigurationActivity::class.java)
+        startActivityForResult(configIntent, 0)
     }
 }
