@@ -19,6 +19,7 @@ class BuyMarketActivity : AppCompatActivity() {
     private lateinit var productBuySet: Set<MutableMap.MutableEntry<Products, Int>>
     private lateinit var productPrice: HashMap<Products, Int>
     private lateinit var recycler: RecyclerView
+    private lateinit var creditsDisplay : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,10 +38,10 @@ class BuyMarketActivity : AppCompatActivity() {
         recycler.setHasFixedSize(true)
 
 
-        this.populateMarketData()
-
-        var creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay = findViewById(R.id.creditsText)
         creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+
+        this.populateMarketData()
 
 
     }
@@ -49,7 +50,7 @@ class BuyMarketActivity : AppCompatActivity() {
      * Populate the view with data about each planet in the universe.
      */
     fun populateMarketData() {
-        var adapter = MarketAdapter(productBuySet, productPrice, true, viewModel)
+        var adapter = MarketAdapter(productBuySet, productPrice, true, viewModel, creditsDisplay)
         recycler.adapter = adapter
     }
 }

@@ -78,6 +78,8 @@ class UniverseActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         mediaPlayer.start()
+        var creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
     }
 
     override fun onStop() {
