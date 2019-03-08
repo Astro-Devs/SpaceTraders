@@ -158,7 +158,6 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
                 planetInventory.remove(product, quantity)
                 player.addToInventory(product, quantity)
                 player.credits = player.credits - (priceMap[product]!! * quantity)
-                Log.d("Product buy", "Bought " + product.name + " Quantity: " + quantity + " Credits: " + player.credits)
                 return 0
             }
         }

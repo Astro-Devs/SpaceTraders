@@ -37,7 +37,6 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
     private var isBuyable: Boolean
     private var viewModel: InventoryViewModel
     private var creditsDisplay: TextView
-//    private var quantity: Int = 0
 
     constructor(productMap: Set<MutableMap.MutableEntry<Products, Int>>,
                 priceMap: HashMap<Products, Int>,
@@ -68,7 +67,6 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 
     override fun onBindViewHolder(marketViewHolder: MarketViewHolder, i: Int) {
         marketViewHolder.name.setText("Product: " + productSet.elementAt(i).key.name)
-//        quantity = productSet.elementAt(i).value
         marketViewHolder.number.setText("Quantity: " + productSet.elementAt(i).value)
         marketViewHolder.price.setText("Price: " + priceMap.get(productSet.elementAt(i).key) + " credits")
 
@@ -81,8 +79,6 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                         notifyDataSetChanged()
                         creditsDisplay.setText(viewModel.getPlayerCreds().toString())
 
-                        Log.d("Quanity left in buy", " Quantity left:" + productSet.elementAt(i).value)
-                        Log.d("set print", "Set entry: " + productSet.elementAt(i))
                     } catch (e: Exception) {
                         Log.d("Buy", "Buy set is empty, cannot buy anymore")
                     }
@@ -97,7 +93,6 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                         notifyDataSetChanged()
                         creditsDisplay.setText(viewModel.getPlayerCreds().toString())
 
-                        Log.d("Sold", "Product Sold:" + productSet.elementAt(i).key.name + " Quantity left:" + productSet.elementAt(i).value)
                     } catch (e: Exception) {
                         Log.d("Sell", "Sell set is empty, cannot sell anymore")
                     }
