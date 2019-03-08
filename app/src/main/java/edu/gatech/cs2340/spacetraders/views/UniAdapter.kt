@@ -55,10 +55,10 @@ class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
     }
 
     override fun onBindViewHolder(uniViewHolder: UniViewHolder, i: Int) {
-        uniViewHolder.name.setText("Planet: " + solarList.get(i).planetName)
-        uniViewHolder.location.setText("Location: (${solarList.get(i).location.xPositionLocal}, ${solarList.get(i).location.yPositionLocal})")
-        uniViewHolder.res.setText("Res: " + solarList.get(i).resources)
-        uniViewHolder.techlev.setText("Tech: " + solarList.get(i).techLevel)
+        uniViewHolder.name.setText(solarList.get(i).planetName)
+        uniViewHolder.location.setText("(${solarList.get(i).location.xPositionLocal}, ${solarList.get(i).location.yPositionLocal})")
+        uniViewHolder.res.setText(solarList.get(i).resources.toString())
+        uniViewHolder.techlev.setText(solarList.get(i).techLevel.toString())
         uniViewHolder.img.setImageResource(imgList.get(i))
     }
 
