@@ -78,12 +78,10 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                 override fun onClick(view: View): Unit {
                     try {
                         viewModel.buy(productSet.elementAt(i).key, 1)
-                        marketViewHolder.name.setText("Product: " + productSet.elementAt(i).key.name)
-                        marketViewHolder.number.setText("Quantity: " + productSet.elementAt(i).value)
-                        marketViewHolder.price.setText("Price: " + priceMap.get(productSet.elementAt(i).key) + " credits")
+                        notifyDataSetChanged()
+
                         Log.d("Quanity left in buy", " Quantity left:" + productSet.elementAt(i).value)
                         Log.d("set print", "Set entry: " + productSet.elementAt(i))
-
                         creditsDisplay.setText(viewModel.getPlayerCreds().toString())
                     } catch (e: Exception) {
                         Log.d("Buy", "Buy set is empty, cannot buy anymore")
@@ -96,9 +94,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                 override fun onClick(view: View): Unit {
                     try {
                         viewModel.sell(productSet.elementAt(i).key, 1)
-                        marketViewHolder.number.setText("Quantity: " + productSet.elementAt(i).value)
-                        marketViewHolder.price.setText("Price: " + priceMap.get(productSet.elementAt(i).key) + " credits")
-                        marketViewHolder.name.setText("Product: " + productSet.elementAt(i).key.name)
+                        notifyDataSetChanged()
 
                         Log.d("Sold", "Product Sold:" + productSet.elementAt(i).key.name + " Quantity left:" + productSet.elementAt(i).value)
                         creditsDisplay.setText(viewModel.getPlayerCreds().toString())
