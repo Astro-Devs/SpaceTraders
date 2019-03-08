@@ -36,16 +36,19 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
     private var priceMap: HashMap<Products, Int>
     private var isBuyable: Boolean
     private var viewModel: InventoryViewModel
+    private var creditsDisplay: TextView
 //    private var quantity: Int = 0
 
     constructor(productMap: Set<MutableMap.MutableEntry<Products, Int>>,
                 priceMap: HashMap<Products, Int>,
                 isBuyable: Boolean,
-                viewModel: InventoryViewModel): super() {
+                viewModel: InventoryViewModel,
+                creditsDisplay : TextView): super() {
         this.productSet = productMap
         this.priceMap = priceMap
         this.isBuyable = isBuyable
         this.viewModel = viewModel
+        this.creditsDisplay = creditsDisplay
     }
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
@@ -77,6 +80,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                         viewModel.buy(productSet.elementAt(i).key, 1)
                         marketViewHolder.number.setText("Quantity: " + productSet.elementAt(i).value)
                         Log.d("Bought", "Product bought:" + productSet.elementAt(i).key.name + " Quantity left:" + productSet.elementAt(i).value)
+                        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
                     } catch (e: Exception) {
                         Log.d("Buy", "Buy set is empty, cannot buy anymore")
                     }
@@ -90,6 +94,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                         viewModel.sell(productSet.elementAt(i).key, 1)
                         marketViewHolder.number.setText("Quantity: " + productSet.elementAt(i).value)
                         Log.d("Sold", "Product Sold:" + productSet.elementAt(i).key.name + " Quantity left:" + productSet.elementAt(i).value)
+                        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
                     } catch (e: Exception) {
                         Log.d("Sell", "Sell set is empty, cannot sell anymore")
                     }
