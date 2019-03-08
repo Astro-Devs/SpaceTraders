@@ -21,7 +21,7 @@
     />
 
     <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="141dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:maxWidth="180dp"
@@ -39,7 +39,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="12dp"
             android:textColor="#FFFFFF"
-            android:text="1000 cred"
+            android:text="1000"
             android:fontFamily="@font/soham"
             android:layout_alignRight="@+id/tokenImg"
             android:id="@+id/creditsText"
