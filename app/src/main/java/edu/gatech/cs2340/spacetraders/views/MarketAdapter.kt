@@ -36,6 +36,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
     private var priceMap: HashMap<Products, Int>
     private var isBuyable: Boolean
     private var viewModel: InventoryViewModel
+//    private var quantity: Int = 0
 
     constructor(productMap: Set<MutableMap.MutableEntry<Products, Int>>,
                 priceMap: HashMap<Products, Int>,
@@ -64,6 +65,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 
     override fun onBindViewHolder(marketViewHolder: MarketViewHolder, i: Int) {
         marketViewHolder.name.setText("Product: " + productSet.elementAt(i).key.name)
+//        quantity = productSet.elementAt(i).value
         marketViewHolder.number.setText("Quantity: " + productSet.elementAt(i).value)
         marketViewHolder.price.setText("Price: " + priceMap.get(productSet.elementAt(i).key) + " credits")
 
@@ -72,9 +74,11 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
             marketViewHolder.transactionButton.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(view: View): Unit {
                     try {
-                        viewModel.buy(productSet.elementAt(i).key, productSet.elementAt(i).value)
+                        viewModel.buy(productSet.elementAt(i).key, 1)
+                        marketViewHolder.number.setText("Quantity: " + productSet.elementAt(i).value)
+                        Log.d("Bought", "Product bought:" + productSet.elementAt(i).key.name + " Quantity left:" + productSet.elementAt(i).value)
                     } catch (e: Exception) {
-                        Log.d("Buy", "Buy set is empty, cannot sell anymore")
+                        Log.d("Buy", "Buy set is empty, cannot buy anymore")
                     }
                 }
             })
@@ -83,7 +87,9 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
             marketViewHolder.transactionButton.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(view: View): Unit {
                     try {
-                        viewModel.sell(productSet.elementAt(i).key, productSet.elementAt(i).value)
+                        viewModel.sell(productSet.elementAt(i).key, 1)
+                        marketViewHolder.number.setText("Quantity: " + productSet.elementAt(i).value)
+                        Log.d("Sold", "Product Sold:" + productSet.elementAt(i).key.name + " Quantity left:" + productSet.elementAt(i).value)
                     } catch (e: Exception) {
                         Log.d("Sell", "Sell set is empty, cannot sell anymore")
                     }
