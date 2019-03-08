@@ -34,4 +34,8 @@ class InventoryViewModel : ViewModel() {
     fun buy(products: Products, quantity: Int): Int {
         return modelFacade.buy(products, quantity)
     }
+
+    fun getPlayerCreds(): Int {
+        return modelFacade.getPlayerCredits()
+    }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.TextView
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.Products
 import edu.gatech.cs2340.spacetraders.viewmodel.InventoryViewModel
@@ -37,6 +38,9 @@ class BuyMarketActivity : AppCompatActivity() {
 
 
         this.populateMarketData()
+
+        var creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
 
 
     }
