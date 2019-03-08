@@ -99,7 +99,8 @@
             app:layout_constraintTop_toBottomOf="@+id/difficultySpinner" app:layout_constraintVertical_bias="0.953"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.495"
-            android:fontFamily="@font/soham" android:background="@color/tokenblock_color"
+            android:fontFamily="@font/soham" android:background="@drawable/done_button_background"
+            android:textColor="#FFFFFF"
             android:textSize="24sp" android:textStyle="bold" android:textAllCaps="true"/>
 
     <TextView
