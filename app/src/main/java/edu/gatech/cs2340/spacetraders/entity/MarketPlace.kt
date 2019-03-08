@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.spacetraders.entity
 
 
+import android.util.Log
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
@@ -147,14 +148,17 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
      */
     fun buy(player : Player, product : Products, quantity : Int) : Int {
         if (player.getTotalAmountInInventory() + quantity > player.getShipCargoCapacity()) {
+            Log.d("Cargo", "cargo is full cannot buy more items")
             return  1// May throw an exception or return an Int to indicate not enough cargo capacity
         } else {
             if (player.credits - (priceMap[product]!! * quantity) < 0) {
-            return 2// May throw an exception or return an Int to indicate not enough credits
+                Log.d("Invalid credits", "not enough credits to buy item " + player.credits)
+                return 2// May throw an exception or return an Int to indicate not enough credits
             } else {
                 planetInventory.remove(product, quantity)
                 player.addToInventory(product, quantity)
                 player.credits = player.credits - (priceMap[product]!! * quantity)
+                Log.d("Product buy", "Bought " + product.name + " Quantity: " + quantity + " Credits: " + player.credits)
                 return 0
             }
         }

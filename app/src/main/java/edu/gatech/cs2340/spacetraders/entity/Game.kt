@@ -48,18 +48,18 @@ class Game(difficulty: GameDifficulty, player: Player){
         marketPlace.initializePrices(player)
         Log.d("Solar System", "Current Planet " + currentPlanetInventory.toString())
         //Tests
-        val furPrice : Int = this.getPriceMap()[Products.FUR]!!
-        this.buy(player, Products.FUR, 3)
-        this.buy(player, Products.WATER, 1)
-        var credits : Int = player.credits
-        var inventorySize : Int = player.getTotalAmountInInventory()
-        Log.d("Solar System", "Fur Price: $furPrice, After buy credits: $credits, After buy Inventory size: $inventorySize")
-        Log.d("Solar System", "Current Planet " + currentPlanetInventory.toString())
-        this.sell(player, Products.FUR, 1)
-        credits = player.credits
-        inventorySize = player.getTotalAmountInInventory()
-        Log.d("Solar System", "Fur Price: $furPrice, After sell credits: $credits, After sell Inventory size: $inventorySize")
-        Log.d("Solar System", "Current Planet " + currentPlanetInventory.toString())
+//        val furPrice : Int = this.getPriceMap()[Products.FUR]!!
+//        this.buy(player, Products.FUR, 3)
+//        this.buy(player, Products.WATER, 1)
+//        var credits : Int = player.credits
+//        var inventorySize : Int = player.getTotalAmountInInventory()
+//        Log.d("Solar System", "Fur Price: $furPrice, After buy credits: $credits, After buy Inventory size: $inventorySize")
+//        Log.d("Solar System", "Current Planet " + currentPlanetInventory.toString())
+//        this.sell(player, Products.FUR, 1)
+//        credits = player.credits
+//        inventorySize = player.getTotalAmountInInventory()
+//        Log.d("Solar System", "Fur Price: $furPrice, After sell credits: $credits, After sell Inventory size: $inventorySize")
+//        Log.d("Solar System", "Current Planet " + currentPlanetInventory.toString())
         //
     }
 
