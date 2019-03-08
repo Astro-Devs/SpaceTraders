@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#41D81B</color>
     <color name="wincolor">#FA0307</color>
+    <color name="tokenblock_color">#443EA7</color>
 </resources>

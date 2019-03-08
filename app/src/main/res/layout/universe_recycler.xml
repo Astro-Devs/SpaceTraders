@@ -55,21 +55,24 @@
     </android.support.v7.widget.RecyclerView>
 
 
-    <Button android:layout_width="200dp"
-            android:layout_height="wrap_content"
+    <Button android:layout_width="205dp"
+            android:layout_height="43dp"
             android:text="Buy from market"
+            android:fontFamily="@font/soham"
             android:id="@+id/buyMarketButton"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-    />
+            android:textSize="18sp" android:textStyle="bold" android:background="@color/colorPrimary"/>
 
     <Button
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_width="198dp"
+            android:layout_height="43dp"
             android:id="@+id/sellMarketButton"
+            android:fontFamily="@font/soham"
             android:text="Sell to market"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-    />
+            android:textSize="18sp" android:textStyle="bold" android:background="@color/colorPrimary"
+            android:layout_marginRight="0dp"/>
 
 </RelativeLayout>
