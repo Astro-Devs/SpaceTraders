@@ -7,7 +7,7 @@ package edu.gatech.cs2340.spacetraders.entity
  * @param credits the money the player has
  * @param ship the player's spaceship to traverse the galaxy
  */
-class Player constructor(val name : String, var skillArr : IntArray, var credits : Int = 1000,
+class Player constructor(val name : String, var skillArr : IntArray, var credits : Int = 10000,
                          var ship : Ship = Ship()) {
 
     var playerInventory : Inventory = Inventory()

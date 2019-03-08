@@ -79,10 +79,10 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                     try {
                         viewModel.buy(productSet.elementAt(i).key, 1)
                         notifyDataSetChanged()
+                        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
 
                         Log.d("Quanity left in buy", " Quantity left:" + productSet.elementAt(i).value)
                         Log.d("set print", "Set entry: " + productSet.elementAt(i))
-                        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
                     } catch (e: Exception) {
                         Log.d("Buy", "Buy set is empty, cannot buy anymore")
                     }
@@ -95,9 +95,9 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                     try {
                         viewModel.sell(productSet.elementAt(i).key, 1)
                         notifyDataSetChanged()
+                        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
 
                         Log.d("Sold", "Product Sold:" + productSet.elementAt(i).key.name + " Quantity left:" + productSet.elementAt(i).value)
-                        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
                     } catch (e: Exception) {
                         Log.d("Sell", "Sell set is empty, cannot sell anymore")
                     }
