@@ -34,8 +34,8 @@ class UniverseActivity : AppCompatActivity() {
         planetArray = viewModel.populateUniverseView()
 
         recycler = findViewById(R.id.universe_recycler) as RecyclerView
-        var llm = LinearLayoutManager(this)
-        recycler.layoutManager = llm
+        var llmVar = LinearLayoutManager(this)
+        recycler.layoutManager = llmVar
 
         //This needs to be set to false if we have a larger solar system size
         recycler.setHasFixedSize(true)

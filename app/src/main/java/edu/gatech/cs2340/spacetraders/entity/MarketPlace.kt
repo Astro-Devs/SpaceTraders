@@ -163,6 +163,7 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
         }
     }
 
+
     /**
      * Process a "sell" transaction between player and the current Solar System
      *

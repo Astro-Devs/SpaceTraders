@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetraders.views
 
+import android.content.Context
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.Products
 import edu.gatech.cs2340.spacetraders.viewmodel.InventoryViewModel
@@ -37,17 +39,20 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
     private var isBuyable: Boolean
     private var viewModel: InventoryViewModel
     private var creditsDisplay: TextView
+    private var contextSub: Context
 
     constructor(productMap: Set<MutableMap.MutableEntry<Products, Int>>,
                 priceMap: HashMap<Products, Int>,
                 isBuyable: Boolean,
                 viewModel: InventoryViewModel,
-                creditsDisplay : TextView): super() {
+                creditsDisplay : TextView,
+                contextSub: Context): super() {
         this.productSet = productMap
         this.priceMap = priceMap
         this.isBuyable = isBuyable
         this.viewModel = viewModel
         this.creditsDisplay = creditsDisplay
+        this.contextSub = contextSub
     }
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
@@ -75,6 +80,12 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
             marketViewHolder.transactionButton.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(view: View): Unit {
                     try {
+                        if (viewModel.getPlayerCreds() < priceMap.get(productSet.elementAt(i).key) as Int) {
+                            Toast.makeText(contextSub, "Not enough money to buy", Toast.LENGTH_LONG).show()
+                        }
+                        if (viewModel.isCargoFull()) {
+                            Toast.makeText(contextSub, "Cargo is full!", Toast.LENGTH_LONG).show()
+                        }
                         viewModel.buy(productSet.elementAt(i).key, 1)
                         notifyDataSetChanged()
                         creditsDisplay.setText(viewModel.getPlayerCreds().toString())

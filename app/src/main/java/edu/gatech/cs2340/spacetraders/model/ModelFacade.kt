@@ -60,6 +60,10 @@ class ModelFacade private constructor() {
         return newGame.getPlayerCredits()
     }
 
+    fun isCargoFull(): Boolean {
+        return newGame.isCargoFull(1)
+    }
+
     fun sell(products: Products, quantity: Int): Int {
         return newGame.sell(newGame.getPlayer(), products, quantity)
     }

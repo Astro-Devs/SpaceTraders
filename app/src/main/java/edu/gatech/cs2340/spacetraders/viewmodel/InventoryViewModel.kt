@@ -38,4 +38,8 @@ class InventoryViewModel : ViewModel() {
     fun getPlayerCreds(): Int {
         return modelFacade.getPlayerCredits()
     }
+
+    fun isCargoFull(): Boolean {
+        return modelFacade.isCargoFull()
+    }
 }

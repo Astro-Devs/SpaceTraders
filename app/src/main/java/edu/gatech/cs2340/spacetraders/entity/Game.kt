@@ -136,5 +136,8 @@ class Game(difficulty: GameDifficulty, player: Player){
         return player
     }
 
+    fun isCargoFull(quantity: Int): Boolean {
+        return player.getTotalAmountInInventory() + quantity > player.getShipCargoCapacity()
+    }
 
 }

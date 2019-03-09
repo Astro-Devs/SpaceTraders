@@ -31,8 +31,8 @@ class SellMarketActivity : AppCompatActivity() {
         productPrice = viewModel.getPriceMap()
 
         recycler = findViewById(R.id.market_recycler) as RecyclerView
-        var llm = LinearLayoutManager(this)
-        recycler.layoutManager = llm
+        var llmVar = LinearLayoutManager(this)
+        recycler.layoutManager = llmVar
 
         //This needs to be set to false if we have a larger solar system size
         recycler.setHasFixedSize(true)
@@ -49,7 +49,7 @@ class SellMarketActivity : AppCompatActivity() {
      * Populate the view with data about each planet in the universe.
      */
     fun populateMarketData() {
-        var adapter = MarketAdapter(productSellSet, productPrice, false, viewModel, creditsDisplay)
+        var adapter = MarketAdapter(productSellSet, productPrice, false, viewModel, creditsDisplay, this)
         recycler.adapter = adapter
     }
 }
