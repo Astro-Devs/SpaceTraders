@@ -29,16 +29,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/planetIMG"
-                android:fontFamily="@font/soham"
+                android:fontFamily="@font/orbitron"
                 android:id="@+id/planetNameText"
-                android:textSize="24sp" android:textStyle="bold" android:textColor="@android:color/white"
+                android:textSize="21sp" android:textStyle="bold" android:textColor="@android:color/white"
                 android:text="Planet: " android:layout_marginTop="0dp"/>
 
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/planetNameText"
-                android:fontFamily="@font/soham"
+                android:fontFamily="@font/orbitron"
                 android:id="@+id/planetName"
                 android:textSize="21sp" android:textColor="@android:color/white"/>
 
@@ -47,8 +47,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetName"
                 android:layout_toRightOf="@+id/planetIMG"
-                android:fontFamily="@font/soham"
-                android:textSize="21sp" android:textStyle="bold"
+                android:fontFamily="@font/orbitron"
+                android:textSize="15sp" android:textStyle="bold"
                 android:id="@+id/planetLocationText"
                 android:textColor="@android:color/white" android:text="Location: " android:layout_marginTop="0dp"/>
 
@@ -58,8 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetName"
                 android:layout_toRightOf="@id/planetLocationText"
-                android:fontFamily="@font/soham"
-                android:textSize="18sp"
+                android:fontFamily="@font/orbitron"
+                android:textSize="15sp"
                 android:id="@+id/planetLocation"
                 android:textColor="@android:color/white"/>
 
@@ -68,8 +68,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetLocation"
                 android:layout_toRightOf="@+id/planetIMG"
-                android:fontFamily="@font/soham"
-                android:textSize="21sp" android:textStyle="bold"
+                android:fontFamily="@font/orbitron"
+                android:textSize="15sp" android:textStyle="bold"
                 android:id="@+id/planetResourceText"
                 android:textColor="@android:color/white" android:text="Res: " android:layout_marginTop="0dp"/>
 
@@ -78,8 +78,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetLocation"
                 android:layout_toRightOf="@+id/planetResourceText"
-                android:fontFamily="@font/soham"
-                android:textSize="18sp"
+                android:fontFamily="@font/orbitron"
+                android:textSize="15sp"
                 android:id="@+id/planetResource"
                 android:textColor="@android:color/white"/>
 
@@ -88,8 +88,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetResource"
                 android:layout_toRightOf="@+id/planetIMG"
-                android:fontFamily="@font/soham"
-                android:textSize="21sp" android:textStyle="bold"
+                android:fontFamily="@font/orbitron"
+                android:textSize="15sp" android:textStyle="bold"
                 android:id="@+id/planetTechText" android:text="Tech: " android:layout_marginTop="0dp"
                 android:textColor="@android:color/white"/>
 
@@ -98,8 +98,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetResource"
                 android:layout_toRightOf="@+id/planetTechText"
-                android:fontFamily="@font/soham"
-                android:textSize="18sp"
+                android:fontFamily="@font/orbitron"
+                android:textSize="15sp"
                 android:id="@+id/planetTech"
                 android:textColor="@android:color/white"/>
 

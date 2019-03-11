@@ -17,7 +17,7 @@
             android:textSize="36dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:fontFamily="@font/soham"
+            android:fontFamily="@font/orbitron"
     />
 
     <ImageView
@@ -35,15 +35,15 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="21dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="6dp"
             android:textColor="#FFFFFF"
             android:text="1000"
-            android:fontFamily="@font/soham"
+            android:fontFamily="@font/orbitron"
             android:layout_alignRight="@+id/tokenImg"
             android:id="@+id/creditsText"
-    />
+            android:layout_alignTop="@+id/tokenImg"/>
 
     <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
                                             android:layout_height="match_parent"

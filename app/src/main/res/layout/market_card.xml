@@ -15,29 +15,57 @@
                     android:layout_height="120dp"
                     android:background="@drawable/universebackground">
 
-        <TextView android:layout_width="match_parent"
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/orbitron"
+                android:textSize="18sp" android:textStyle="bold"
+                android:id="@+id/marketProductText"
+                android:textColor="@android:color/white" android:text="Product: " android:layout_marginTop="0dp"/>
+
+        <TextView android:layout_width="319dp"
                   android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/marketProductText"
                   android:id="@+id/productName"
-                  android:textSize="24sp" android:textStyle="bold" android:textColor="@android:color/white"
-                  android:fontFamily="@font/soham"
+                  android:textSize="18sp" android:textColor="@android:color/white"
+                  android:fontFamily="@font/orbitron"
+                  android:layout_marginLeft="0dp"/>
 
-        />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/marketProductText"
+                android:fontFamily="@font/orbitron"
+                android:textSize="18sp" android:textStyle="bold"
+                android:id="@+id/marketPriceText"
+                android:textColor="@android:color/white" android:text="Price: " android:layout_marginTop="0dp"/>
 
         <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/marketPriceText"
                   android:id="@+id/productPrice"
                   android:layout_below="@+id/productName"
-                  android:textSize="24sp" android:textStyle="bold" android:textColor="@android:color/white"
-                  android:fontFamily="@font/soham"
+                  android:textSize="18sp" android:textColor="@android:color/white"
+                  android:fontFamily="@font/orbitron"
         />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/marketPriceText"
+                android:fontFamily="@font/orbitron"
+                android:textSize="18sp" android:textStyle="bold"
+                android:id="@+id/marketQuantityText"
+                android:textColor="@android:color/white" android:text="Quantity: " android:layout_marginTop="0dp"/>
 
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/marketQuantityText"
                 android:id="@+id/productNumber"
                 android:layout_below="@+id/productPrice"
-                android:textSize="24sp" android:textStyle="bold" android:textColor="@android:color/white"
-                android:fontFamily="@font/soham"
+                android:textSize="18sp" android:textColor="@android:color/white"
+                android:fontFamily="@font/orbitron"
         />
 
         <Button android:layout_width="match_parent"
@@ -45,7 +73,7 @@
                 android:id="@+id/transactionButton"
                 android:layout_below="@+id/productNumber"
                 android:textSize="24sp" android:textStyle="bold"
-                android:fontFamily="@font/soham"
+                android:fontFamily="@font/orbitron"
         />
 
 
