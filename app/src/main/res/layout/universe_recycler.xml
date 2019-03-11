@@ -30,6 +30,7 @@
             android:layout_marginRight="6dp"
             android:src="@drawable/tokenblock"
             android:id="@+id/tokenImg"
+
     />
 
     <TextView
@@ -38,12 +39,17 @@
             android:textSize="21dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
             android:textColor="#FFFFFF"
             android:text="1000"
             android:fontFamily="@font/orbitron"
             android:layout_alignRight="@+id/tokenImg"
             android:id="@+id/creditsText"
-            android:layout_alignTop="@+id/tokenImg"/>
+            android:layout_alignTop="@+id/tokenImg"
+    />
+
+
     <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:id="@+id/universe_recycler"
