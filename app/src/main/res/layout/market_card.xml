@@ -74,7 +74,7 @@
                 android:layout_below="@+id/productNumber"
                 android:textSize="24sp" android:textStyle="bold"
                 android:fontFamily="@font/orbitron"
-        />
+                android:background="@drawable/done_button_background" android:textColor="#FFFFFF"/>
 
 
     </RelativeLayout>
