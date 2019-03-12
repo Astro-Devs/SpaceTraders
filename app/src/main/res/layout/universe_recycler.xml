@@ -5,49 +5,47 @@
                 android:orientation="vertical"
                 android:background="@drawable/universebackground"
 >
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/titleUniverse"
             android:text="UNIVERSE"
             android:textColor="@android:color/white"
             android:textAlignment="center"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="16dp"
-            android:textSize="36dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginLeft="14dp"
+            android:textSize="32dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/orbitron"
-            android:id="@+id/titleUniverse"
-    />
+            android:layout_alignParentTop="true" android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"/>
 
-    <ImageView
-            android:layout_width="141dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:maxWidth="180dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="6dp"
-            android:layout_marginRight="6dp"
-            android:src="@drawable/tokenblock"
-            android:id="@+id/tokenImg"
-
-    />
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="21dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="6dp"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            android:textColor="#FFFFFF"
-            android:text="1000"
-            android:fontFamily="@font/orbitron"
-            android:layout_alignRight="@+id/tokenImg"
-            android:id="@+id/creditsText"
-            android:layout_alignTop="@+id/tokenImg"
-    />
+    <FrameLayout
+            android:layout_width="194dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="53dp"
+            android:layout_marginStart="53dp" android:layout_alignParentEnd="true" android:layout_marginEnd="0dp"
+            android:layout_marginTop="0dp" android:layout_alignParentTop="true"
+            android:layout_marginBottom="8dp">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="25dp"
+                android:src="@drawable/tokenblock"
+                android:id="@+id/tokenImg"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:textSize="21dp"
+                android:textColor="#FFFFFF"
+                android:text="1000"
+                android:fontFamily="@font/orbitron"
+                android:id="@+id/creditsText"
+                android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
+    </FrameLayout>
 
 
     <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
