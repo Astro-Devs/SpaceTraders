@@ -22,6 +22,7 @@ class TravelActivity : AppCompatActivity() {
     private lateinit var planetArray: ArrayList<SolarSystem>
     private lateinit var buyMarketButton: Button
     private lateinit var sellMarketButton: Button
+    private lateinit var universeButton: Button
     private lateinit var viewModel: UniverseViewModel
     private lateinit var recycler: RecyclerView
     private lateinit var mediaPlayer: MediaPlayer
@@ -60,6 +61,15 @@ class TravelActivity : AppCompatActivity() {
             override fun onClick(view: View): Unit {
                 val inventoryIntent = Intent(applicationContext, SellMarketActivity::class.java)
                 startActivityForResult(inventoryIntent, 0)
+            }
+        })
+
+        universeButton = findViewById(R.id.universeButton)
+
+        universeButton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View): Unit {
+                val uniIntent = Intent(applicationContext, UniverseActivity::class.java)
+                startActivityForResult(uniIntent, 0)
             }
         })
 

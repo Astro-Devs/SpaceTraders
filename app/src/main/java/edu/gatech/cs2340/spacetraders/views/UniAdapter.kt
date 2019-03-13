@@ -83,6 +83,6 @@ class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
         imgList.add(R.drawable.planet18)
         imgList.add(R.drawable.planet19)
         imgList.add(R.drawable.planet20)
-        Collections.shuffle(imgList)
+//        Collections.shuffle(imgList)
     }
 }
