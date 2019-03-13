@@ -73,9 +73,9 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 
 
     override fun onBindViewHolder(marketViewHolder: MarketViewHolder, i: Int) {
-        marketViewHolder.name.setText("Product: " + productSet.elementAt(i).key.name)
-        marketViewHolder.number.setText("Quantity: " + productSet.elementAt(i).value)
-        marketViewHolder.price.setText("Price: " + priceMap.get(productSet.elementAt(i).key) + " credits")
+        marketViewHolder.name.setText(productSet.elementAt(i).key.name.toString())
+        marketViewHolder.number.setText(productSet.elementAt(i).value.toString())
+        marketViewHolder.price.setText(priceMap.get(productSet.elementAt(i).key).toString() + " credits")
 
         if (isBuyable) {
             marketViewHolder.transactionButton.setText("Buy")
