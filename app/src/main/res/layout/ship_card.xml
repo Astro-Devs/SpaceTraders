@@ -12,7 +12,7 @@
                                     android:id="@+id/uni_card"
 >
     <RelativeLayout android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="151dp"
                     android:background="@drawable/universebackground"
     >
 
@@ -29,16 +29,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/planetIMG"
-                
+
                 android:id="@+id/planetNameText"
-                android:textSize="24sp" android:textStyle="bold" android:textColor="@android:color/white"
+                android:textSize="21sp" android:textStyle="bold" android:textColor="@android:color/white"
                 android:text="Planet: " android:layout_marginTop="0dp"/>
 
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/planetNameText"
-                
+
                 android:id="@+id/planetName"
                 android:textSize="21sp" android:textColor="@android:color/white"/>
 
@@ -47,8 +47,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetName"
                 android:layout_toRightOf="@+id/planetIMG"
-                
-                android:textSize="21sp" android:textStyle="bold"
+
+                android:textSize="18sp" android:textStyle="bold"
                 android:id="@+id/planetLocationText"
                 android:textColor="@android:color/white" android:text="Location: " android:layout_marginTop="0dp"/>
 
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetName"
                 android:layout_toRightOf="@id/planetLocationText"
-                
+
                 android:textSize="18sp"
                 android:id="@+id/planetLocation"
                 android:textColor="@android:color/white"/>
@@ -68,8 +68,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetLocation"
                 android:layout_toRightOf="@+id/planetIMG"
-                
-                android:textSize="21sp" android:textStyle="bold"
+
+                android:textSize="18sp" android:textStyle="bold"
                 android:id="@+id/planetResourceText"
                 android:textColor="@android:color/white" android:text="Res: " android:layout_marginTop="0dp"/>
 
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetLocation"
                 android:layout_toRightOf="@+id/planetResourceText"
-                
+
                 android:textSize="18sp"
                 android:id="@+id/planetResource"
                 android:textColor="@android:color/white"/>
@@ -88,8 +88,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetResource"
                 android:layout_toRightOf="@+id/planetIMG"
-                
-                android:textSize="21sp" android:textStyle="bold"
+
+                android:textSize="18sp" android:textStyle="bold"
                 android:id="@+id/planetTechText" android:text="Tech: " android:layout_marginTop="0dp"
                 android:textColor="@android:color/white"/>
 
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetResource"
                 android:layout_toRightOf="@+id/planetTechText"
-                
+
                 android:textSize="18sp"
                 android:id="@+id/planetTech"
                 android:textColor="@android:color/white"/>
@@ -108,6 +108,16 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetIMG"
                 android:textColor="@android:color/white"/>
+
+        <Button android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:text="Travel to planet"
+                android:fontFamily="@font/orbitron"
+                android:id="@+id/travelPlanetButton"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:textSize="15sp" android:textStyle="bold" android:background="@drawable/done_button_background"
+                android:textColor="#FFFFFF"/>
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>
