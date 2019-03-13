@@ -42,8 +42,8 @@ class TravelActivity : AppCompatActivity() {
 
         this.populateUniverseData()
 
-//        var creditsDisplay: TextView = findViewById(R.id.creditsText)
-//        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        var creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
 
         buyMarketButton = findViewById(R.id.buyMarketButton)
 
@@ -78,8 +78,8 @@ class TravelActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         mediaPlayer.start()
-//        var creditsDisplay: TextView = findViewById(R.id.creditsText)
-//        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        var creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
     }
 
     override fun onStop() {
