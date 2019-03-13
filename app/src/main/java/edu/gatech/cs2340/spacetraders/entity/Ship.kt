@@ -4,10 +4,9 @@ package edu.gatech.cs2340.spacetraders.entity
  * Ship class that represents the ship the player is traveling on
  *
  * @param location the initial location of the ship
- * @param fuel the initial amount of fuel of the ship
  * @param shipType represents the type of the ship
  */
-class Ship(var location : Coordinates = Coordinates(0,0), var fuel : Int = 25, var shipType : ShipType = ShipType.GNAT) {
+class Ship(var location : Coordinates = Coordinates(0,0), var shipType : ShipType = ShipType.GNAT) {
 
     /**
      * Getter for the ship's Cargo Capacity

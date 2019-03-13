@@ -10,7 +10,12 @@ package edu.gatech.cs2340.spacetraders.entity
 class Player constructor(val name : String, var skillArr : IntArray, var credits : Int = 10000,
                          var ship : Ship = Ship()) {
 
-    var playerInventory : Inventory = Inventory()
+    var playerInventory : Inventory
+
+    init {
+        playerInventory = Inventory()
+        this.addToInventory(Products.FUEL, 25)
+    }
 
 
     /**
