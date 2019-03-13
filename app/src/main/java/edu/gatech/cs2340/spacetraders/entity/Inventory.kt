@@ -57,7 +57,10 @@ class Inventory {
     fun getTotalAmountofProducts(): Int {
         var total = 0
         for (key in productMap.keys) {
-            total += this.getAmountOf(key)
+            if (key != Products.FUEL) {
+                total += this.getAmountOf(key)
+            }
+
         }
         return total
     }
