@@ -140,4 +140,15 @@ class Game(difficulty: GameDifficulty, player: Player) {
         return player.getTotalAmountInInventory() + quantity > player.getShipCargoCapacity()
     }
 
+    fun listTravelPlanets(): ArrayList<SolarSystem> {
+        var fullList: ArrayList<SolarSystem> = universe.getPlanetArray()
+        var travelList: ArrayList<SolarSystem> = ArrayList()
+        for (i in fullList) {
+            if (universe.distance(player.getLocation(), i.location) <= player.getShipFuel()) {
+                travelList.add(i)
+            }
+        }
+        return travelList
+    }
+
 }

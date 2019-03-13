@@ -165,9 +165,9 @@ class Universe {
      * create 20 planets with these attributes, and add them to the map
      */
     fun createPlanets() {
-        map[Coordinates(0, 0)] = SolarSystem(
+        map[Coordinates(50, 50)] = SolarSystem(
             "Home Park",
-            Coordinates(0, 0), levels[0], resourceLevel[0]
+            Coordinates(50, 50), levels[0], resourceLevel[0]
         )
         while (map.size < 20) {
             val coords: Coordinates = randomCoordinatesGenerator()
@@ -222,14 +222,17 @@ class Universe {
         for (j in 0..19) {
             var smallest = 0
             for (i in unsorted.indices) {
-                smallest = if (distance(Coordinates(0, 0), unsorted[smallest].location) <
-                    distance(Coordinates(0, 0), unsorted[i].location)
+                smallest = if (distance(Coordinates(50, 50), unsorted[smallest].location) <
+                    distance(Coordinates(50, 50), unsorted[i].location)
                 ) smallest else i
             }
             sorted.add(unsorted.removeAt(smallest))
         }
         return sorted
     }
+
+
+
 
 
     /**

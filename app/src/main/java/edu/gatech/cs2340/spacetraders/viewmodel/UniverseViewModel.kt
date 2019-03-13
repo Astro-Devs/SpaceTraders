@@ -20,6 +20,10 @@ class UniverseViewModel : ViewModel() {
         return modelFacade.getUniverseArray()
     }
 
+    fun populateTravelView(): ArrayList<SolarSystem> {
+        return modelFacade.getTravelList()
+    }
+
     fun getPlayerCreds(): Int {
         return modelFacade.getPlayerCredits()
     }
