@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
                                              android:layout_height="match_parent"
                                              tools:context=".views.StartActivity"
 >
@@ -11,7 +13,7 @@
             android:src="@drawable/loginscreen"
             android:scaleType="centerCrop" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/imageView2"/>
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageView
             android:layout_width="match_parent"
@@ -29,28 +31,26 @@
             android:background="@drawable/login_button_background"
             android:onClick="onNewGamePressed"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="125dp" android:layout_marginTop="84dp"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="125dp" android:layout_marginTop="111dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="400dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="125dp" android:text="New Game" android:fontFamily="@font/soham"
             android:textSize="30sp" android:textStyle="bold" android:textAllCaps="false"
-            android:textColor="@color/cardview_light_background" android:layout_marginBottom="405dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"/>
+            android:textColor="@color/cardview_light_background"/>
     <Button
             android:layout_width="159dp"
             android:layout_height="51dp"
             android:id="@+id/loadgamebutton"
             android:background="@drawable/login_button_background"
             android:onClick="onNewGamePressed"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="125dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="300dp"
-            android:text="Load Game" android:fontFamily="@font/soham"
+            android:layout_marginBottom="300dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="125dp" android:text="Load Game" android:fontFamily="@font/soham"
             android:textSize="30sp" android:textStyle="bold" android:textAllCaps="false"
             android:textColor="@color/cardview_light_background"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/newgamebutton"
-            app:layout_constraintVertical_bias="1.0"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"/>
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
 
 </android.support.constraint.ConstraintLayout>

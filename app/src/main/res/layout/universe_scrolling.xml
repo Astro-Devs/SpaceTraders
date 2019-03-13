@@ -8,14 +8,14 @@
                 android:focusableInTouchMode="true"
 >
 
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="Universe"
-                  android:textColor="#FFFFFF"
-                  android:textSize="34dp"
-                  android:layout_marginTop="34dp"
-                  android:layout_centerHorizontal="true"
-                  android:id="@+id/gridTopText"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Universe"
+              android:textColor="#FFFFFF"
+              android:textSize="34dp"
+              android:layout_marginTop="34dp"
+              android:layout_centerHorizontal="true"
+              android:id="@+id/gridTopText"/>
 
 
     <ScrollView
@@ -24,10 +24,10 @@
 
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="120dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="120dp">
 
             <Button android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -39,14 +39,14 @@
 
             <!--PLANET 1-->
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="6dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                app:cardElevation="8dp"
-                app:cardCornerRadius="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    app:cardElevation="8dp"
+                    app:cardCornerRadius="8dp"
             >
 
 
@@ -102,7 +102,8 @@
                     />
 
                 </RelativeLayout>
-            ></android.support.v7.widget.CardView>
+                >
+            </android.support.v7.widget.CardView>
             <!--PLANET 2-->
             <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -168,7 +169,8 @@
                     />
 
                 </RelativeLayout>
-                ></android.support.v7.widget.CardView>
+                >
+            </android.support.v7.widget.CardView>
             <!--PLANET 3-->
             <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -234,7 +236,8 @@
                     />
 
                 </RelativeLayout>
-                ></android.support.v7.widget.CardView>
+                >
+            </android.support.v7.widget.CardView>
             <!--PLANET 4-->
             <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -300,7 +303,8 @@
                     />
 
                 </RelativeLayout>
-                ></android.support.v7.widget.CardView>
+                >
+            </android.support.v7.widget.CardView>
             <!--PLANET 5-->
             <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -366,7 +370,8 @@
                     />
 
                 </RelativeLayout>
-                ></android.support.v7.widget.CardView>
+                >
+            </android.support.v7.widget.CardView>
             <!--PLANET 6-->
             <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -432,7 +437,8 @@
                     />
 
                 </RelativeLayout>
-                ></android.support.v7.widget.CardView>
+                >
+            </android.support.v7.widget.CardView>
             <!--PLANET 7-->
             <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -498,7 +504,8 @@
                     />
 
                 </RelativeLayout>
-                ></android.support.v7.widget.CardView>
+                >
+            </android.support.v7.widget.CardView>
             <!--PLANET 8-->
             <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -564,7 +571,8 @@
                     />
 
                 </RelativeLayout>
-                ></android.support.v7.widget.CardView>
+                >
+            </android.support.v7.widget.CardView>
             <!--PLANET 9-->
             <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -630,7 +638,8 @@
                     />
 
                 </RelativeLayout>
-                ></android.support.v7.widget.CardView>
+                >
+            </android.support.v7.widget.CardView>
             <!--PLANET 10-->
             <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -696,7 +705,8 @@
                     />
 
                 </RelativeLayout>
-                ></android.support.v7.widget.CardView>
+                >
+            </android.support.v7.widget.CardView>
             <!-- EMPTY HOLDER -->
             <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -720,7 +730,8 @@
                     />
 
                 </RelativeLayout>
-                ></android.support.v7.widget.CardView>
+                >
+            </android.support.v7.widget.CardView>
 
 
         </LinearLayout>
