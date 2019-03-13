@@ -43,7 +43,7 @@
                 android:textColor="#FFFFFF"
                 android:text="1000"
                 android:fontFamily="@font/orbitron"
-                android:id="@+id/creditsText"
+                android:id="@+id/fuelText"
                 android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
     </FrameLayout>
 
