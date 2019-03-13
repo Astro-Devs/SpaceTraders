@@ -9,8 +9,8 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/titleUniverse"
-            android:text="UNIVERSE"
+            android:id="@+id/titleShip"
+            android:text="SHIP"
             android:textColor="@android:color/white"
             android:textAlignment="center"
             android:layout_alignParentLeft="true"
@@ -53,7 +53,7 @@
                                             android:id="@+id/universe_recycler"
                                             android:layout_alignParentBottom="true"
                                             android:layout_marginBottom="45dp"
-                                            android:layout_below="@+id/titleUniverse"
+                                            android:layout_below="@+id/titleShip"
     >
 
     </android.support.v7.widget.RecyclerView>
