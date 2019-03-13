@@ -12,7 +12,7 @@ class ModelFacade private constructor() {
      * Companion object for the model facade
      */
     companion object {
-        var modelFac : ModelFacade = ModelFacade()
+        var modelFac: ModelFacade = ModelFacade()
         lateinit var newGame: Game
 
         fun getInstance(): ModelFacade {
@@ -40,23 +40,23 @@ class ModelFacade private constructor() {
      * Getter for the universe map
      * @return the map of the universe
      */
-    fun getUniverseArray() : ArrayList<SolarSystem> {
+    fun getUniverseArray(): ArrayList<SolarSystem> {
         return newGame.getUniverseArray()
     }
 
-    fun getBuyableMarket() : Set<MutableMap.MutableEntry<Products, Int>> {
+    fun getBuyableMarket(): Set<MutableMap.MutableEntry<Products, Int>> {
         return newGame.getBuyableProducts()
     }
 
-    fun getSellableMarket() : Set<MutableMap.MutableEntry<Products, Int>> {
+    fun getSellableMarket(): Set<MutableMap.MutableEntry<Products, Int>> {
         return newGame.getSellableProducts()
     }
 
-    fun getPriceMap() : HashMap<Products, Int> {
+    fun getPriceMap(): HashMap<Products, Int> {
         return newGame.getPriceMap()
     }
 
-    fun getPlayerCredits() : Int {
+    fun getPlayerCredits(): Int {
         return newGame.getPlayerCredits()
     }
 

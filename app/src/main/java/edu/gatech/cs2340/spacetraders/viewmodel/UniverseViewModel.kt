@@ -10,13 +10,13 @@ import edu.gatech.cs2340.spacetraders.model.ModelFacade
  */
 class UniverseViewModel : ViewModel() {
 
-    var modelFacade : ModelFacade = ModelFacade.getInstance()
+    var modelFacade: ModelFacade = ModelFacade.getInstance()
 
     /**
      * Populate the universe view using the universe map
      * @return the map of the universe
      */
-    fun populateUniverseView() : ArrayList<SolarSystem> {
+    fun populateUniverseView(): ArrayList<SolarSystem> {
         return modelFacade.getUniverseArray()
     }
 

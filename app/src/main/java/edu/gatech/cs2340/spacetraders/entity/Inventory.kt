@@ -5,7 +5,7 @@ package edu.gatech.cs2340.spacetraders.entity
  */
 class Inventory {
     var productMap: HashMap<Products, Int> = HashMap()
-    var capacity : Int = 0
+    var capacity: Int = 0
 
     /**
      * Adds "quantity" products to Inventory
@@ -54,7 +54,7 @@ class Inventory {
      *
      * @return the total amount of all products in Inventory
      */
-    fun getTotalAmountofProducts() : Int {
+    fun getTotalAmountofProducts(): Int {
         var total = 0
         for (key in productMap.keys) {
             total += this.getAmountOf(key)
@@ -67,11 +67,11 @@ class Inventory {
      *
      * @return a set of all products in Inventory
      */
-    fun getProductSet() : MutableSet<MutableMap.MutableEntry<Products, Int>> {
+    fun getProductSet(): MutableSet<MutableMap.MutableEntry<Products, Int>> {
         return productMap.entries
     }
 
-    override fun toString() : String {
+    override fun toString(): String {
         var returnString = "Inventory: "
         for ((key, value) in productMap) {
             returnString = returnString + "$value ${key.name}, "

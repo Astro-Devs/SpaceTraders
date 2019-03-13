@@ -12,7 +12,7 @@ import edu.gatech.cs2340.spacetraders.model.ModelFacade
  */
 class ConfigViewModel() : ViewModel() {
 
-    var modelFacade : ModelFacade = ModelFacade.getInstance()
+    var modelFacade: ModelFacade = ModelFacade.getInstance()
 
     /**
      *Checks if passed in data is valid and creates a Player and Game instance if so
@@ -25,12 +25,14 @@ class ConfigViewModel() : ViewModel() {
      * @param gameDiff passed in game difficulty enum
      * @return whether the passed in data is valid
      */
-    fun onOk(name : String?, pilotPts : Int, engineerPts : Int, traderPts : Int, fighterPts : Int,
-                     gameDiff : GameDifficulty) : Boolean {
+    fun onOk(
+        name: String?, pilotPts: Int, engineerPts: Int, traderPts: Int, fighterPts: Int,
+        gameDiff: GameDifficulty
+    ): Boolean {
         if (name != null && name.length >= 1 && (pilotPts + engineerPts + traderPts + fighterPts) == 16) {
 
             //call modelFacade functions to create game/player instance
-            var arrSkill : IntArray = intArrayOf(pilotPts, engineerPts, traderPts, fighterPts)
+            var arrSkill: IntArray = intArrayOf(pilotPts, engineerPts, traderPts, fighterPts)
             var player = Player(name, arrSkill)
             modelFacade.createGame(gameDiff, player)
             //

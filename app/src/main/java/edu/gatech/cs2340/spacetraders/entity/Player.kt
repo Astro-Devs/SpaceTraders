@@ -7,10 +7,12 @@ package edu.gatech.cs2340.spacetraders.entity
  * @param credits the money the player has
  * @param ship the player's spaceship to traverse the galaxy
  */
-class Player constructor(val name : String, var skillArr : IntArray, var credits : Int = 10000,
-                         var ship : Ship = Ship()) {
+class Player constructor(
+    val name: String, var skillArr: IntArray, var credits: Int = 10000,
+    var ship: Ship = Ship()
+) {
 
-    var playerInventory : Inventory = Inventory()
+    var playerInventory: Inventory = Inventory()
 
 
     /**
@@ -18,7 +20,7 @@ class Player constructor(val name : String, var skillArr : IntArray, var credits
      *
      * @return the Player's current location
      */
-    fun getLocation() : Coordinates {
+    fun getLocation(): Coordinates {
         return ship.location
     }
 
@@ -27,7 +29,7 @@ class Player constructor(val name : String, var skillArr : IntArray, var credits
      *
      * @return the total amount of all products in Inventory
      */
-    fun getTotalAmountInInventory() : Int {
+    fun getTotalAmountInInventory(): Int {
         return playerInventory.getTotalAmountofProducts()
     }
 
@@ -37,7 +39,7 @@ class Player constructor(val name : String, var skillArr : IntArray, var credits
      * @param product the product to get the amount of from the Inventory
      * @return the amount of the product in the Inventory
      */
-    fun getAmountOf(product : Products) : Int {
+    fun getAmountOf(product: Products): Int {
         return playerInventory.getAmountOf(product)
     }
 
@@ -46,7 +48,7 @@ class Player constructor(val name : String, var skillArr : IntArray, var credits
      *
      * @return the ships cargo capacity
      */
-    fun getShipCargoCapacity() : Int {
+    fun getShipCargoCapacity(): Int {
         return ship.getCargoCapacity()
     }
 
@@ -56,7 +58,7 @@ class Player constructor(val name : String, var skillArr : IntArray, var credits
      * @param product the product to add into Inventory
      * @param quantity the amount of the product to add into Inventory
      */
-    fun addToInventory(product : Products, quantity : Int) {
+    fun addToInventory(product: Products, quantity: Int) {
         playerInventory.add(product, quantity)
     }
 
@@ -66,11 +68,11 @@ class Player constructor(val name : String, var skillArr : IntArray, var credits
      * @param product the product to remove from Inventory
      * @param quantity the amount of the product to remove from Inventory
      */
-    fun removeFromInventory(product : Products, quantity: Int) {
+    fun removeFromInventory(product: Products, quantity: Int) {
         playerInventory.remove(product, quantity)
     }
 
-    fun getInventoryMap() : Map<Products, Int> {
+    fun getInventoryMap(): Map<Products, Int> {
         return playerInventory.productMap
     }
 

@@ -20,7 +20,7 @@ enum class TechLevels(val level: Int) {
      * in order to access the ordinal values as an array
      */
     companion object Levels {
-        val levels : Array<TechLevels> = TechLevels.values()
+        val levels: Array<TechLevels> = TechLevels.values()
     }
 
 }

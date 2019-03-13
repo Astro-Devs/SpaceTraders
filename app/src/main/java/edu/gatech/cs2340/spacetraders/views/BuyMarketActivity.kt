@@ -15,11 +15,11 @@ import edu.gatech.cs2340.spacetraders.viewmodel.InventoryViewModel
  */
 class BuyMarketActivity : AppCompatActivity() {
 
-    private lateinit var viewModel : InventoryViewModel
+    private lateinit var viewModel: InventoryViewModel
     private lateinit var productBuySet: Set<MutableMap.MutableEntry<Products, Int>>
     private lateinit var productPrice: HashMap<Products, Int>
     private lateinit var recycler: RecyclerView
-    private lateinit var creditsDisplay : TextView
+    private lateinit var creditsDisplay: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

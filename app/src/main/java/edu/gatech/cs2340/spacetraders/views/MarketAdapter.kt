@@ -17,7 +17,7 @@ import java.lang.Exception
 
 class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 
-    class MarketViewHolder: RecyclerView.ViewHolder {
+    class MarketViewHolder : RecyclerView.ViewHolder {
 
         var cv: CardView
         var name: TextView
@@ -25,7 +25,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
         var number: TextView
         var transactionButton: Button
 
-        constructor(itemView: View): super(itemView) {
+        constructor(itemView: View) : super(itemView) {
             cv = itemView.findViewById(R.id.market_card)
             name = itemView.findViewById(R.id.productName)
             price = itemView.findViewById(R.id.productPrice)
@@ -41,12 +41,14 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
     private var creditsDisplay: TextView
     private var contextSub: Context
 
-    constructor(productMap: Set<MutableMap.MutableEntry<Products, Int>>,
-                priceMap: HashMap<Products, Int>,
-                isBuyable: Boolean,
-                viewModel: InventoryViewModel,
-                creditsDisplay : TextView,
-                contextSub: Context): super() {
+    constructor(
+        productMap: Set<MutableMap.MutableEntry<Products, Int>>,
+        priceMap: HashMap<Products, Int>,
+        isBuyable: Boolean,
+        viewModel: InventoryViewModel,
+        creditsDisplay: TextView,
+        contextSub: Context
+    ) : super() {
         this.productSet = productMap
         this.priceMap = priceMap
         this.isBuyable = isBuyable
@@ -77,7 +79,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 
         if (isBuyable) {
             marketViewHolder.transactionButton.setText("Buy")
-            marketViewHolder.transactionButton.setOnClickListener(object: View.OnClickListener {
+            marketViewHolder.transactionButton.setOnClickListener(object : View.OnClickListener {
                 override fun onClick(view: View): Unit {
                     try {
                         if (viewModel.getPlayerCreds() < priceMap.get(productSet.elementAt(i).key) as Int) {
@@ -97,7 +99,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
             })
         } else {
             marketViewHolder.transactionButton.setText("Sell")
-            marketViewHolder.transactionButton.setOnClickListener(object: View.OnClickListener {
+            marketViewHolder.transactionButton.setOnClickListener(object : View.OnClickListener {
                 override fun onClick(view: View): Unit {
                     try {
                         viewModel.sell(productSet.elementAt(i).key, 1)
