@@ -20,6 +20,11 @@ enum class Products(
     val IPL: Int, val Var: Int, val RE: RandomEvent, val CR: Resources, val ER: Resources,
     val MTL: Int, val MTH: Int
 ) {
+    FUEL(
+        TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.INDUSTRIAL, 100,
+        20, 10, RandomEvent.WAR, Resources.MINERALRICH, Resources.MINERALPOOR,
+        150, 200
+    ),
     WATER(
         TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.MEDIEVAL, 30,
         3, 4, RandomEvent.NOEVENT, Resources.LOTSOFWATER, Resources.DESERT,

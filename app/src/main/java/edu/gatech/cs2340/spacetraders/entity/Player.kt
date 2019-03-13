@@ -12,7 +12,12 @@ class Player constructor(
     var ship: Ship = Ship()
 ) {
 
-    var playerInventory: Inventory = Inventory()
+    var playerInventory: Inventory
+
+    init {
+        playerInventory = Inventory()
+        this.addToInventory(Products.FUEL, 25)
+    }
 
 
     /**
