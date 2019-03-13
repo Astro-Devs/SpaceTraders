@@ -13,20 +13,22 @@ import kotlin.random.Random
  * @param resources the Resources level of the current Solar System the player is located in
  * @param randomEvent the randomEvent that is currently occurring in the Solar System
  */
-class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, var resources : Resources,
-                  var randomEvent : RandomEvent = RandomEvent.NOEVENT) {
+class MarketPlace(
+    var planetInventory: Inventory, var techLevel: TechLevels, var resources: Resources,
+    var randomEvent: RandomEvent = RandomEvent.NOEVENT
+) {
 
-    var productArray : Array<Products> = Products.values()
-    var priceMap : HashMap<Products, Int> = HashMap()
+    var productArray: Array<Products> = Products.values()
+    var priceMap: HashMap<Products, Int> = HashMap()
 
     /**
      * Stocks the current Solar System's Inventory with products based on the current Solar System's tech level and resource level
      */
     fun stockInventory() {
-        val initialStockAmount : Int = this.getTotalAmountOfBuyableProducts()
-        for (currentProduct : Products in productArray) {
+        val initialStockAmount: Int = this.getTotalAmountOfBuyableProducts()
+        for (currentProduct: Products in productArray) {
             if (techLevel.level >= currentProduct.MTLP.level) {
-                if (initialStockAmount <= planetInventory.capacity/2) {
+                if (initialStockAmount <= planetInventory.capacity / 2) {
                     if (techLevel.equals(currentProduct.TTP)) {
                         planetInventory.add(currentProduct, Random.nextInt(6, 10))
                     } else {
@@ -50,9 +52,10 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
      *
      * @param player the player of the current game instance
      */
-    fun initializePrices(player : Player) {
-        val buyableSet : MutableSet<MutableMap.MutableEntry<Products, Int>> = this.getBuyableProducts()
-        val sellableSet : MutableSet<MutableMap.MutableEntry<Products, Int>> = this.getSellableProducts(player.playerInventory)
+    fun initializePrices(player: Player) {
+        val buyableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = this.getBuyableProducts()
+        val sellableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> =
+            this.getSellableProducts(player.playerInventory)
         for (entry in buyableSet) {
             priceMap[entry.key] = this.calculatePrice(entry.key)
         }
@@ -68,8 +71,8 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
      * @return a set of entries, where each entry is a (product, quantity) pair that corresponds to a buyable product
      * and its inventory quantity
      */
-    fun getBuyableProducts() : MutableSet<MutableMap.MutableEntry<Products, Int>> {
-        var buyableSet : MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
+    fun getBuyableProducts(): MutableSet<MutableMap.MutableEntry<Products, Int>> {
+        var buyableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
         for (entry in buyableSet) {
             if (techLevel.level < entry.key.MTLP.level) {
                 buyableSet.remove(entry)
@@ -85,8 +88,8 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
      * @return a set of entries, where each entry is a (product, quantity) pair that corresponds to a sellable product
      * and its inventory quantity
      */
-    fun getSellableProducts(playerInventory : Inventory) : MutableSet<MutableMap.MutableEntry<Products, Int>> {
-        var sellableSet : MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
+    fun getSellableProducts(playerInventory: Inventory): MutableSet<MutableMap.MutableEntry<Products, Int>> {
+        var sellableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
         for (entry in sellableSet) {
             if (techLevel.level < entry.key.MTLU.level) {
                 sellableSet.remove(entry)
@@ -100,8 +103,8 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
      *
      * @return the total amount of products you can buy from the Solar System
      */
-    fun getTotalAmountOfBuyableProducts() : Int {
-        val buyableSet : Set<MutableMap.MutableEntry<Products, Int>> = this.getBuyableProducts()
+    fun getTotalAmountOfBuyableProducts(): Int {
+        val buyableSet: Set<MutableMap.MutableEntry<Products, Int>> = this.getBuyableProducts()
         return buyableSet.size
     }
 
@@ -112,11 +115,11 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
      * @param product the product to calculate the price for
      * @return the price of the product
      */
-    fun calculatePrice(product : Products) : Int {
-        val base : Int = product.BASEPRICE
-        val IPL : Int = product.IPL
-        val levelDifference : Int = techLevel.level - product.MTLP.level
-        val variance : Int = Random.nextInt(-1 * product.Var, product.Var + 1)
+    fun calculatePrice(product: Products): Int {
+        val base: Int = product.BASEPRICE
+        val IPL: Int = product.IPL
+        val levelDifference: Int = techLevel.level - product.MTLP.level
+        val variance: Int = Random.nextInt(-1 * product.Var, product.Var + 1)
         var randomEventMutliplier = 1.0f
         var crMultiplier = 1.0f
         var erMultiplier = 1.0f
@@ -133,7 +136,8 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
             erMultiplier = 1.25f
         }
 
-        val result : Float = (base + (IPL * levelDifference) + variance) * randomEventMutliplier * crMultiplier * erMultiplier
+        val result: Float =
+            (base + (IPL * levelDifference) + variance) * randomEventMutliplier * crMultiplier * erMultiplier
 
         return result.roundToInt()
     }
@@ -146,10 +150,10 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
      * @param quantity the amount of the product the player is buying
      * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough cargo capacity", 2 = "Not enough credits"
      */
-    fun buy(player : Player, product : Products, quantity : Int) : Int {
+    fun buy(player: Player, product: Products, quantity: Int): Int {
         if (player.getTotalAmountInInventory() + quantity > player.getShipCargoCapacity()) {
             Log.d("Cargo", "cargo is full cannot buy more items")
-            return  1// May throw an exception or return an Int to indicate not enough cargo capacity
+            return 1// May throw an exception or return an Int to indicate not enough cargo capacity
         } else {
             if (player.credits - (priceMap[product]!! * quantity) < 0) {
                 Log.d("Invalid credits", "not enough credits to buy item " + player.credits)
@@ -172,7 +176,7 @@ class MarketPlace(var planetInventory : Inventory, var techLevel : TechLevels, v
      * @param quantity the amount of the product the player is selling
      * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough of the product owned"
      */
-    fun sell(player : Player, product : Products, quantity: Int) : Int {
+    fun sell(player: Player, product: Products, quantity: Int): Int {
         if ((player.getAmountOf(product) - quantity) < 0) {
             return 1// May throw an exception or return an Int/Boolean to indicate the player is selling more than they own
         } else {

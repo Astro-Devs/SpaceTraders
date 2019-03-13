@@ -16,14 +16,14 @@ import edu.gatech.cs2340.spacetraders.viewmodel.ConfigViewModel
  * attributes to create a customized game
  */
 class ConfigurationActivity : AppCompatActivity() {
-    private lateinit var viewModel : ConfigViewModel
+    private lateinit var viewModel: ConfigViewModel
 
-    private lateinit var nameField : EditText
-    private lateinit var diffSpinner : Spinner
-    private lateinit var pilotField : EditText
-    private lateinit var fighterField : EditText
-    private lateinit var traderField : EditText
-    private lateinit var engineerField : EditText
+    private lateinit var nameField: EditText
+    private lateinit var diffSpinner: Spinner
+    private lateinit var pilotField: EditText
+    private lateinit var fighterField: EditText
+    private lateinit var traderField: EditText
+    private lateinit var engineerField: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,15 +54,15 @@ class ConfigurationActivity : AppCompatActivity() {
      * @param view the button that was pressed
      */
     fun onDonePressed(view: View) {
-        var name : String? = nameField.getText().toString()
-        var pilotPts : Int = Integer.parseInt(pilotField.getText().toString())
-        var engineerPts : Int = Integer.parseInt(engineerField.getText().toString())
-        var traderPts : Int =  Integer.parseInt(traderField.getText().toString())
-        var fighterPts : Int = Integer.parseInt(fighterField.getText().toString())
-        var gameDiff : GameDifficulty = diffSpinner.getSelectedItem() as GameDifficulty
+        var name: String? = nameField.getText().toString()
+        var pilotPts: Int = Integer.parseInt(pilotField.getText().toString())
+        var engineerPts: Int = Integer.parseInt(engineerField.getText().toString())
+        var traderPts: Int = Integer.parseInt(traderField.getText().toString())
+        var fighterPts: Int = Integer.parseInt(fighterField.getText().toString())
+        var gameDiff: GameDifficulty = diffSpinner.getSelectedItem() as GameDifficulty
 
-        var isValid : Boolean = viewModel.onOk(name, pilotPts , engineerPts, traderPts, fighterPts, gameDiff)
-        if(!isValid) {
+        var isValid: Boolean = viewModel.onOk(name, pilotPts, engineerPts, traderPts, fighterPts, gameDiff)
+        if (!isValid) {
             Toast.makeText(this, "Invalid attributes", Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(this, "New player created!", Toast.LENGTH_LONG).show()

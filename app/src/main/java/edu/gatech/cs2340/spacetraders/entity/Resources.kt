@@ -25,6 +25,6 @@ enum class Resources(val level: Int) {
      * in order to access the ordinal values as an array
      */
     companion object ResourceLevel {
-        val resourceLevel : Array<Resources> = Resources.values()
+        val resourceLevel: Array<Resources> = Resources.values()
     }
 }

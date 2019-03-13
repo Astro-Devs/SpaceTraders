@@ -20,9 +20,9 @@ import edu.gatech.cs2340.spacetraders.viewmodel.UniverseViewModel
 class UniverseActivity : AppCompatActivity() {
 
     private lateinit var planetArray: ArrayList<SolarSystem>
-    private lateinit var buyMarketButton : Button
-    private lateinit var sellMarketButton : Button
-    private lateinit var viewModel : UniverseViewModel
+    private lateinit var buyMarketButton: Button
+    private lateinit var sellMarketButton: Button
+    private lateinit var viewModel: UniverseViewModel
     private lateinit var recycler: RecyclerView
     private lateinit var mediaPlayer: MediaPlayer
 
@@ -47,7 +47,7 @@ class UniverseActivity : AppCompatActivity() {
 
         buyMarketButton = findViewById(R.id.buyMarketButton)
 
-        buyMarketButton.setOnClickListener(object: View.OnClickListener {
+        buyMarketButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View): Unit {
                 val inventoryIntent = Intent(applicationContext, BuyMarketActivity::class.java)
                 startActivityForResult(inventoryIntent, 0)
@@ -56,7 +56,7 @@ class UniverseActivity : AppCompatActivity() {
 
         sellMarketButton = findViewById(R.id.sellMarketButton)
 
-        sellMarketButton.setOnClickListener(object: View.OnClickListener {
+        sellMarketButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View): Unit {
                 val inventoryIntent = Intent(applicationContext, SellMarketActivity::class.java)
                 startActivityForResult(inventoryIntent, 0)

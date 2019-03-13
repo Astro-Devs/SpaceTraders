@@ -13,7 +13,7 @@ import java.util.*
 
 class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
 
-    class UniViewHolder: RecyclerView.ViewHolder {
+    class UniViewHolder : RecyclerView.ViewHolder {
 
         var cv: CardView
         var name: TextView
@@ -22,7 +22,7 @@ class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
         var techlev: TextView
         var location: TextView
 
-        constructor(itemView: View): super(itemView) {
+        constructor(itemView: View) : super(itemView) {
             cv = itemView.findViewById(R.id.uni_card)
             name = itemView.findViewById(R.id.planetName)
             img = itemView.findViewById(R.id.planetIMG)
@@ -35,7 +35,7 @@ class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
     private var solarList: List<SolarSystem>
     private var imgList = ArrayList<Int>()
 
-    constructor(solarList: List<SolarSystem>): super() {
+    constructor(solarList: List<SolarSystem>) : super() {
         this.solarList = solarList
         populatePlanetImages()
     }

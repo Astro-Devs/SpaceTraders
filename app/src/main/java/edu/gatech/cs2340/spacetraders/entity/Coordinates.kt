@@ -5,7 +5,7 @@ package edu.gatech.cs2340.spacetraders.entity
  * @param xPosition the x position of the given planet
  * @param yPosition the y position of the given planet
  */
-class Coordinates(xPosition : Int, yPosition : Int) {
+class Coordinates(xPosition: Int, yPosition: Int) {
     /**
      * Point inner class that represents the actual point of a planet
      * @param pointA the first point of the planet
@@ -16,8 +16,8 @@ class Coordinates(xPosition : Int, yPosition : Int) {
 //        val pointB = pointB
 //    }
 
-    val xPositionLocal : Int = xPosition
-    val yPositionLocal : Int = yPosition
+    val xPositionLocal: Int = xPosition
+    val yPositionLocal: Int = yPosition
 
     override fun hashCode(): Int {
         return 3697 * xPositionLocal + 1229 * yPositionLocal

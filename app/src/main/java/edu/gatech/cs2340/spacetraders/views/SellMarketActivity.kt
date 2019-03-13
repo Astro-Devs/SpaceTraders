@@ -15,7 +15,7 @@ import edu.gatech.cs2340.spacetraders.viewmodel.InventoryViewModel
  */
 class SellMarketActivity : AppCompatActivity() {
 
-    private lateinit var viewModel : InventoryViewModel
+    private lateinit var viewModel: InventoryViewModel
     private lateinit var productSellSet: Set<MutableMap.MutableEntry<Products, Int>>
     private lateinit var productPrice: HashMap<Products, Int>
     private lateinit var recycler: RecyclerView

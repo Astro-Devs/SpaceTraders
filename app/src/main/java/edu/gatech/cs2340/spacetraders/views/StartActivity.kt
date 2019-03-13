@@ -13,7 +13,7 @@ import edu.gatech.cs2340.spacetraders.R
  */
 class StartActivity : AppCompatActivity() {
 
-    companion object MediaPlayerObj{
+    companion object MediaPlayerObj {
         var keepPlaying: Boolean = false
     }
 
@@ -50,7 +50,7 @@ class StartActivity : AppCompatActivity() {
      * Handle the functionality of the "new game" button
      * @param view the view to prevent the app from crashing
      */
-    fun onNewGamePressed(view : View) {
+    fun onNewGamePressed(view: View) {
         keepPlaying = true
         val configIntent = Intent(applicationContext, ConfigurationActivity::class.java)
         startActivityForResult(configIntent, 0)

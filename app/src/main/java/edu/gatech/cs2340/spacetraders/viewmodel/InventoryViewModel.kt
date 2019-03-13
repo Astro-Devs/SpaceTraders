@@ -9,21 +9,21 @@ import edu.gatech.cs2340.spacetraders.model.ModelFacade
  */
 class InventoryViewModel : ViewModel() {
 
-    var modelFacade : ModelFacade = ModelFacade.getInstance()
+    var modelFacade: ModelFacade = ModelFacade.getInstance()
 
     /**
      * Populate the inventory view using the inventory map
      * @return the inventory of the player
      */
-    fun getBuyableMarket() : Set<MutableMap.MutableEntry<Products, Int>>  {
+    fun getBuyableMarket(): Set<MutableMap.MutableEntry<Products, Int>> {
         return modelFacade.getBuyableMarket()
     }
 
-    fun getSellableMarket() : Set<MutableMap.MutableEntry<Products, Int>>  {
+    fun getSellableMarket(): Set<MutableMap.MutableEntry<Products, Int>> {
         return modelFacade.getSellableMarket()
     }
 
-    fun getPriceMap() : HashMap<Products, Int> {
+    fun getPriceMap(): HashMap<Products, Int> {
         return modelFacade.getPriceMap()
     }
 

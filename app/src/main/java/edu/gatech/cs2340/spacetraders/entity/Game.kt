@@ -7,11 +7,11 @@ import android.util.Log
  * @param difficulty the game difficulty to play on
  * @param player the instance of the player that represents the user
  */
-class Game(difficulty: GameDifficulty, player: Player){
+class Game(difficulty: GameDifficulty, player: Player) {
     private val player = player
     private val difficulty = difficulty
-    private var universe : Universe = Universe()
-    private lateinit var marketPlace : MarketPlace
+    private var universe: Universe = Universe()
+    private lateinit var marketPlace: MarketPlace
 
     /**
      * Randomly select names, tech levels, resource levels, and coordinates,
@@ -27,7 +27,7 @@ class Game(difficulty: GameDifficulty, player: Player){
      *
      * @return the map of the universe
      */
-    fun getUniverseArray() : ArrayList<SolarSystem> {
+    fun getUniverseArray(): ArrayList<SolarSystem> {
         return universe.getPlanetArray()
     }
 
@@ -38,10 +38,10 @@ class Game(difficulty: GameDifficulty, player: Player){
      * Solar System's parameters
      */
     fun initializeMarketPlace() {
-        val playerLocation : Coordinates = player.getLocation()
-        val currentPlanetInventory : Inventory = universe.getPlanetInventory(playerLocation)
-        val currentPlanetTechLevel : TechLevels = universe.getPlanetTechLevel(playerLocation)
-        val currentPlanetResources : Resources = universe.getPlanetResources(playerLocation)
+        val playerLocation: Coordinates = player.getLocation()
+        val currentPlanetInventory: Inventory = universe.getPlanetInventory(playerLocation)
+        val currentPlanetTechLevel: TechLevels = universe.getPlanetTechLevel(playerLocation)
+        val currentPlanetResources: Resources = universe.getPlanetResources(playerLocation)
         marketPlace = MarketPlace(currentPlanetInventory, currentPlanetTechLevel, currentPlanetResources)
 
         marketPlace.stockInventory()
@@ -70,7 +70,7 @@ class Game(difficulty: GameDifficulty, player: Player){
      * @return a set of entries, where each entry is a (product, quantity) pair that corresponds to a buyable product
      * and its inventory quantity
      */
-    fun getBuyableProducts() : MutableSet<MutableMap.MutableEntry<Products, Int>> {
+    fun getBuyableProducts(): MutableSet<MutableMap.MutableEntry<Products, Int>> {
         return marketPlace.getBuyableProducts()
     }
 
@@ -81,7 +81,7 @@ class Game(difficulty: GameDifficulty, player: Player){
      * @return a set of entries, where each entry is a (product, quantity) pair that corresponds to a sellable product
      * and its inventory quantity
      */
-    fun getSellableProducts() : MutableSet<MutableMap.MutableEntry<Products, Int>> {
+    fun getSellableProducts(): MutableSet<MutableMap.MutableEntry<Products, Int>> {
         return marketPlace.getSellableProducts(player.playerInventory)
     }
 
@@ -92,7 +92,7 @@ class Game(difficulty: GameDifficulty, player: Player){
      *
      * @return the priceMap corresponding to the current marketPlace
      */
-    fun getPriceMap() : HashMap<Products, Int> {
+    fun getPriceMap(): HashMap<Products, Int> {
         return marketPlace.priceMap
     }
 
@@ -104,7 +104,7 @@ class Game(difficulty: GameDifficulty, player: Player){
      * @param quantity the amount of the product the player is buying
      * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough cargo capacity", 2 = "Not enough credits"
      */
-    fun buy(player : Player, product : Products, quantity : Int) : Int {
+    fun buy(player: Player, product: Products, quantity: Int): Int {
         return marketPlace.buy(player, product, quantity)
     }
 
@@ -116,11 +116,11 @@ class Game(difficulty: GameDifficulty, player: Player){
      * @param quantity the amount of the product the player is selling
      * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough of the product owned"
      */
-    fun sell(player : Player, product : Products, quantity : Int) : Int {
+    fun sell(player: Player, product: Products, quantity: Int): Int {
         return marketPlace.sell(player, product, quantity)
     }
 
-    fun getPlayerInventory() : Map<Products, Int> {
+    fun getPlayerInventory(): Map<Products, Int> {
         return player.getInventoryMap()
     }
 
