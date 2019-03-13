@@ -44,6 +44,10 @@ class ModelFacade private constructor() {
         return newGame.getUniverseArray()
     }
 
+    fun getTravelList(): ArrayList<SolarSystem> {
+        return newGame.listTravelPlanets()
+    }
+
     fun getBuyableMarket(): Set<MutableMap.MutableEntry<Products, Int>> {
         return newGame.getBuyableProducts()
     }

@@ -52,6 +52,10 @@ class Player constructor(
         return ship.getCargoCapacity()
     }
 
+    fun getShipFuel(): Int {
+        return ship.getShipFuel()
+    }
+
     /**
      * Adds "quantity" products to player's Inventory
      *
