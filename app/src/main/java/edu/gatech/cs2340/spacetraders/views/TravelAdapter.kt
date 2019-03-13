@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
-import java.util.*
+import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
 
 class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
 
@@ -33,11 +33,10 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
     }
 
     private var solarList: List<SolarSystem>
-    private var imgList = ArrayList<Int>()
 
     constructor(solarList: List<SolarSystem>) : super() {
         this.solarList = solarList
-        populatePlanetImages()
+        ImageList.populatePlanetImages()
     }
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
@@ -59,30 +58,8 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
         uniViewHolder.location.setText("(${solarList.get(i).location.xPositionLocal}, ${solarList.get(i).location.yPositionLocal})")
         uniViewHolder.res.setText(solarList.get(i).resources.toString())
         uniViewHolder.techlev.setText(solarList.get(i).techLevel.toString())
-        uniViewHolder.img.setImageResource(imgList.get(i))
+        uniViewHolder.img.setImageResource(ImageList.imageList.get(i))
     }
 
-    fun populatePlanetImages() {
-        imgList.add(R.drawable.planet1)
-        imgList.add(R.drawable.planet2)
-        imgList.add(R.drawable.planet3)
-        imgList.add(R.drawable.planet4)
-        imgList.add(R.drawable.planet5)
-        imgList.add(R.drawable.planet6)
-        imgList.add(R.drawable.planet7)
-        imgList.add(R.drawable.planet8)
-        imgList.add(R.drawable.planet9)
-        imgList.add(R.drawable.planet10)
-        imgList.add(R.drawable.planet11)
-        imgList.add(R.drawable.planet12)
-        imgList.add(R.drawable.planet13)
-        imgList.add(R.drawable.planet14)
-        imgList.add(R.drawable.planet15)
-        imgList.add(R.drawable.planet16)
-        imgList.add(R.drawable.planet17)
-        imgList.add(R.drawable.planet18)
-        imgList.add(R.drawable.planet19)
-        imgList.add(R.drawable.planet20)
-        Collections.shuffle(imgList)
-    }
+
 }
