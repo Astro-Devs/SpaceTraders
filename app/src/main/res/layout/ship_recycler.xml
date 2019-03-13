@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/universebackground"
+>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleUniverse"
+            android:text="UNIVERSE"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="14dp"
+            android:textSize="32dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/orbitron"
+            android:layout_alignParentTop="true" android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"/>
+
+    <FrameLayout
+            android:layout_width="173dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="53dp"
+            android:layout_marginStart="53dp" android:layout_alignParentEnd="true" android:layout_marginEnd="0dp"
+            android:layout_marginTop="0dp" android:layout_alignParentTop="true"
+            android:layout_marginBottom="8dp">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:src="@drawable/tokenblock"
+                android:id="@+id/tokenImg"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:textSize="19dp"
+                android:textColor="#FFFFFF"
+                android:text="1000"
+                android:fontFamily="@font/orbitron"
+                android:id="@+id/creditsText"
+                android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
+    </FrameLayout>
+
+
+    <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:id="@+id/universe_recycler"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_marginBottom="45dp"
+                                            android:layout_below="@+id/titleUniverse"
+    >
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <Button android:layout_width="205dp"
+            android:layout_height="43dp"
+            android:text="Buy from market"
+            android:fontFamily="@font/orbitron"
+            android:id="@+id/buyMarketButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp" android:textStyle="bold" android:background="@drawable/done_button_background"
+            android:textColor="#FFFFFF"/>
+
+    <Button
+            android:layout_width="198dp"
+            android:layout_height="43dp"
+            android:id="@+id/sellMarketButton"
+            android:fontFamily="@font/orbitron"
+            android:text="Sell to market"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:textSize="15sp" android:textStyle="bold" android:background="@drawable/done_button_background"
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="0dp"/>
+
+</RelativeLayout>
