@@ -13,17 +13,25 @@ class UniverseViewModel : ViewModel() {
     var modelFacade: ModelFacade = ModelFacade.getInstance()
 
     /**
-     * Populate the universe view using the universe map
-     * @return the map of the universe
+     * Provide the universe view with the universe array list
+     * @return the array list of the universe
      */
     fun populateUniverseView(): ArrayList<SolarSystem> {
         return modelFacade.getUniverseArray()
     }
 
+    /**
+     * Provide the travel view with the travelable planets array list
+     * @return the array list of the planets that can be travelled to
+     */
     fun populateTravelView(): ArrayList<SolarSystem> {
         return modelFacade.getTravelList()
     }
 
+    /**
+     * Provide the view with the player's credit balance
+     * @return number of credits that the player has
+     */
     fun getPlayerCreds(): Int {
         return modelFacade.getPlayerCredits()
     }
