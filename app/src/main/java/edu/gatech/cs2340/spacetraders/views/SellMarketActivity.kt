@@ -11,7 +11,7 @@ import edu.gatech.cs2340.spacetraders.entity.Products
 import edu.gatech.cs2340.spacetraders.viewmodel.InventoryViewModel
 
 /**
- * The Universe Activity View class that displays the universe and its planets.
+ * The Sellable Activity View class that displays the universe and its planets.
  */
 class SellMarketActivity : AppCompatActivity() {
 
@@ -46,7 +46,7 @@ class SellMarketActivity : AppCompatActivity() {
     }
 
     /**
-     * Populate the view with data about each planet in the universe.
+     * Populate the view with data about product and its price and quantity
      */
     fun populateMarketData() {
         var adapter = MarketAdapter(productSellSet, productPrice, false, viewModel, creditsDisplay, this)
