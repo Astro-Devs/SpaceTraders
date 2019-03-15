@@ -29,6 +29,10 @@ class Player constructor(
         return ship.location
     }
 
+    fun setLocaction(newCoords: Coordinates) {
+        ship.location = newCoords
+    }
+
     /**
      * Getter for the total amount of all products in Inventory
      *
@@ -64,6 +68,10 @@ class Player constructor(
      */
     fun getShipFuel(): Int {
         return ship.getShipFuel()
+    }
+
+    fun subtractFuel(fuelTraveled: Int) {
+        ship.fuel -= fuelTraveled
     }
 
     /**

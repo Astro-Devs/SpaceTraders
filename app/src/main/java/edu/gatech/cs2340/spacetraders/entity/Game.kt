@@ -179,4 +179,18 @@ class Game(difficulty: GameDifficulty, player: Player) {
         return travelList
     }
 
+    fun travel(destination: Coordinates): Boolean {
+        var fuelToUse = Math.floor((universe.distance(player.getLocation(), destination))).toInt()
+        if (fuelToUse > player.getShipFuel()) {
+            Log.d("fuel", "not enough fuel to travel")
+            return false
+        } else {
+            player.setLocaction(destination)
+            player.subtractFuel(fuelToUse)
+            Log.d("travel", "traveled to: " + destination + " Fuel left: " + player.getShipFuel())
+            initializeMarketPlace()
+            return true
+        }
+    }
+
 }

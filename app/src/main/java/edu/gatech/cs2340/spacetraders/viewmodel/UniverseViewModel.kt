@@ -35,4 +35,8 @@ class UniverseViewModel : ViewModel() {
     fun getPlayerCreds(): Int {
         return modelFacade.getPlayerCredits()
     }
+
+    fun travel(destination: Coordinates): Boolean {
+        return modelFacade.travel(destination)
+    }
 }

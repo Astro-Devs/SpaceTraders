@@ -115,4 +115,8 @@ class ModelFacade private constructor() {
     fun buy(products: Products, quantity: Int): Int {
         return newGame.buy(newGame.getPlayer(), products, quantity)
     }
+
+    fun travel(destination: Coordinates): Boolean {
+        return newGame.travel(destination)
+    }
 }
