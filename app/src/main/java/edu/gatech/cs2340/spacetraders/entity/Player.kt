@@ -57,6 +57,11 @@ class Player constructor(
         return ship.getCargoCapacity()
     }
 
+    /**
+     * Getter for current fuel of ship
+     *
+     * @return fuel left in ship
+     */
     fun getShipFuel(): Int {
         return ship.getShipFuel()
     }
@@ -81,6 +86,12 @@ class Player constructor(
         playerInventory.remove(product, quantity)
     }
 
+    /**
+     * Getter for the player map, which holds a product and the amount of
+     * that product present in the cargo
+     *
+     * @return map of player inventory
+     */
     fun getInventoryMap(): Map<Products, Int> {
         return playerInventory.productMap
     }

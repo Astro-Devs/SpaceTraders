@@ -19,6 +19,10 @@ class InventoryViewModel : ViewModel() {
         return modelFacade.getBuyableMarket()
     }
 
+    /**
+     * populate sellable market of 
+     *
+     */
     fun getSellableMarket(): Set<MutableMap.MutableEntry<Products, Int>> {
         return modelFacade.getSellableMarket()
     }

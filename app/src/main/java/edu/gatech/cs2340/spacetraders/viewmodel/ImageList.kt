@@ -3,6 +3,10 @@ package edu.gatech.cs2340.spacetraders.viewmodel
 import edu.gatech.cs2340.spacetraders.R
 import java.util.*
 
+/**
+ * Class which holds all the images of the planets which are used to populate the recycler view of the universe
+ *
+ */
 class ImageList {
     companion object {
         var imageList = ArrayList<Int>()

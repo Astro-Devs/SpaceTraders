@@ -214,7 +214,12 @@ class Universe {
         return map[coordinates]!!.planetInventory
     }
 
-
+    /**
+     * Takes in the existing planet map and puts all the planets in order, based on their distance from
+     * home (50, 50) and then places them in an ArrayList
+     *
+     * @return ArrayList of sorted planets
+     */
     fun getPlanetArray(): ArrayList<SolarSystem> {
         var values: Collection<SolarSystem> = map.values
         var unsorted: ArrayList<SolarSystem> = ArrayList(values)
@@ -230,8 +235,6 @@ class Universe {
         }
         return sorted
     }
-
-
 
 
 

@@ -18,6 +18,11 @@ class Ship(var location: Coordinates = Coordinates(50, 50), var fuel: Int = 35, 
         return shipType.cargoCapacity
     }
 
+    /**
+     * Getter for ship's current fuel
+     *
+     *@return amount of fuel
+     */
     fun getShipFuel(): Int {
         return fuel
     }

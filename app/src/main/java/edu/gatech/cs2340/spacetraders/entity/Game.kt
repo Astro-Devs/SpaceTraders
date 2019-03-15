@@ -120,6 +120,12 @@ class Game(difficulty: GameDifficulty, player: Player) {
         return marketPlace.sell(player, product, quantity)
     }
 
+    /**
+     * Getter to get map of current player inventory - the map's key is a product and it returns the number of that
+     * product as the value
+     *
+     * @return map of inventory
+     */
     fun getPlayerInventory(): Map<Products, Int> {
         return player.getInventoryMap()
     }
@@ -128,18 +134,40 @@ class Game(difficulty: GameDifficulty, player: Player) {
         return "Game with difficulty: $difficulty, " + player.toString()
     }
 
+    /**
+     * Getter for credits of player
+     *
+     * @return credits of player
+     */
     fun getPlayerCredits(): Int {
         return player.credits
     }
 
+    /**
+     * Getter for player object
+     *
+     * @return
+     */
     fun getPlayer(): Player {
         return player
     }
 
+    /**
+     * checks to see if ship cargo is full - used to see if player can buy more objects
+     *
+     * @return boolean value for if cargo is full
+     */
     fun isCargoFull(quantity: Int): Boolean {
         return player.getTotalAmountInInventory() + quantity > player.getShipCargoCapacity()
     }
 
+    /**
+     * Takes in a list of all planets, sorted by distance from current location
+     * and creates a new ArrayList which has only the planets the player can
+     * travel to based on current fuel
+     *
+     * @return sorted list of travelable planets
+     */
     fun listTravelPlanets(): ArrayList<SolarSystem> {
         var fullList: ArrayList<SolarSystem> = universe.getPlanetArray()
         var travelList: ArrayList<SolarSystem> = ArrayList()

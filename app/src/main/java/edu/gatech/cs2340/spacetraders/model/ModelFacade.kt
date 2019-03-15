@@ -44,34 +44,74 @@ class ModelFacade private constructor() {
         return newGame.getUniverseArray()
     }
 
+    /**
+     * Getter for list of travelable planets
+     *
+     * @return ArrayList of travelable planets
+     */
     fun getTravelList(): ArrayList<SolarSystem> {
         return newGame.listTravelPlanets()
     }
 
+    /**
+     * Getter for "buying" market
+     *
+     * @return Set holding elements of the buyable map (map takes in products as key and has number of that product as value)
+     */
     fun getBuyableMarket(): Set<MutableMap.MutableEntry<Products, Int>> {
         return newGame.getBuyableProducts()
     }
 
+    /**
+     * Getter for "selling" market
+     *
+     * @return Set holding elements of sellable map
+     */
     fun getSellableMarket(): Set<MutableMap.MutableEntry<Products, Int>> {
         return newGame.getSellableProducts()
     }
 
+    /**
+     * Getter for map of prices and the product
+     *
+     * @return map of prices and product
+     */
     fun getPriceMap(): HashMap<Products, Int> {
         return newGame.getPriceMap()
     }
 
+    /**
+     * Gets the number of player credits
+     *
+     * @return number of player credits
+     */
     fun getPlayerCredits(): Int {
         return newGame.getPlayerCredits()
     }
 
+    /**
+     * Checks if cargo is full for when buying 1 element
+     *
+     * @return boolean value if full or not
+     */
     fun isCargoFull(): Boolean {
         return newGame.isCargoFull(1)
     }
 
+    /**
+     * Sell function to be used in the view - from the marketplace
+     *
+     * @return int if product sold or not
+     */
     fun sell(products: Products, quantity: Int): Int {
         return newGame.sell(newGame.getPlayer(), products, quantity)
     }
 
+    /**
+     * Buy function to be used in view - from marketplace
+     *
+     * @return int if product bought or not
+     */
     fun buy(products: Products, quantity: Int): Int {
         return newGame.buy(newGame.getPlayer(), products, quantity)
     }
