@@ -181,7 +181,10 @@ class Game(difficulty: GameDifficulty, player: Player) {
 
     fun travel(destination: Coordinates): Boolean {
         var fuelToUse = Math.floor((universe.distance(player.getLocation(), destination))).toInt()
-        if (fuelToUse > player.getShipFuel()) {
+        if (fuelToUse == 0) {
+            Log.d("travel", "already on the planet, cannot travel!")
+            return false
+        } else if (fuelToUse > player.getShipFuel()) {
             Log.d("fuel", "not enough fuel to travel")
             return false
         } else {
