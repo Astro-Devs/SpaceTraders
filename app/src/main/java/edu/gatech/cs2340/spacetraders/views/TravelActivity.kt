@@ -15,7 +15,7 @@ import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.UniverseViewModel
 
 /**
- * The Universe Activity View class that displays the universe and its planets.
+ * The Travel Activity View class that displays the universe and its planets.
  */
 class TravelActivity : AppCompatActivity() {
 

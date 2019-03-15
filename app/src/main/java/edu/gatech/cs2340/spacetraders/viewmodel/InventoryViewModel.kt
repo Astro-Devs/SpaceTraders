@@ -20,7 +20,7 @@ class InventoryViewModel : ViewModel() {
     }
 
     /**
-     * populate sellable market of 
+     * populate sellable market of
      *
      */
     fun getSellableMarket(): Set<MutableMap.MutableEntry<Products, Int>> {

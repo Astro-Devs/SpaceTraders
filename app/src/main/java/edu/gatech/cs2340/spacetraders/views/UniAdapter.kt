@@ -12,8 +12,16 @@ import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
 import java.util.*
 
+/**
+ * Adapter for recyclerview to display universe elements via a cardview
+ *
+ */
 class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
 
+    /**
+     * Inner class which overrides the recycler view holder and sets the cardview elements
+     *
+     */
     class UniViewHolder : RecyclerView.ViewHolder {
 
         var cv: CardView
