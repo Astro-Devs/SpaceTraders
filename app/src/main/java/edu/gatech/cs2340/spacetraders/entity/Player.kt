@@ -74,6 +74,10 @@ class Player constructor(
         ship.fuel -= fuelTraveled
     }
 
+    fun setShipFuel(fuelAmt: Int) {
+        ship.fuel = fuelAmt
+    }
+
     /**
      * Adds "quantity" products to player's Inventory
      *

@@ -162,6 +162,8 @@ class MarketPlace(
                 planetInventory.remove(product, quantity)
                 player.addToInventory(product, quantity)
                 player.credits = player.credits - (priceMap[product]!! * quantity)
+                player.setShipFuel(player.playerInventory.getAmountOf(Products.FUEL))
+                Log.d("fuel", "current fuel levels: " + player.getShipFuel())
                 return 0
             }
         }
@@ -183,6 +185,8 @@ class MarketPlace(
             player.removeFromInventory(product, quantity)
             planetInventory.add(product, quantity)
             player.credits = player.credits + (priceMap[product]!! * quantity)
+            player.setShipFuel(player.playerInventory.getAmountOf(Products.FUEL))
+            Log.d("fuel", "current fuel levels: " + player.getShipFuel())
             return 0
         }
     }
