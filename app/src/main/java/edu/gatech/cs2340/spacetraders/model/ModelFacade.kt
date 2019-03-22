@@ -119,4 +119,12 @@ class ModelFacade private constructor() {
     fun travel(destination: Coordinates): Boolean {
         return newGame.travel(destination)
     }
+
+    fun getShipFuel(): Int {
+        return newGame.getShipFuel()
+    }
+
+    fun getCurrentPlanet(): SolarSystem {
+        return newGame.getCurrentPlanet()
+    }
 }

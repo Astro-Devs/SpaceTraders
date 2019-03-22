@@ -214,6 +214,10 @@ class Universe {
         return map[coordinates]!!.planetInventory
     }
 
+    fun getPlanet(coordinates: Coordinates): SolarSystem {
+        return map[coordinates]!!
+    }
+
     /**
      * Takes in the existing planet map and puts all the planets in order, based on their distance from
      * home (50, 50) and then places them in an ArrayList

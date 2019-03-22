@@ -143,6 +143,10 @@ class Game(difficulty: GameDifficulty, player: Player) {
         return player.credits
     }
 
+    fun getShipFuel(): Int {
+        return player.getShipFuel()
+    }
+
     /**
      * Getter for player object
      *
@@ -194,6 +198,10 @@ class Game(difficulty: GameDifficulty, player: Player) {
             initializeMarketPlace()
             return true
         }
+    }
+
+    fun getCurrentPlanet(): SolarSystem {
+        return universe.getPlanet(player.getLocation())
     }
 
 }

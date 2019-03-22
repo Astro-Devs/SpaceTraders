@@ -11,6 +11,8 @@ import edu.gatech.cs2340.spacetraders.model.ModelFacade
 class UniverseViewModel : ViewModel() {
 
     var modelFacade: ModelFacade = ModelFacade.getInstance()
+    var currPlanetImage: Int = ImageList.imageList.get(0)
+
 
     /**
      * Provide the universe view with the universe array list
@@ -36,7 +38,16 @@ class UniverseViewModel : ViewModel() {
         return modelFacade.getPlayerCredits()
     }
 
+    fun getShipFuel(): Int {
+        return modelFacade.getShipFuel()
+    }
+
     fun travel(destination: Coordinates): Boolean {
         return modelFacade.travel(destination)
     }
+
+    fun getCurrentPlanet(): SolarSystem {
+        return modelFacade.getCurrentPlanet()
+    }
+
 }

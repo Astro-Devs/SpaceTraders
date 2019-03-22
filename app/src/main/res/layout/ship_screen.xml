@@ -9,7 +9,7 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/titleShip"
+            android:id="@+id/titleTravel"
             android:text="SHIP"
             android:textColor="@android:color/white"
             android:textAlignment="center"
@@ -22,171 +22,283 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"/>
 
-        <LinearLayout
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="50dp"
+    >
+
+        <!-- Current Planet Card -->
+        <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="50dp"
+                android:layout_height="250dp"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+
         >
 
-            <!-- Current Planet Card -->
-            <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_margin="6dp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
 
-            >
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/universebackground">
 
 
-                <RelativeLayout android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/universebackground">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Current Planet"
+                        android:id="@+id/currentPlanet"
+                        android:textSize="30sp" android:textStyle="bold" android:textColor="@android:color/white"
+                />
 
-
-                    <TextView
-                            android:layout_width="match_parent"
+                <FrameLayout
+                        android:layout_width="173dp"
+                        android:layout_height="37dp"
+                        android:layout_marginLeft="53dp"
+                        android:layout_marginStart="53dp" android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginTop="5dp" android:layout_alignParentTop="true"
+                        android:layout_marginBottom="8dp">
+                    <ImageView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Current Planet"
-                            android:id="@+id/currentPlanet"
-                            android:textSize="30sp" android:textStyle="bold" android:textColor="@android:color/white"
-                    />
+                            android:paddingLeft="10dp"
+                            android:src="@drawable/fuelblock"
+                            android:id="@+id/fuelImg"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:textSize="19dp"
+                            android:textColor="#FFFFFF"
+                            android:text="50"
+                            android:fontFamily="@font/orbitron"
+                            android:id="@+id/fuelText"
+                            android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
+                </FrameLayout>
 
-                    <FrameLayout
-                            android:layout_width="173dp"
-                            android:layout_height="37dp"
-                            android:layout_marginLeft="53dp"
-                            android:layout_marginStart="53dp" android:layout_alignParentEnd="true" android:layout_marginEnd="0dp"
-                            android:layout_marginTop="5dp" android:layout_alignParentTop="true"
-                            android:layout_marginBottom="8dp">
-                        <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingLeft="10dp"
-                                android:src="@drawable/tokenblock"
-                                android:id="@+id/fuelImg"/>
-                        <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="20dp"
-                                android:textSize="19dp"
-                                android:textColor="#FFFFFF"
-                                android:text="1000"
-                                android:fontFamily="@font/orbitron"
-                                android:id="@+id/fuelText"
-                                android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
-                    </FrameLayout>
-
-                    <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
-                                                            android:layout_height="match_parent"
-                                                            android:id="@+id/currentPlanet_recycler"
-                                                            android:layout_alignParentBottom="true"
-                                                            android:layout_marginBottom="60dp"
-                                                            android:layout_below="@+id/currentPlanet"
+                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_margin="6dp"
+                                                    android:layout_marginBottom="16dp"
+                                                    android:layout_marginLeft="8dp"
+                                                    android:layout_marginRight="8dp"
+                                                    app:cardElevation="8dp"
+                                                    app:cardCornerRadius="8dp"
+                                                    android:layout_below="@+id/currentPlanet"
+                                                    android:id="@+id/currPlanet_card"
+                >
+                    <RelativeLayout android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/universebackground"
                     >
 
-                    </android.support.v7.widget.RecyclerView>
 
-                    <Button android:layout_width="350dp"
-                            android:layout_height="43dp"
-                            android:text="Travel"
-                            android:fontFamily="@font/orbitron"
-                            android:id="@+id/travelPlanetButton"
-                            android:layout_alignParentBottom="true"
-                            android:layout_centerInParent="true"
-                            android:layout_marginBottom="15dp"
-                            android:textSize="15sp" android:textStyle="bold" android:background="@drawable/done_button_background"
-                            android:textColor="#FFFFFF"/>
-
-                </RelativeLayout>
-                >
-            </android.support.v7.widget.CardView>
-
-            <!-- Trade Card -->
-            <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_margin="6dp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-
-            >
-
-                <RelativeLayout android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/universebackground">
-
-
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Trade"
-                            android:id="@+id/Trade"
-                            android:textSize="30sp" android:textStyle="bold" android:textColor="@android:color/white"
-                    />
-
-                    <FrameLayout
-                            android:layout_width="173dp"
-                            android:layout_height="37dp"
-                            android:layout_marginLeft="53dp"
-                            android:layout_marginStart="53dp" android:layout_alignParentEnd="true" android:layout_marginEnd="0dp"
-                            android:layout_marginTop="5dp" android:layout_alignParentTop="true"
-                            android:layout_marginBottom="8dp">
                         <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingLeft="10dp"
-                                android:src="@drawable/tokenblock"
-                                android:id="@+id/tokenImg"/>
+                                android:layout_width="88dp"
+                                android:adjustViewBounds="true"
+                                android:layout_height="100dp"
+                                android:id="@+id/currPlanetIMG"
+                                android:layout_marginTop="0dp" android:layout_marginStart="0dp"
+                                android:layout_alignParentTop="true"/>
+
                         <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="20dp"
-                                android:textSize="19dp"
-                                android:textColor="#FFFFFF"
-                                android:text="1000"
-                                android:fontFamily="@font/orbitron"
-                                android:id="@+id/creditsText"
-                                android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
-                    </FrameLayout>
+                                android:layout_toRightOf="@+id/currPlanetIMG"
 
-                    <Button android:layout_width="150dp"
-                            android:layout_height="43dp"
-                            android:text="Buy"
+                                android:id="@+id/currPlanetNameText"
+                                android:textSize="21sp" android:textStyle="bold"
+                                android:textColor="@android:color/white"
+                                android:text="Planet: " android:layout_marginTop="0dp"/>
+
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/currPlanetNameText"
+
+                                android:id="@+id/currPlanetName"
+                                android:textSize="21sp" android:textColor="@android:color/white"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/currPlanetName"
+                                android:layout_toRightOf="@+id/currPlanetIMG"
+
+                                android:textSize="18sp" android:textStyle="bold"
+                                android:id="@+id/currPlanetLocationText"
+                                android:textColor="@android:color/white" android:text="Location: "
+                                android:layout_marginTop="0dp"/>
+
+
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/currPlanetName"
+                                android:layout_toRightOf="@id/currPlanetLocationText"
+
+                                android:textSize="18sp"
+                                android:id="@+id/currPlanetLocation"
+                                android:textColor="@android:color/white"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/currPlanetLocation"
+                                android:layout_toRightOf="@+id/currPlanetIMG"
+
+                                android:textSize="18sp" android:textStyle="bold"
+                                android:id="@+id/currPlanetResourceText"
+                                android:textColor="@android:color/white" android:text="Res: "
+                                android:layout_marginTop="0dp"/>
+
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/currPlanetLocation"
+                                android:layout_toRightOf="@+id/currPlanetResourceText"
+
+                                android:textSize="18sp"
+                                android:id="@+id/currPlanetResource"
+                                android:textColor="@android:color/white"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/currPlanetResource"
+                                android:layout_toRightOf="@+id/currPlanetIMG"
+
+                                android:textSize="18sp" android:textStyle="bold"
+                                android:id="@+id/currPlanetTechText" android:text="Tech: "
+                                android:layout_marginTop="0dp"
+                                android:textColor="@android:color/white"/>
+
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/currPlanetResource"
+                                android:layout_toRightOf="@+id/currPlanetTechText"
+
+                                android:textSize="18sp"
+                                android:id="@+id/currPlanetTech"
+                                android:textColor="@android:color/white"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/currPlanetIMG"
+                                android:textColor="@android:color/white"/>
+
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+                <Button android:layout_width="350dp"
+                        android:layout_height="43dp"
+                        android:text="Travel"
+                        android:fontFamily="@font/orbitron"
+                        android:id="@+id/travelPlanetButton"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="15sp" android:textStyle="bold"
+                        android:background="@drawable/done_button_background"
+                        android:textColor="#FFFFFF"/>
+
+            </RelativeLayout>
+            >
+        </android.support.v7.widget.CardView>
+
+        <!-- Trade Card -->
+        <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+
+        >
+
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/universebackground">
+
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trade"
+                        android:id="@+id/Trade"
+                        android:textSize="30sp" android:textStyle="bold" android:textColor="@android:color/white"
+                />
+
+                <FrameLayout
+                        android:layout_width="173dp"
+                        android:layout_height="37dp"
+                        android:layout_marginLeft="53dp"
+                        android:layout_marginStart="53dp" android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginTop="5dp" android:layout_alignParentTop="true"
+                        android:layout_marginBottom="8dp">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:src="@drawable/tokenblock"
+                            android:id="@+id/tokenImg"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:textSize="19dp"
+                            android:textColor="#FFFFFF"
+                            android:text="1000"
                             android:fontFamily="@font/orbitron"
-                            android:id="@+id/buyMarketButton"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginLeft="25dp"
-                            android:layout_marginBottom="15dp"
-                            android:textSize="15sp" android:textStyle="bold" android:background="@drawable/done_button_background"
-                            android:textColor="#FFFFFF"/>
+                            android:id="@+id/creditsText"
+                            android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
+                </FrameLayout>
 
-                    <Button
-                            android:layout_width="150dp"
-                            android:layout_height="43dp"
-                            android:id="@+id/sellMarketButton"
-                            android:fontFamily="@font/orbitron"
-                            android:text="Sell"
-                            android:layout_alignParentBottom="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="25dp"
-                            android:layout_marginBottom="15dp"
-                            android:textSize="15sp" android:textStyle="bold" android:background="@drawable/done_button_background"
-                            android:textColor="#FFFFFF"/>
+                <Button android:layout_width="150dp"
+                        android:layout_height="43dp"
+                        android:text="Buy"
+                        android:fontFamily="@font/orbitron"
+                        android:id="@+id/buyMarketButton"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="15sp" android:textStyle="bold"
+                        android:background="@drawable/done_button_background"
+                        android:textColor="#FFFFFF"/>
+
+                <Button
+                        android:layout_width="150dp"
+                        android:layout_height="43dp"
+                        android:id="@+id/sellMarketButton"
+                        android:fontFamily="@font/orbitron"
+                        android:text="Sell"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="15sp" android:textStyle="bold"
+                        android:background="@drawable/done_button_background"
+                        android:textColor="#FFFFFF"/>
 
 
-                </RelativeLayout>
+            </RelativeLayout>
 
-            </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
 
 
-
-        </LinearLayout>
+    </LinearLayout>
 
     <Button android:layout_width="350dp"
             android:layout_height="43dp"

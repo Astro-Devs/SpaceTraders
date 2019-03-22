@@ -29,7 +29,7 @@ class TravelActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.ship_recycler)
+        setContentView(R.layout.travel_recycler)
 
         viewModel = ViewModelProviders.of(this).get(UniverseViewModel::class.java)
         planetArray = viewModel.populateTravelView()

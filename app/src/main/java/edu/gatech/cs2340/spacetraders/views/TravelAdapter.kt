@@ -13,7 +13,6 @@ import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
 import edu.gatech.cs2340.spacetraders.viewmodel.UniverseViewModel
-import java.lang.Exception
 
 /**
  * Adapter for recyclerview to display universe elements via a cardview
@@ -52,7 +51,6 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
     constructor(solarList: List<SolarSystem>, viewModel: UniverseViewModel) : super() {
         this.solarList = solarList
         this.viewModel = viewModel
-        ImageList.populatePlanetImages()
     }
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
@@ -60,7 +58,7 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): TravelViewHolder {
-        var v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.ship_card, viewGroup, false)
+        var v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.travel_card, viewGroup, false)
         var vh = TravelViewHolder(v)
         return vh
     }
@@ -77,12 +75,10 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
         travelViewHolder.img.setImageResource(ImageList.imageList.get(i))
         travelViewHolder.travelButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View): Unit {
-                viewModel.travel(solarList.get(i).location)
-//                try {
-//                    viewModel.travel(solarList.get(i).location)
-//                } catch (e: Exception) {
-//                    Log.d("travel", "Couldn't travel for some reason " + e.stackTrace)
-//                }
+                if (viewModel.travel(solarList.get(i).location)) {
+                    viewModel.currPlanetImage = ImageList.imageList.get(i)
+                    Log.d("current planet", "curr planet is " + viewModel.getCurrentPlanet().planetName)
+                }
             }
         })
     }
