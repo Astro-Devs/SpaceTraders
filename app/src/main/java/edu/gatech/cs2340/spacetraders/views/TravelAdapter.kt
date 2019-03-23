@@ -76,7 +76,7 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
         travelViewHolder.travelButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View): Unit {
                 if (viewModel.travel(solarList.get(i).location)) {
-                    viewModel.currPlanetImage = ImageList.imageList.get(i)
+                    ImageList.currImage = ImageList.imageList.get(i)
                     Log.d("current planet", "curr planet is " + viewModel.getCurrentPlanet().planetName)
                 }
             }

@@ -11,7 +11,7 @@ import edu.gatech.cs2340.spacetraders.model.ModelFacade
 class UniverseViewModel : ViewModel() {
 
     var modelFacade: ModelFacade = ModelFacade.getInstance()
-    var currPlanetImage: Int = ImageList.imageList.get(0)
+
 
 
     /**

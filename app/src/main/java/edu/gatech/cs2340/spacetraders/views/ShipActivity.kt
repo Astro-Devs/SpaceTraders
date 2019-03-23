@@ -31,7 +31,7 @@ class ShipActivity: AppCompatActivity() {
 
         Log.d("onCreate()", "current planet is " + currentPlanet.planetName)
 
-        updatePlanetInfo(viewModel.currPlanetImage, currentPlanet)
+        updatePlanetInfo(ImageList.currImage, currentPlanet)
         updateCreditsFuel()
 
         var travelListButton: Button = findViewById(R.id.travelPlanetButton)
@@ -71,7 +71,7 @@ class ShipActivity: AppCompatActivity() {
         super.onResume()
         currentPlanet = viewModel.getCurrentPlanet()
         updateCreditsFuel()
-        updatePlanetInfo(viewModel.currPlanetImage, currentPlanet)
+        updatePlanetInfo(ImageList.currImage, currentPlanet)
         Log.d("onResume()", "current planet is " + currentPlanet.planetName)
     }
 

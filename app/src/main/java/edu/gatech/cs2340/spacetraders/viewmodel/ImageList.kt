@@ -10,6 +10,8 @@ import java.util.*
 class ImageList {
     companion object {
         var imageList = ArrayList<Int>()
+        var currImage: Int = 0
+
         fun populatePlanetImages() {
             imageList.add(R.drawable.planet1)
             imageList.add(R.drawable.planet2)
@@ -32,6 +34,7 @@ class ImageList {
             imageList.add(R.drawable.planet19)
             imageList.add(R.drawable.planet20)
             Collections.shuffle(imageList)
+            currImage = imageList.get(0)
         }
     }
 }
