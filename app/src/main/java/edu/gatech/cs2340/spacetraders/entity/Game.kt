@@ -194,6 +194,7 @@ class Game(difficulty: GameDifficulty, player: Player) {
         } else {
             player.setLocaction(destination)
             player.subtractFuel(fuelToUse)
+            player.removeFromInventory(Products.FUEL, fuelToUse)
             Log.d("travel", "traveled to: " + destination + " Fuel left: " + player.getShipFuel())
             initializeMarketPlace()
             return true
