@@ -72,6 +72,7 @@ class Player constructor(
 
     fun subtractFuel(fuelTraveled: Int) {
         ship.fuel -= fuelTraveled
+        this.removeFromInventory(Products.FUEL, fuelTraveled)
     }
 
     fun setShipFuel(fuelAmt: Int) {
