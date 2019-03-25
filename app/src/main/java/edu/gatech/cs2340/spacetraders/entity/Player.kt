@@ -29,7 +29,7 @@ class Player constructor(
         return ship.location
     }
 
-    fun setLocaction(newCoords: Coordinates) {
+    fun setLocation(newCoords: Coordinates) {
         ship.location = newCoords
     }
 
