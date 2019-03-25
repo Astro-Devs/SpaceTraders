@@ -192,7 +192,7 @@ class Game(difficulty: GameDifficulty, player: Player) {
             Log.d("fuel", "not enough fuel to travel")
             return false
         } else {
-            player.setLocaction(destination)
+            player.setLocation(destination)
             player.subtractFuel(fuelToUse)
             player.removeFromInventory(Products.FUEL, fuelToUse)
             Log.d("travel", "traveled to: " + destination + " Fuel left: " + player.getShipFuel())
