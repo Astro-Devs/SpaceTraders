@@ -80,10 +80,10 @@ class MarketPlace(
      */
     fun getBuyableProducts(): MutableSet<MutableMap.MutableEntry<Products, Int>> {
         var buyableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
-        var setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = HashSet()
+        var setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
         for (entry in buyableSet) {
-            if (techLevel.level >= entry.key.MTLU.level) {
-                setToShow.add(entry)
+            if (techLevel.level < entry.key.MTLU.level) {
+                setToShow.remove(entry)
             }
         }
         return setToShow
@@ -98,10 +98,10 @@ class MarketPlace(
      */
     fun getSellableProducts(playerInventory: Inventory): MutableSet<MutableMap.MutableEntry<Products, Int>> {
         var sellableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
-        var setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = HashSet()
+        var setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
         for (entry in sellableSet) {
-            if (techLevel.level >= entry.key.MTLU.level) {
-                setToShow.add(entry)
+            if (techLevel.level < entry.key.MTLU.level) {
+                setToShow.remove(entry)
             }
         }
 //        for (entry in sellableSet) {
