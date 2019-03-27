@@ -16,7 +16,7 @@ class Player constructor(
 
     init {
         playerInventory = Inventory()
-        this.addToInventory(Products.FUEL, 25)
+        this.addToInventory(Products.FUEL, ship.getShipFuel())
     }
 
 
