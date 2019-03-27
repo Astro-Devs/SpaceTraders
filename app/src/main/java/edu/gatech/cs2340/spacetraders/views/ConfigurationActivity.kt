@@ -39,7 +39,7 @@ class ConfigurationActivity : AppCompatActivity() {
         traderField = findViewById(R.id.traderPts)
         engineerField = findViewById(R.id.engineerPts)
 
-        var diffAdapter = ArrayAdapter<GameDifficulty>(this, R.layout.white_spinner_item, GameDifficulty.values())
+        val diffAdapter = ArrayAdapter<GameDifficulty>(this, R.layout.white_spinner_item, GameDifficulty.values())
         diffAdapter.setDropDownViewResource(R.layout.better_spinner_dropdown_item)
         diffSpinner.adapter = diffAdapter
 
@@ -54,17 +54,17 @@ class ConfigurationActivity : AppCompatActivity() {
      * Button handler checks for valid input from fields and creates game and player instance.
      * If invalid data, shows an error message.
      *
-     * @param view the button that was pressed
+     * @param view the view to prevent the app from crashing, part of the method's default signature
      */
-    fun onDonePressed(view: View) {
-        var name: String? = nameField.text.toString()
-        var pilotPts: Int = Integer.parseInt(pilotField.text.toString())
-        var engineerPts: Int = Integer.parseInt(engineerField.text.toString())
-        var traderPts: Int = Integer.parseInt(traderField.text.toString())
-        var fighterPts: Int = Integer.parseInt(fighterField.text.toString())
-        var gameDiff: GameDifficulty = diffSpinner.selectedItem as GameDifficulty
+    fun onDonePressed(@Suppress("UNUSED_PARAMETER")view: View) {
+        val name: String? = nameField.text.toString()
+        val pilotPts: Int = Integer.parseInt(pilotField.text.toString())
+        val engineerPts: Int = Integer.parseInt(engineerField.text.toString())
+        val traderPts: Int = Integer.parseInt(traderField.text.toString())
+        val fighterPts: Int = Integer.parseInt(fighterField.text.toString())
+        val gameDiff: GameDifficulty = diffSpinner.selectedItem as GameDifficulty
 
-        var isValid: Boolean = viewModel.onOk(name, pilotPts, engineerPts, traderPts, fighterPts, gameDiff)
+        val isValid: Boolean = viewModel.onOk(name, pilotPts, engineerPts, traderPts, fighterPts, gameDiff)
         if (!isValid) {
             Toast.makeText(this, "Invalid attributes", Toast.LENGTH_LONG).show()
         } else {

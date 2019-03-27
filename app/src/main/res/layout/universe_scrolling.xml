@@ -99,7 +99,7 @@
                     />
 
                 </RelativeLayout>
-                >
+
             </android.support.v7.widget.CardView>
             <!--PLANET 2-->
             <android.support.v7.widget.CardView

@@ -36,14 +36,14 @@ class MarketPlace(
         for (currentProduct: Products in productArray) {
             if (techLevel.level >= currentProduct.MTLP.level) {
                 if (initialStockAmount <= planetInventory.capacity / 2) {
-                    if (techLevel.equals(currentProduct.TTP)) {
+                    if (techLevel == currentProduct.TTP) {
                         planetInventory.add(currentProduct, Random.nextInt(6, 10))
                     } else {
                         planetInventory.add(currentProduct, Random.nextInt(1, 6))
                     }
 
                 } else {
-                    if (techLevel.equals(currentProduct.TTP)) {
+                    if (techLevel == currentProduct.TTP) {
                         planetInventory.add(currentProduct, Random.nextInt(3, 5))
                     } else {
                         planetInventory.add(currentProduct, Random.nextInt(0, 3))
@@ -138,15 +138,15 @@ class MarketPlace(
         var crMultiplier = 1.0f
         var erMultiplier = 1.0f
 
-        if (randomEvent.equals(product.RE)) {
+        if (randomEvent == product.RE) {
             randomEventMutliplier = 1.5f
         }
 
-        if (resources.equals(product.CR)) {
+        if (resources == product.CR) {
             crMultiplier = .75f
         }
 
-        if (resources.equals(product.ER)) {
+        if (resources == product.ER) {
             erMultiplier = 1.25f
         }
 

@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".views.IntroAnimationActivity"></activity>
-        <activity android:name=".views.ConfigurationActivity"></activity>
+        <activity android:name=".views.IntroAnimationActivity"/>
+        <activity android:name=".views.ConfigurationActivity"/>
         <activity android:name=".views.UniverseActivity"/>
         <activity android:name=".views.ShipActivity"/>
         <activity android:name=".views.TravelActivity"/>
