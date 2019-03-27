@@ -54,9 +54,9 @@ class ConfigurationActivity : AppCompatActivity() {
      * Button handler checks for valid input from fields and creates game and player instance.
      * If invalid data, shows an error message.
      *
-     * @param view the button that was pressed
+     * @param view the view to prevent the app from crashing, part of the method's default signature
      */
-    fun onDonePressed(view: View) {
+    fun onDonePressed(@Suppress("UNUSED_PARAMETER")view: View) {
         var name: String? = nameField.text.toString()
         var pilotPts: Int = Integer.parseInt(pilotField.text.toString())
         var engineerPts: Int = Integer.parseInt(engineerField.text.toString())
