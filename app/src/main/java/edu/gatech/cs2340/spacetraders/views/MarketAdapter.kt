@@ -100,6 +100,8 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
             marketViewHolder.transactionButton.setOnClickListener(object : View.OnClickListener {
                 override fun onClick(view: View) {
                     try {
+                        //TODO: Fix selling 1 product with 1 quantity not deleting the card
+                        Log.d("Sell", "Trying to sell 1 " + productSet.elementAt(i).key)
                         viewModel.sell(productSet.elementAt(i).key, 1)
                         notifyDataSetChanged()
                         creditsDisplay.text = viewModel.getPlayerCreds().toString()
