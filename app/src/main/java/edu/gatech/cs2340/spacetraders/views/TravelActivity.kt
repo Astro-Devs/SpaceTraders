@@ -49,7 +49,7 @@ class TravelActivity : AppCompatActivity() {
         buyMarketButton = findViewById(R.id.buyMarketButton)
 
         buyMarketButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View): Unit {
+            override fun onClick(view: View) {
                 val inventoryIntent = Intent(applicationContext, BuyMarketActivity::class.java)
                 startActivityForResult(inventoryIntent, 0)
             }
@@ -58,7 +58,7 @@ class TravelActivity : AppCompatActivity() {
         sellMarketButton = findViewById(R.id.sellMarketButton)
 
         sellMarketButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View): Unit {
+            override fun onClick(view: View) {
                 val inventoryIntent = Intent(applicationContext, SellMarketActivity::class.java)
                 startActivityForResult(inventoryIntent, 0)
             }
@@ -67,7 +67,7 @@ class TravelActivity : AppCompatActivity() {
         universeButton = findViewById(R.id.universeButton)
 
         universeButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View): Unit {
+            override fun onClick(view: View) {
                 val uniIntent = Intent(applicationContext, UniverseActivity::class.java)
                 startActivityForResult(uniIntent, 0)
             }
