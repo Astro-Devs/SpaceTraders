@@ -89,7 +89,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                         if (viewModel.getPlayerCreds() < priceMap.get(productSet.elementAt(i).key) as Int) {
                             Toast.makeText(contextSub, "Not enough money to buy", Toast.LENGTH_LONG).show()
                         }
-                        if (viewModel.isCargoFull()) {
+                        if (viewModel.isCargoFull() && productSet.elementAt(i).key != Products.FUEL) {
                             Toast.makeText(contextSub, "Cargo is full!", Toast.LENGTH_LONG).show()
                         }
                         viewModel.buy(productSet.elementAt(i).key, 1)
