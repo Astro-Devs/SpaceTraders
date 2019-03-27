@@ -71,12 +71,12 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 
 
     override fun onBindViewHolder(marketViewHolder: MarketViewHolder, i: Int) {
-        marketViewHolder.name.setText(productSet.elementAt(i).key.name)
-        marketViewHolder.number.setText(productSet.elementAt(i).value.toString())
-        marketViewHolder.price.setText(priceMap.get(productSet.elementAt(i).key).toString() + " credits")
+        marketViewHolder.name.text = productSet.elementAt(i).key.name
+        marketViewHolder.number.text = productSet.elementAt(i).value.toString()
+        marketViewHolder.price.text = priceMap.get(productSet.elementAt(i).key).toString() + " credits"
 
         if (isBuyable) {
-            marketViewHolder.transactionButton.setText("Buy")
+            marketViewHolder.transactionButton.text = "Buy"
             marketViewHolder.transactionButton.setOnClickListener(object : View.OnClickListener {
                 override fun onClick(view: View) {
                     try {
@@ -88,7 +88,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                         }
                         viewModel.buy(productSet.elementAt(i).key, 1)
                         notifyDataSetChanged()
-                        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+                        creditsDisplay.text = viewModel.getPlayerCreds().toString()
 
                     } catch (e: Exception) {
                         Log.d("Buy", "Buy set is empty, cannot buy anymore")
@@ -96,13 +96,13 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                 }
             })
         } else {
-            marketViewHolder.transactionButton.setText("Sell")
+            marketViewHolder.transactionButton.text = "Sell"
             marketViewHolder.transactionButton.setOnClickListener(object : View.OnClickListener {
                 override fun onClick(view: View) {
                     try {
                         viewModel.sell(productSet.elementAt(i).key, 1)
                         notifyDataSetChanged()
-                        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+                        creditsDisplay.text = viewModel.getPlayerCreds().toString()
 
                     } catch (e: Exception) {
                         Log.d("Sell", "Sell set is empty, cannot sell anymore")

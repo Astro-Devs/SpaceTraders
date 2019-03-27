@@ -39,7 +39,7 @@ class SellMarketActivity : AppCompatActivity() {
 
 
         creditsDisplay = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        creditsDisplay.text = viewModel.getPlayerCreds().toString()
 
         this.populateMarketData()
 

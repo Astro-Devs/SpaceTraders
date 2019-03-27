@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
@@ -66,10 +67,10 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
     }
 
     override fun onBindViewHolder(travelViewHolder: TravelViewHolder, i: Int) {
-        travelViewHolder.name.setText(solarList.get(i).planetName)
-        travelViewHolder.location.setText("(${solarList.get(i).location.xPositionLocal}, ${solarList.get(i).location.yPositionLocal})")
-        travelViewHolder.res.setText(solarList.get(i).resources.toString())
-        travelViewHolder.techlev.setText(solarList.get(i).techLevel.toString())
+        travelViewHolder.name.text = solarList.get(i).planetName
+        travelViewHolder.location.text = "(${solarList.get(i).location.xPositionLocal}, ${solarList.get(i).location.yPositionLocal})"
+        travelViewHolder.res.text = solarList.get(i).resources.toString()
+        travelViewHolder.techlev.text = solarList.get(i).techLevel.toString()
         travelViewHolder.img.setImageResource(ImageList.imageList.get(i))
         travelViewHolder.travelButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
