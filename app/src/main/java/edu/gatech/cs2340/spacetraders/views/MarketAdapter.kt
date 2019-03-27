@@ -84,7 +84,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
         if (isBuyable) {
             marketViewHolder.transactionButton.setText("Buy")
             marketViewHolder.transactionButton.setOnClickListener(object : View.OnClickListener {
-                override fun onClick(view: View): Unit {
+                override fun onClick(view: View) {
                     try {
                         if (viewModel.getPlayerCreds() < priceMap.get(productSet.elementAt(i).key) as Int) {
                             Toast.makeText(contextSub, "Not enough money to buy", Toast.LENGTH_LONG).show()
@@ -104,7 +104,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
         } else {
             marketViewHolder.transactionButton.setText("Sell")
             marketViewHolder.transactionButton.setOnClickListener(object : View.OnClickListener {
-                override fun onClick(view: View): Unit {
+                override fun onClick(view: View) {
                     try {
                         viewModel.sell(productSet.elementAt(i).key, 1)
                         notifyDataSetChanged()
