@@ -34,8 +34,8 @@ class TravelActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(UniverseViewModel::class.java)
         planetArray = viewModel.populateTravelView()
 
-        recycler = findViewById(R.id.universe_recycler) as RecyclerView
-        var llmVar = LinearLayoutManager(this)
+        recycler = findViewById(R.id.universe_recycler)
+        val llmVar = LinearLayoutManager(this)
         recycler.layoutManager = llmVar
 
         //This needs to be set to false if we have a larger solar system size
@@ -43,13 +43,13 @@ class TravelActivity : AppCompatActivity() {
 
         this.populateUniverseData()
 
-        var creditsDisplay: TextView = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        val creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay.text = viewModel.getPlayerCreds().toString()
 
         buyMarketButton = findViewById(R.id.buyMarketButton)
 
         buyMarketButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View): Unit {
+            override fun onClick(view: View) {
                 val inventoryIntent = Intent(applicationContext, BuyMarketActivity::class.java)
                 startActivityForResult(inventoryIntent, 0)
             }
@@ -58,7 +58,7 @@ class TravelActivity : AppCompatActivity() {
         sellMarketButton = findViewById(R.id.sellMarketButton)
 
         sellMarketButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View): Unit {
+            override fun onClick(view: View) {
                 val inventoryIntent = Intent(applicationContext, SellMarketActivity::class.java)
                 startActivityForResult(inventoryIntent, 0)
             }
@@ -67,7 +67,7 @@ class TravelActivity : AppCompatActivity() {
         universeButton = findViewById(R.id.universeButton)
 
         universeButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View): Unit {
+            override fun onClick(view: View) {
                 val uniIntent = Intent(applicationContext, UniverseActivity::class.java)
                 startActivityForResult(uniIntent, 0)
             }
@@ -88,8 +88,8 @@ class TravelActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         mediaPlayer.start()
-        var creditsDisplay: TextView = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        val creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay.text = viewModel.getPlayerCreds().toString()
     }
 
     override fun onStop() {
@@ -103,7 +103,7 @@ class TravelActivity : AppCompatActivity() {
      * Populate the view with data about each planet in the universe.
      */
     fun populateUniverseData() {
-        var adapter = TravelAdapter(planetArray, viewModel)
+        val adapter = TravelAdapter(planetArray, viewModel, this)
         recycler.adapter = adapter
     }
 }

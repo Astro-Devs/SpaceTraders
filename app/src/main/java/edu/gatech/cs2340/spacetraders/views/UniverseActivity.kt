@@ -1,14 +1,11 @@
 package edu.gatech.cs2340.spacetraders.views
 
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.View
-import android.widget.Button
 import android.widget.TextView
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
@@ -31,8 +28,8 @@ class UniverseActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(UniverseViewModel::class.java)
         planetArray = viewModel.populateUniverseView()
 
-        recycler = findViewById(R.id.universe_recycler) as RecyclerView
-        var llmVar = LinearLayoutManager(this)
+        recycler = findViewById(R.id.universe_recycler)
+        val llmVar = LinearLayoutManager(this)
         recycler.layoutManager = llmVar
 
         //This needs to be set to false if we have a larger solar system size
@@ -40,8 +37,8 @@ class UniverseActivity : AppCompatActivity() {
 
         this.populateUniverseData()
 
-        var creditsDisplay: TextView = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        val creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay.text = viewModel.getPlayerCreds().toString()
 
 
         mediaPlayer = MediaPlayer.create(applicationContext, R.raw.alienplanetscreen)
@@ -59,8 +56,8 @@ class UniverseActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         mediaPlayer.start()
-        var creditsDisplay: TextView = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        val creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay.text = viewModel.getPlayerCreds().toString()
     }
 
     override fun onStop() {
@@ -74,7 +71,7 @@ class UniverseActivity : AppCompatActivity() {
      * Populate the view with data about each planet in the universe.
      */
     fun populateUniverseData() {
-        var adapter = UniAdapter(planetArray)
+        val adapter = UniAdapter(planetArray)
         recycler.adapter = adapter
     }
 }

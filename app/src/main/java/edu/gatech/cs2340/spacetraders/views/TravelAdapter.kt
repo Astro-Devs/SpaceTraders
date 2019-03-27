@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetraders.views
 
+import android.content.Context
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -48,20 +49,17 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
 
     private var solarList: List<SolarSystem>
     private var viewModel: UniverseViewModel
+    private var contextSub: Context
 
-    constructor(solarList: List<SolarSystem>, viewModel: UniverseViewModel) : super() {
+    constructor(solarList: List<SolarSystem>, viewModel: UniverseViewModel, contextSub: Context) : super() {
         this.solarList = solarList
         this.viewModel = viewModel
-    }
-
-    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-        super.onAttachedToRecyclerView(recyclerView)
+        this.contextSub = contextSub
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): TravelViewHolder {
-        var v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.travel_card, viewGroup, false)
-        var vh = TravelViewHolder(v)
-        return vh
+        val v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.travel_card, viewGroup, false)
+        return TravelViewHolder(v)
     }
 
     override fun getItemCount(): Int {
@@ -69,16 +67,25 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
     }
 
     override fun onBindViewHolder(travelViewHolder: TravelViewHolder, i: Int) {
-        travelViewHolder.name.setText(solarList.get(i).planetName)
-        travelViewHolder.location.setText("(${solarList.get(i).location.xPositionLocal}, ${solarList.get(i).location.yPositionLocal})")
-        travelViewHolder.res.setText(solarList.get(i).resources.toString())
-        travelViewHolder.techlev.setText(solarList.get(i).techLevel.toString())
+        travelViewHolder.name.text = solarList.get(i).planetName
+        travelViewHolder.location.text = "(${solarList.get(i).location.xPositionLocal}, ${solarList.get(i).location.yPositionLocal})"
+        travelViewHolder.res.text = solarList.get(i).resources.toString()
+        travelViewHolder.techlev.text = solarList.get(i).techLevel.toString()
         travelViewHolder.img.setImageResource(ImageList.imageList.get(i))
         travelViewHolder.travelButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View): Unit {
+            override fun onClick(view: View) {
                 if (viewModel.travel(solarList.get(i).location)) {
+                    Toast.makeText(
+                        contextSub, "Successfully traveled to " + solarList.get(i).planetName + "!",
+                        Toast.LENGTH_LONG
+                    ).show()
                     ImageList.currImage = ImageList.imageList.get(i)
-                    //Log.d("current planet", "curr planet is " + viewModel.getCurrentPlanet().planetName)
+                    Log.d("current planet", "curr planet is " + viewModel.getCurrentPlanet().planetName)
+                } else {
+                    Toast.makeText(
+                        contextSub, "You are already on " + solarList.get(i).planetName + "!",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
         })

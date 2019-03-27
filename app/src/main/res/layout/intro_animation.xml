@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
-                                             xmlns:tools="http://schemas.android.com/tools"
                                              tools:context=".views.IntroAnimationActivity"
                                              tools:showIn="@layout/intro_animation">
     <RelativeLayout
@@ -20,13 +19,13 @@
 
         <Button
                 android:id="@+id/skipVideoButton"
-                android:layout_width="20mm"
-                android:layout_height="14mm"
+                android:layout_width="160dp"
+                android:layout_height="80dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignRight="@id/videoView"
                 android:text="SKIP VIDEO"
                 android:fontFamily="@font/orbitron"
-                android:textSize="17dp"/>
+                android:textSize="20sp"/>
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

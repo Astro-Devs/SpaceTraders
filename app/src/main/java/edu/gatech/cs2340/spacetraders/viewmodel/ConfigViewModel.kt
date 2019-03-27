@@ -1,6 +1,5 @@
 package edu.gatech.cs2340.spacetraders.viewmodel
 
-import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.ViewModel
 import edu.gatech.cs2340.spacetraders.entity.GameDifficulty
 import edu.gatech.cs2340.spacetraders.entity.Player
@@ -10,9 +9,9 @@ import edu.gatech.cs2340.spacetraders.model.ModelFacade
  * The ViewModel class which allows the Configuration
  * Activity to pass in its fields to the models
  */
-class ConfigViewModel() : ViewModel() {
+class ConfigViewModel : ViewModel() {
 
-    var modelFacade: ModelFacade = ModelFacade.getInstance()
+    private var modelFacade: ModelFacade = ModelFacade.getInstance()
 
     /**
      *Checks if passed in data is valid and creates a Player and Game instance if so
@@ -29,11 +28,11 @@ class ConfigViewModel() : ViewModel() {
         name: String?, pilotPts: Int, engineerPts: Int, traderPts: Int, fighterPts: Int,
         gameDiff: GameDifficulty
     ): Boolean {
-        if (name != null && name.length >= 1 && (pilotPts + engineerPts + traderPts + fighterPts) == 16) {
+        if (name != null && name.isNotEmpty() && (pilotPts + engineerPts + traderPts + fighterPts) == 16) {
 
             //call modelFacade functions to create game/player instance
-            var arrSkill: IntArray = intArrayOf(pilotPts, engineerPts, traderPts, fighterPts)
-            var player = Player(name, arrSkill)
+            val arrSkill: IntArray = intArrayOf(pilotPts, engineerPts, traderPts, fighterPts)
+            val player = Player(name, arrSkill)
             modelFacade.createGame(gameDiff, player)
             //
 

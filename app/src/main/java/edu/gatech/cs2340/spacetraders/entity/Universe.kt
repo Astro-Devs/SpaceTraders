@@ -6,7 +6,6 @@ import edu.gatech.cs2340.spacetraders.entity.TechLevels.Levels.levels
 import java.io.Serializable
 import kotlin.math.abs
 import kotlin.math.hypot
-import kotlin.math.min
 import kotlin.random.Random
 
 /**
@@ -38,7 +37,7 @@ class Universe : Serializable{
     }
 
     val map: HashMap<Coordinates, SolarSystem> = HashMap()
-    val names = arrayListOf<String>(
+    val names = arrayListOf(
         "Acamar",
         "Adahn",        // The alternate personality for The Nameless One in "Planescape: Torment"
         "Aldea",
@@ -226,8 +225,8 @@ class Universe : Serializable{
      * @return ArrayList of sorted planets
      */
     fun getPlanetArray(): ArrayList<SolarSystem> {
-        var values: Collection<SolarSystem> = map.values
-        var unsorted: ArrayList<SolarSystem> = ArrayList(values)
+        val values: Collection<SolarSystem> = map.values
+        val unsorted: ArrayList<SolarSystem> = ArrayList(values)
         val sorted: ArrayList<SolarSystem> = ArrayList()
         for (j in 0..19) {
             var smallest = 0

@@ -101,16 +101,6 @@ class Player constructor(
         playerInventory.remove(product, quantity)
     }
 
-    /**
-     * Getter for the player map, which holds a product and the amount of
-     * that product present in the cargo
-     *
-     * @return map of player inventory
-     */
-    fun getInventoryMap(): Map<Products, Int> {
-        return playerInventory.productMap
-    }
-
     override fun toString(): String {
         return "Player with name: $name, Pilot Pts: ${skillArr[0]}, Engineer Pts: ${skillArr[1]}, " +
                 "Trader Pts: ${skillArr[2]}, Fighter Pts: ${skillArr[3]}, Credits: $credits, Ship: $ship, " +

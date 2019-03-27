@@ -30,8 +30,8 @@ class SellMarketActivity : AppCompatActivity() {
         productSellSet = viewModel.getSellableMarket()
         productPrice = viewModel.getPriceMap()
 
-        recycler = findViewById(R.id.market_recycler) as RecyclerView
-        var llmVar = LinearLayoutManager(this)
+        recycler = findViewById(R.id.market_recycler)
+        val llmVar = LinearLayoutManager(this)
         recycler.layoutManager = llmVar
 
         //This needs to be set to false if we have a larger solar system size
@@ -39,7 +39,7 @@ class SellMarketActivity : AppCompatActivity() {
 
 
         creditsDisplay = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        creditsDisplay.text = viewModel.getPlayerCreds().toString()
 
         this.populateMarketData()
 
@@ -49,7 +49,7 @@ class SellMarketActivity : AppCompatActivity() {
      * Populate the view with data about product and its price and quantity
      */
     fun populateMarketData() {
-        var adapter = MarketAdapter(productSellSet, productPrice, false, viewModel, creditsDisplay, this)
+        val adapter = MarketAdapter(productSellSet, productPrice, false, viewModel, creditsDisplay, this)
         recycler.adapter = adapter
     }
 }
