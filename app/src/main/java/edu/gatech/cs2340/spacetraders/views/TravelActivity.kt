@@ -34,7 +34,7 @@ class TravelActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(UniverseViewModel::class.java)
         planetArray = viewModel.populateTravelView()
 
-        recycler = findViewById(R.id.universe_recycler) as RecyclerView
+        recycler = findViewById(R.id.universe_recycler)
         var llmVar = LinearLayoutManager(this)
         recycler.layoutManager = llmVar
 

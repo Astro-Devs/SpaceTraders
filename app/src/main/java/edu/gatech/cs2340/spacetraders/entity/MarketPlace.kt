@@ -117,14 +117,14 @@ class MarketPlace(
 
     /**
      * Calculates the price for a product given the following economic model :
-     * (base + (IPL*levelDifference) + variance) * randomeEventMultiplier * crMultiplier * erMultiplier
+     * (base + (ipl*levelDifference) + variance) * randomeEventMultiplier * crMultiplier * erMultiplier
      *
      * @param product the product to calculate the price for
      * @return the price of the product
      */
     fun calculatePrice(product: Products): Int {
         val base: Int = product.BASEPRICE
-        val IPL: Int = product.IPL
+        val ipl: Int = product.IPL
         val levelDifference: Int = techLevel.level - product.MTLP.level
         val variance: Int = Random.nextInt(-1 * product.Var, product.Var + 1)
         var randomEventMutliplier = 1.0f
@@ -144,7 +144,7 @@ class MarketPlace(
         }
 
         val result: Float =
-            (base + (IPL * levelDifference) + variance) * randomEventMutliplier * crMultiplier * erMultiplier
+            (base + (ipl * levelDifference) + variance) * randomEventMutliplier * crMultiplier * erMultiplier
 
         return result.roundToInt()
     }
