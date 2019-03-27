@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/planetIMG"
-                
+
                 android:id="@+id/planetNameText"
                 android:textSize="21sp" android:textStyle="bold" android:textColor="@android:color/white"
                 android:text="Planet: " android:layout_marginTop="0dp"/>
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/planetNameText"
-                
+
                 android:id="@+id/planetName"
                 android:textSize="21sp" android:textColor="@android:color/white"/>
 
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetName"
                 android:layout_toRightOf="@+id/planetIMG"
-                
+
                 android:textSize="18sp" android:textStyle="bold"
                 android:id="@+id/planetLocationText"
                 android:textColor="@android:color/white" android:text="Location: " android:layout_marginTop="0dp"/>
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetName"
                 android:layout_toRightOf="@id/planetLocationText"
-                
+
                 android:textSize="18sp"
                 android:id="@+id/planetLocation"
                 android:textColor="@android:color/white"/>
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetLocation"
                 android:layout_toRightOf="@+id/planetResourceText"
-                
+
                 android:textSize="18sp"
                 android:id="@+id/planetResource"
                 android:textColor="@android:color/white"/>
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/planetResource"
                 android:layout_toRightOf="@+id/planetIMG"
-                
+
                 android:textSize="18sp" android:textStyle="bold"
                 android:id="@+id/planetTechText" android:text="Tech: " android:layout_marginTop="0dp"
                 android:textColor="@android:color/white"/>
