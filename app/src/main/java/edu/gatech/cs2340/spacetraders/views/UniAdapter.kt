@@ -47,7 +47,7 @@ class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): UniViewHolder {
-        var v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.universe_card, viewGroup, false)
+        val v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.universe_card, viewGroup, false)
         return UniViewHolder(v)
     }
 

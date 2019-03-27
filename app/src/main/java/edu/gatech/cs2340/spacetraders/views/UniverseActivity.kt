@@ -29,7 +29,7 @@ class UniverseActivity : AppCompatActivity() {
         planetArray = viewModel.populateUniverseView()
 
         recycler = findViewById(R.id.universe_recycler)
-        var llmVar = LinearLayoutManager(this)
+        val llmVar = LinearLayoutManager(this)
         recycler.layoutManager = llmVar
 
         //This needs to be set to false if we have a larger solar system size
@@ -37,7 +37,7 @@ class UniverseActivity : AppCompatActivity() {
 
         this.populateUniverseData()
 
-        var creditsDisplay: TextView = findViewById(R.id.creditsText)
+        val creditsDisplay: TextView = findViewById(R.id.creditsText)
         creditsDisplay.text = viewModel.getPlayerCreds().toString()
 
 
@@ -56,7 +56,7 @@ class UniverseActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         mediaPlayer.start()
-        var creditsDisplay: TextView = findViewById(R.id.creditsText)
+        val creditsDisplay: TextView = findViewById(R.id.creditsText)
         creditsDisplay.text = viewModel.getPlayerCreds().toString()
     }
 
@@ -71,7 +71,7 @@ class UniverseActivity : AppCompatActivity() {
      * Populate the view with data about each planet in the universe.
      */
     fun populateUniverseData() {
-        var adapter = UniAdapter(planetArray)
+        val adapter = UniAdapter(planetArray)
         recycler.adapter = adapter
     }
 }

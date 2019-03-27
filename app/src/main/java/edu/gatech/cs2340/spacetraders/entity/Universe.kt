@@ -224,8 +224,8 @@ class Universe {
      * @return ArrayList of sorted planets
      */
     fun getPlanetArray(): ArrayList<SolarSystem> {
-        var values: Collection<SolarSystem> = map.values
-        var unsorted: ArrayList<SolarSystem> = ArrayList(values)
+        val values: Collection<SolarSystem> = map.values
+        val unsorted: ArrayList<SolarSystem> = ArrayList(values)
         val sorted: ArrayList<SolarSystem> = ArrayList()
         for (j in 0..19) {
             var smallest = 0

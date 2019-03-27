@@ -9,7 +9,7 @@ import edu.gatech.cs2340.spacetraders.model.ModelFacade
  */
 class InventoryViewModel : ViewModel() {
 
-    var modelFacade: ModelFacade = ModelFacade.getInstance()
+    private var modelFacade: ModelFacade = ModelFacade.getInstance()
 
     /**
      * Provide the buyable market view with the planet's inventory

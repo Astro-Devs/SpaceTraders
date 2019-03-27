@@ -36,14 +36,14 @@ class MarketPlace(
         for (currentProduct: Products in productArray) {
             if (techLevel.level >= currentProduct.MTLP.level) {
                 if (initialStockAmount <= planetInventory.capacity / 2) {
-                    if (techLevel.equals(currentProduct.TTP)) {
+                    if (techLevel == currentProduct.TTP) {
                         planetInventory.add(currentProduct, Random.nextInt(6, 10))
                     } else {
                         planetInventory.add(currentProduct, Random.nextInt(1, 6))
                     }
 
                 } else {
-                    if (techLevel.equals(currentProduct.TTP)) {
+                    if (techLevel == currentProduct.TTP) {
                         planetInventory.add(currentProduct, Random.nextInt(3, 5))
                     } else {
                         planetInventory.add(currentProduct, Random.nextInt(0, 3))
@@ -79,8 +79,8 @@ class MarketPlace(
      * and its inventory quantity
      */
     fun getBuyableProducts(): MutableSet<MutableMap.MutableEntry<Products, Int>> {
-        var buyableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
-        var setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
+        val buyableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
+        val setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
         for (entry in buyableSet) {
             if (techLevel.level < entry.key.MTLU.level) {
                 setToShow.remove(entry)
@@ -97,8 +97,8 @@ class MarketPlace(
      * and its inventory quantity
      */
     fun getSellableProducts(playerInventory: Inventory): MutableSet<MutableMap.MutableEntry<Products, Int>> {
-        var sellableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
-        var setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
+        val sellableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
+        val setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
         for (entry in sellableSet) {
             if (techLevel.level < entry.key.MTLU.level) {
                 setToShow.remove(entry)
@@ -138,15 +138,15 @@ class MarketPlace(
         var crMultiplier = 1.0f
         var erMultiplier = 1.0f
 
-        if (randomEvent.equals(product.RE)) {
+        if (randomEvent == product.RE) {
             randomEventMutliplier = 1.5f
         }
 
-        if (resources.equals(product.CR)) {
+        if (resources == product.CR) {
             crMultiplier = .75f
         }
 
-        if (resources.equals(product.ER)) {
+        if (resources == product.ER) {
             erMultiplier = 1.25f
         }
 
