@@ -1,14 +1,11 @@
 package edu.gatech.cs2340.spacetraders.views
 
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.View
-import android.widget.Button
 import android.widget.TextView
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem

@@ -61,14 +61,9 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
         this.contextSub = contextSub
     }
 
-    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-        super.onAttachedToRecyclerView(recyclerView)
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): MarketViewHolder {
         var v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.market_card, viewGroup, false)
-        var vh = MarketViewHolder(v)
-        return vh
+        return MarketViewHolder(v)
     }
 
     override fun getItemCount(): Int {
@@ -77,7 +72,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 
 
     override fun onBindViewHolder(marketViewHolder: MarketViewHolder, i: Int) {
-        marketViewHolder.name.setText(productSet.elementAt(i).key.name.toString())
+        marketViewHolder.name.setText(productSet.elementAt(i).key.name)
         marketViewHolder.number.setText(productSet.elementAt(i).value.toString())
         marketViewHolder.price.setText(priceMap.get(productSet.elementAt(i).key).toString() + " credits")
 

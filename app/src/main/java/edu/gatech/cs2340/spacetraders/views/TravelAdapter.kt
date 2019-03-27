@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
@@ -54,14 +53,9 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
         this.viewModel = viewModel
     }
 
-    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-        super.onAttachedToRecyclerView(recyclerView)
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): TravelViewHolder {
         var v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.travel_card, viewGroup, false)
-        var vh = TravelViewHolder(v)
-        return vh
+        return TravelViewHolder(v)
     }
 
     override fun getItemCount(): Int {

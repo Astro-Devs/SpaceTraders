@@ -118,16 +118,6 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) {
         return marketPlace.sell(player, product, quantity)
     }
 
-    /**
-     * Getter to get map of current player inventory - the map's key is a product and it returns the number of that
-     * product as the value
-     *
-     * @return map of inventory
-     */
-    fun getPlayerInventory(): Map<Products, Int> {
-        return player.getInventoryMap()
-    }
-
     override fun toString(): String {
         return "Game with difficulty: $difficulty, " + player.toString()
     }
