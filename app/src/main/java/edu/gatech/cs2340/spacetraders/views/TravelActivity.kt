@@ -35,7 +35,7 @@ class TravelActivity : AppCompatActivity() {
         planetArray = viewModel.populateTravelView()
 
         recycler = findViewById(R.id.universe_recycler)
-        var llmVar = LinearLayoutManager(this)
+        val llmVar = LinearLayoutManager(this)
         recycler.layoutManager = llmVar
 
         //This needs to be set to false if we have a larger solar system size
@@ -43,8 +43,8 @@ class TravelActivity : AppCompatActivity() {
 
         this.populateUniverseData()
 
-        var creditsDisplay: TextView = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        val creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay.text = viewModel.getPlayerCreds().toString()
 
         buyMarketButton = findViewById(R.id.buyMarketButton)
 
@@ -88,8 +88,8 @@ class TravelActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         mediaPlayer.start()
-        var creditsDisplay: TextView = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        val creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay.text = viewModel.getPlayerCreds().toString()
     }
 
     override fun onStop() {
@@ -103,7 +103,7 @@ class TravelActivity : AppCompatActivity() {
      * Populate the view with data about each planet in the universe.
      */
     fun populateUniverseData() {
-        var adapter = TravelAdapter(planetArray, viewModel)
+        val adapter = TravelAdapter(planetArray, viewModel, this)
         recycler.adapter = adapter
     }
 }

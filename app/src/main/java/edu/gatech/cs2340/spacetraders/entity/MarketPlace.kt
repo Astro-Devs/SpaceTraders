@@ -5,6 +5,13 @@ import android.util.Log
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
+//TODO: error: fuel cant be bought if cargo capacity is exceeded
+//EX: capacity is 10, can't buy fuel
+
+//TODO: add toast to show that traveling to planet was successful/unsuccessful
+
+//TODO: error: after traveling to a planet that cant travel anywhere else, sprite defaults to home park sprite
+
 /**
  * MarketPlace class that provides all services related to buying/selling and stocking Inventories
  *
@@ -29,14 +36,14 @@ class MarketPlace(
         for (currentProduct: Products in productArray) {
             if (techLevel.level >= currentProduct.MTLP.level) {
                 if (initialStockAmount <= planetInventory.capacity / 2) {
-                    if (techLevel.equals(currentProduct.TTP)) {
+                    if (techLevel == currentProduct.TTP) {
                         planetInventory.add(currentProduct, Random.nextInt(6, 10))
                     } else {
                         planetInventory.add(currentProduct, Random.nextInt(1, 6))
                     }
 
                 } else {
-                    if (techLevel.equals(currentProduct.TTP)) {
+                    if (techLevel == currentProduct.TTP) {
                         planetInventory.add(currentProduct, Random.nextInt(3, 5))
                     } else {
                         planetInventory.add(currentProduct, Random.nextInt(0, 3))
@@ -73,12 +80,13 @@ class MarketPlace(
      */
     fun getBuyableProducts(): MutableSet<MutableMap.MutableEntry<Products, Int>> {
         var buyableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
+        var setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = HashSet(buyableSet)
         for (entry in buyableSet) {
-            if (techLevel.level < entry.key.MTLP.level) {
-                buyableSet.remove(entry)
+            if (techLevel.level < entry.key.MTLU.level) {
+                setToShow.remove(entry)
             }
         }
-        return buyableSet
+        return setToShow
     }
 
     /**
@@ -90,11 +98,10 @@ class MarketPlace(
      */
     fun getSellableProducts(playerInventory: Inventory): MutableSet<MutableMap.MutableEntry<Products, Int>> {
         var sellableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
-        var iter: Iterator<MutableMap.MutableEntry<Products, Int>> = sellableSet.iterator()
-        while (iter.hasNext()) {
-            var entry = iter.next()
+        var setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = HashSet(sellableSet)
+        for (entry in sellableSet) {
             if (techLevel.level < entry.key.MTLU.level) {
-                sellableSet.remove(entry)
+                setToShow.remove(entry)
             }
         }
 //        for (entry in sellableSet) {
@@ -102,7 +109,7 @@ class MarketPlace(
 //                sellableSet.remove(entry)
 //            }
 //        }
-        return sellableSet
+        return setToShow
     }
 
     /**
@@ -131,15 +138,15 @@ class MarketPlace(
         var crMultiplier = 1.0f
         var erMultiplier = 1.0f
 
-        if (randomEvent.equals(product.RE)) {
+        if (randomEvent == product.RE) {
             randomEventMutliplier = 1.5f
         }
 
-        if (resources.equals(product.CR)) {
+        if (resources == product.CR) {
             crMultiplier = .75f
         }
 
-        if (resources.equals(product.ER)) {
+        if (resources == product.ER) {
             erMultiplier = 1.25f
         }
 

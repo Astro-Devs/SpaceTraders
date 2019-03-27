@@ -34,7 +34,7 @@ class ShipActivity : AppCompatActivity() {
         updatePlanetInfo(ImageList.currImage, currentPlanet)
         updateCreditsFuel()
 
-        var travelListButton: Button = findViewById(R.id.travelPlanetButton)
+        val travelListButton: Button = findViewById(R.id.travelPlanetButton)
         travelListButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
                 val travelIntent = Intent(applicationContext, TravelActivity::class.java)
@@ -42,7 +42,7 @@ class ShipActivity : AppCompatActivity() {
             }
         })
 
-        var buyButton: Button = findViewById(R.id.buyMarketButton)
+        val buyButton: Button = findViewById(R.id.buyMarketButton)
         buyButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
                 val buyIntent = Intent(applicationContext, BuyMarketActivity::class.java)
@@ -50,7 +50,7 @@ class ShipActivity : AppCompatActivity() {
             }
         })
 
-        var sellButton: Button = findViewById(R.id.sellMarketButton)
+        val sellButton: Button = findViewById(R.id.sellMarketButton)
         sellButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
                 val sellIntent = Intent(applicationContext, SellMarketActivity::class.java)
@@ -58,7 +58,7 @@ class ShipActivity : AppCompatActivity() {
             }
         })
 
-        var uniButton: Button = findViewById(R.id.universeButton)
+        val uniButton: Button = findViewById(R.id.universeButton)
         uniButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
                 val uniIntent = Intent(applicationContext, UniverseActivity::class.java)
@@ -76,28 +76,28 @@ class ShipActivity : AppCompatActivity() {
     }
 
     fun updatePlanetInfo(planetImg: Int, planet: SolarSystem) {
-        var currentPlanetImage: ImageView = findViewById(R.id.currPlanetIMG)
+        val currentPlanetImage: ImageView = findViewById(R.id.currPlanetIMG)
         currentPlanetImage.setImageResource(planetImg)
 
-        var currentPlanetName: TextView = findViewById(R.id.currPlanetName)
-        currentPlanetName.setText(planet.planetName)
+        val currentPlanetName: TextView = findViewById(R.id.currPlanetName)
+        currentPlanetName.text = planet.planetName
 
-        var currentPlanetLocation: TextView = findViewById(R.id.currPlanetLocation)
-        currentPlanetLocation.setText("(${planet.location.xPositionLocal}, ${planet.location.yPositionLocal})")
+        val currentPlanetLocation: TextView = findViewById(R.id.currPlanetLocation)
+        currentPlanetLocation.text = "(${planet.location.xPositionLocal}, ${planet.location.yPositionLocal})"
 
-        var currentPlanetTech: TextView = findViewById(R.id.currPlanetTech)
-        currentPlanetTech.setText(planet.techLevel.toString())
+        val currentPlanetTech: TextView = findViewById(R.id.currPlanetTech)
+        currentPlanetTech.text = planet.techLevel.toString()
 
-        var currentPlanetRes: TextView = findViewById(R.id.currPlanetResource)
-        currentPlanetRes.setText(planet.resources.toString())
+        val currentPlanetRes: TextView = findViewById(R.id.currPlanetResource)
+        currentPlanetRes.text = planet.resources.toString()
     }
 
     fun updateCreditsFuel() {
-        var fuelDisplay: TextView = findViewById(R.id.fuelText)
-        fuelDisplay.setText(viewModel.getShipFuel().toString())
+        val fuelDisplay: TextView = findViewById(R.id.fuelText)
+        fuelDisplay.text = viewModel.getShipFuel().toString()
 
-        var creditsDisplay: TextView = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        val creditsDisplay: TextView = findViewById(R.id.creditsText)
+        creditsDisplay.text = viewModel.getPlayerCreds().toString()
     }
 
 }

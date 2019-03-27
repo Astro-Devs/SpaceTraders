@@ -13,7 +13,6 @@ import android.widget.Toast
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.Products
 import edu.gatech.cs2340.spacetraders.viewmodel.InventoryViewModel
-import java.lang.Exception
 
 /**
  * Adapter for recyclerview to display Market elements via a cardview
@@ -61,14 +60,9 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
         this.contextSub = contextSub
     }
 
-    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-        super.onAttachedToRecyclerView(recyclerView)
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): MarketViewHolder {
-        var v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.market_card, viewGroup, false)
-        var vh = MarketViewHolder(v)
-        return vh
+        val v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.market_card, viewGroup, false)
+        return MarketViewHolder(v)
     }
 
     override fun getItemCount(): Int {
@@ -77,12 +71,12 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 
 
     override fun onBindViewHolder(marketViewHolder: MarketViewHolder, i: Int) {
-        marketViewHolder.name.setText(productSet.elementAt(i).key.name.toString())
-        marketViewHolder.number.setText(productSet.elementAt(i).value.toString())
-        marketViewHolder.price.setText(priceMap.get(productSet.elementAt(i).key).toString() + " credits")
+        marketViewHolder.name.text = productSet.elementAt(i).key.name
+        marketViewHolder.number.text = productSet.elementAt(i).value.toString()
+        marketViewHolder.price.text = priceMap.get(productSet.elementAt(i).key).toString() + " credits"
 
         if (isBuyable) {
-            marketViewHolder.transactionButton.setText("Buy")
+            marketViewHolder.transactionButton.text = "Buy"
             marketViewHolder.transactionButton.setOnClickListener(object : View.OnClickListener {
                 override fun onClick(view: View) {
                     try {
@@ -94,7 +88,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                         }
                         viewModel.buy(productSet.elementAt(i).key, 1)
                         notifyDataSetChanged()
-                        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+                        creditsDisplay.text = viewModel.getPlayerCreds().toString()
 
                     } catch (e: Exception) {
                         Log.d("Buy", "Buy set is empty, cannot buy anymore")
@@ -102,13 +96,15 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
                 }
             })
         } else {
-            marketViewHolder.transactionButton.setText("Sell")
+            marketViewHolder.transactionButton.text = "Sell"
             marketViewHolder.transactionButton.setOnClickListener(object : View.OnClickListener {
                 override fun onClick(view: View) {
                     try {
+                        //TODO: Fix selling 1 product with 1 quantity not deleting the card
+                        Log.d("Sell", "Trying to sell 1 " + productSet.elementAt(i).key)
                         viewModel.sell(productSet.elementAt(i).key, 1)
                         notifyDataSetChanged()
-                        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+                        creditsDisplay.text = viewModel.getPlayerCreds().toString()
 
                     } catch (e: Exception) {
                         Log.d("Sell", "Sell set is empty, cannot sell anymore")

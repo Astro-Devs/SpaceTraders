@@ -77,7 +77,7 @@ class Inventory {
     override fun toString(): String {
         var returnString = "Inventory: "
         for ((key, value) in productMap) {
-            returnString = returnString + "$value ${key.name}, "
+            returnString += "$value ${key.name}, "
         }
         return returnString
     }

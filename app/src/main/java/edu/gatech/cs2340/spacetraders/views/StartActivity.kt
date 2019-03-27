@@ -48,9 +48,9 @@ class StartActivity : AppCompatActivity() {
 
     /**
      * Handle the functionality of the "new game" button
-     * @param view the view to prevent the app from crashing
+     * @param view the view to prevent the app from crashing, part of the method's default signature
      */
-    fun onNewGamePressed(view: View) {
+    fun onNewGamePressed(@Suppress("UNUSED_PARAMETER")view: View) {
         keepPlaying = true
         val configIntent = Intent(applicationContext, IntroAnimationActivity::class.java)
         //startActivityForResult(configIntent, 0)

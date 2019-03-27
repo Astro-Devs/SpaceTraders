@@ -10,7 +10,6 @@ import android.widget.TextView
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
-import java.util.*
 
 /**
  * Adapter for recyclerview to display universe elements via a cardview
@@ -42,20 +41,14 @@ class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
     }
 
     private var solarList: List<SolarSystem>
-    private var imgList = ArrayList<Int>()
 
     constructor(solarList: List<SolarSystem>) : super() {
         this.solarList = solarList
     }
 
-    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-        super.onAttachedToRecyclerView(recyclerView)
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): UniViewHolder {
-        var v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.universe_card, viewGroup, false)
-        var vh = UniViewHolder(v)
-        return vh
+        val v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.universe_card, viewGroup, false)
+        return UniViewHolder(v)
     }
 
     override fun getItemCount(): Int {
@@ -63,10 +56,10 @@ class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
     }
 
     override fun onBindViewHolder(uniViewHolder: UniViewHolder, i: Int) {
-        uniViewHolder.name.setText(solarList.get(i).planetName)
-        uniViewHolder.location.setText("(${solarList.get(i).location.xPositionLocal}, ${solarList.get(i).location.yPositionLocal})")
-        uniViewHolder.res.setText(solarList.get(i).resources.toString())
-        uniViewHolder.techlev.setText(solarList.get(i).techLevel.toString())
+        uniViewHolder.name.text = solarList.get(i).planetName
+        uniViewHolder.location.text = "(${solarList.get(i).location.xPositionLocal}, ${solarList.get(i).location.yPositionLocal})"
+        uniViewHolder.res.text = solarList.get(i).resources.toString()
+        uniViewHolder.techlev.text = solarList.get(i).techLevel.toString()
         uniViewHolder.img.setImageResource(ImageList.imageList.get(i))
     }
 

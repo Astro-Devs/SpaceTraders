@@ -118,16 +118,6 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) {
         return marketPlace.sell(player, product, quantity)
     }
 
-    /**
-     * Getter to get map of current player inventory - the map's key is a product and it returns the number of that
-     * product as the value
-     *
-     * @return map of inventory
-     */
-    fun getPlayerInventory(): Map<Products, Int> {
-        return player.getInventoryMap()
-    }
-
     override fun toString(): String {
         return "Game with difficulty: $difficulty, " + player.toString()
     }
@@ -171,8 +161,8 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) {
      * @return sorted list of travelable planets
      */
     fun listTravelPlanets(): ArrayList<SolarSystem> {
-        var fullList: ArrayList<SolarSystem> = universe.getPlanetArray()
-        var travelList: ArrayList<SolarSystem> = ArrayList()
+        val fullList: ArrayList<SolarSystem> = universe.getPlanetArray()
+        val travelList: ArrayList<SolarSystem> = ArrayList()
         for (i in fullList) {
             if (universe.distance(player.getLocation(), i.location) <= player.getShipFuel()) {
                 travelList.add(i)
@@ -182,19 +172,24 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) {
     }
 
     fun travel(destination: Coordinates): Boolean {
-        var fuelToUse = Math.floor((universe.distance(player.getLocation(), destination))).toInt()
-        if (fuelToUse == 0) {
-            Log.d("travel", "already on the planet, cannot travel!")
-            return false
-        } else if (fuelToUse > player.getShipFuel()) {
-            Log.d("fuel", "not enough fuel to travel")
-            return false
-        } else {
-            player.setLocation(destination)
-            player.subtractFuel(fuelToUse)
-            Log.d("travel", "traveled to: " + destination + " Fuel left: " + player.getShipFuel())
-            initializeMarketPlace()
-            return true
+        val fuelToUse = Math.floor((universe.distance(player.getLocation(), destination))).toInt()
+        when {
+            fuelToUse == 0 -> {
+                Log.d("travel", "already on the planet, cannot travel!")
+                return false
+            }
+            fuelToUse > player.getShipFuel() -> {
+                Log.d("fuel", "not enough fuel to travel")
+                return false
+            }
+            else -> {
+                player.setLocation(destination)
+                player.subtractFuel(fuelToUse)
+                Log.d("travel", "traveled to: " + destination + " Fuel left: " + player.getShipFuel())
+                initializeMarketPlace()
+                return true
+            }
+
         }
     }
 
