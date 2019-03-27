@@ -3,6 +3,7 @@ package edu.gatech.cs2340.spacetraders.entity
 import android.util.Log
 import edu.gatech.cs2340.spacetraders.entity.Resources.ResourceLevel.resourceLevel
 import edu.gatech.cs2340.spacetraders.entity.TechLevels.Levels.levels
+import java.io.Serializable
 import kotlin.math.abs
 import kotlin.math.hypot
 import kotlin.math.min
@@ -11,7 +12,7 @@ import kotlin.random.Random
 /**
  * Universe class that represents the structurer for managing solar systems
  */
-class Universe {
+class Universe : Serializable{
 
     /**
      * Calculate the distance between two planets

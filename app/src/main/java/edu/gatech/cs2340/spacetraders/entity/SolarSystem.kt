@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetraders.entity
 
+import java.io.Serializable
+
 
 /**
  * Solar System class that represents each instance of a planet
@@ -11,7 +13,7 @@ package edu.gatech.cs2340.spacetraders.entity
 class SolarSystem(
     val planetName: String, val location: Coordinates,
     val techLevel: TechLevels, val resources: Resources
-) {
+) : Serializable{
 
     var planetInventory: Inventory = Inventory()
 

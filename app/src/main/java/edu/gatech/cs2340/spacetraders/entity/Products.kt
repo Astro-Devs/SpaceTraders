@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetraders.entity
 
+import java.io.Serializable
+
 /**
  * Products enum that represents trade goods (products) that can be traded
  *
@@ -19,7 +21,7 @@ enum class Products(
     val MTLP: TechLevels, val MTLU: TechLevels, val TTP: TechLevels, val BASEPRICE: Int,
     val IPL: Int, val Var: Int, val RE: RandomEvent, val CR: Resources, val ER: Resources,
     val MTL: Int, val MTH: Int
-) {
+) : Serializable{
     FUEL(
         TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.INDUSTRIAL, 100,
         20, 10, RandomEvent.WAR, Resources.MINERALRICH, Resources.MINERALPOOR,

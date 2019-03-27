@@ -4,8 +4,14 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Display
 import android.view.View
 import edu.gatech.cs2340.spacetraders.R
+import edu.gatech.cs2340.spacetraders.model.ModelFacade
+import edu.gatech.cs2340.spacetraders.model.ModelFacade.Companion.getInstance
+import edu.gatech.cs2340.spacetraders.model.ModelFacade.Companion.modelFac
+import java.io.*
+
 
 /**
  * The Start Activity View class,
@@ -55,5 +61,16 @@ class StartActivity : AppCompatActivity() {
         val configIntent = Intent(applicationContext, IntroAnimationActivity::class.java)
         //startActivityForResult(configIntent, 0)
         startActivity(configIntent)
+
+    }
+
+    fun onLoadGamePressed(view: View) {
+        var facade: ModelFacade = getInstance()
+        var file: File = File("data.bin")
+        facade.load(file)
+        val intent = Intent(applicationContext, ShipActivity::class.java)
+        //startActivityForResult(configIntent, 0)
+        startActivity(intent)
+
     }
 }

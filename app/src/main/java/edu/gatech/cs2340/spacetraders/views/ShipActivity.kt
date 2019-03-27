@@ -13,6 +13,12 @@ import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
 import edu.gatech.cs2340.spacetraders.viewmodel.UniverseViewModel
+import android.content.Context.MODE_PRIVATE
+import android.content.Context
+import edu.gatech.cs2340.spacetraders.model.ModelFacade
+import edu.gatech.cs2340.spacetraders.model.ModelFacade.Companion.modelFac
+import java.io.*
+
 
 class ShipActivity : AppCompatActivity() {
 
@@ -27,9 +33,9 @@ class ShipActivity : AppCompatActivity() {
 
         viewModel = ViewModelProviders.of(this).get(UniverseViewModel::class.java)
 
-        currentPlanet = viewModel.getCurrentPlanet()
+        currentPlanet = viewModel.populateUniverseView().get(0)
 
-        Log.d("onCreate()", "current planet is " + currentPlanet.planetName)
+        //Log.d("onCreate()", "current planet is " + currentPlanet.planetName)
 
         updatePlanetInfo(ImageList.currImage, currentPlanet)
         updateCreditsFuel()
@@ -65,11 +71,24 @@ class ShipActivity : AppCompatActivity() {
                 startActivityForResult(uniIntent, 0)
             }
         })
+
+        var saveButton: Button = findViewById(R.id.saveButton)
+        //var facade: ModelFacade = ModelFacade.getInstance()
+        //var lkj: ModelFacade = modelFac
+        var facade: ModelFacade = modelFac
+        saveButton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                var facade: ModelFacade = ModelFacade.getInstance()
+                var file: File = File("data.bin")
+                facade.save(file)
+
+            }
+        })
     }
 
     override fun onResume() {
         super.onResume()
-        currentPlanet = viewModel.getCurrentPlanet()
+        //currentPlanet = viewModel.getCurrentPlanet()
         updateCreditsFuel()
         updatePlanetInfo(ImageList.currImage, currentPlanet)
         Log.d("onResume()", "current planet is " + currentPlanet.planetName)

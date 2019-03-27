@@ -42,7 +42,7 @@
             android:layout_height="51dp"
             android:id="@+id/loadgamebutton"
             android:background="@drawable/login_button_background"
-            android:onClick="onNewGamePressed"
+            android:onClick="onLoadGamePressed"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="125dp"
             app:layout_constraintBottom_toBottomOf="parent"

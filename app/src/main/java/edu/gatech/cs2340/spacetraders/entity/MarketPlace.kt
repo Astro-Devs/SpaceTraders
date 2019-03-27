@@ -2,6 +2,7 @@ package edu.gatech.cs2340.spacetraders.entity
 
 
 import android.util.Log
+import java.io.Serializable
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
@@ -16,7 +17,7 @@ import kotlin.random.Random
 class MarketPlace(
     var planetInventory: Inventory, var techLevel: TechLevels, var resources: Resources,
     var randomEvent: RandomEvent = RandomEvent.NOEVENT
-) {
+) : Serializable{
 
     var productArray: Array<Products> = Products.values()
     var priceMap: HashMap<Products, Int> = HashMap()

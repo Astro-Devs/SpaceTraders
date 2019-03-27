@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetraders.entity
 
+import java.io.Serializable
+
 /**
  * Ship class that represents the ship the player is traveling on
  *
@@ -11,7 +13,7 @@ class Ship(
     var location: Coordinates = Coordinates(50, 50),
     var fuel: Int = 100,
     var shipType: ShipType = ShipType.GNAT
-) {
+) : Serializable{
 
     /**
      * Getter for the ship's Cargo Capacity
