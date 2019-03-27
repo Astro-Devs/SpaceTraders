@@ -13,7 +13,6 @@ import android.widget.Toast
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.Products
 import edu.gatech.cs2340.spacetraders.viewmodel.InventoryViewModel
-import java.lang.Exception
 
 /**
  * Adapter for recyclerview to display Market elements via a cardview

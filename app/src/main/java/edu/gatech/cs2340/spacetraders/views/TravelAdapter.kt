@@ -75,13 +75,17 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
         travelViewHolder.travelButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
                 if (viewModel.travel(solarList.get(i).location)) {
-                    Toast.makeText(contextSub, "Successfully traveled to " + solarList.get(i).planetName + "!",
-                        Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        contextSub, "Successfully traveled to " + solarList.get(i).planetName + "!",
+                        Toast.LENGTH_LONG
+                    ).show()
                     ImageList.currImage = ImageList.imageList.get(i)
                     Log.d("current planet", "curr planet is " + viewModel.getCurrentPlanet().planetName)
                 } else {
-                    Toast.makeText(contextSub, "You are already on " + solarList.get(i).planetName + "!",
-                        Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        contextSub, "You are already on " + solarList.get(i).planetName + "!",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
         })
