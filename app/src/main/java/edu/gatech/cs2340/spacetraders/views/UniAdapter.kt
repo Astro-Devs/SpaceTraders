@@ -10,7 +10,6 @@ import android.widget.TextView
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
-import java.util.*
 
 /**
  * Adapter for recyclerview to display universe elements via a cardview
