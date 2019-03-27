@@ -42,20 +42,14 @@ class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
     }
 
     private var solarList: List<SolarSystem>
-    private var imgList = ArrayList<Int>()
 
     constructor(solarList: List<SolarSystem>) : super() {
         this.solarList = solarList
     }
 
-    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-        super.onAttachedToRecyclerView(recyclerView)
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): UniViewHolder {
         var v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.universe_card, viewGroup, false)
-        var vh = UniViewHolder(v)
-        return vh
+        return UniViewHolder(v)
     }
 
     override fun getItemCount(): Int {

@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
@@ -57,14 +56,9 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
         this.contextSub = contextSub
     }
 
-    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-        super.onAttachedToRecyclerView(recyclerView)
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): TravelViewHolder {
         var v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.travel_card, viewGroup, false)
-        var vh = TravelViewHolder(v)
-        return vh
+        return TravelViewHolder(v)
     }
 
     override fun getItemCount(): Int {
@@ -78,7 +72,7 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
         travelViewHolder.techlev.setText(solarList.get(i).techLevel.toString())
         travelViewHolder.img.setImageResource(ImageList.imageList.get(i))
         travelViewHolder.travelButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View): Unit {
+            override fun onClick(view: View) {
                 if (viewModel.travel(solarList.get(i).location)) {
                     Toast.makeText(contextSub, "Successfully traveled to " + solarList.get(i).planetName + "!",
                         Toast.LENGTH_LONG).show()

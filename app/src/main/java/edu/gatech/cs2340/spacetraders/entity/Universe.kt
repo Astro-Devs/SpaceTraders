@@ -5,7 +5,6 @@ import edu.gatech.cs2340.spacetraders.entity.Resources.ResourceLevel.resourceLev
 import edu.gatech.cs2340.spacetraders.entity.TechLevels.Levels.levels
 import kotlin.math.abs
 import kotlin.math.hypot
-import kotlin.math.min
 import kotlin.random.Random
 
 /**
@@ -37,7 +36,7 @@ class Universe {
     }
 
     val map: HashMap<Coordinates, SolarSystem> = HashMap()
-    val names = arrayListOf<String>(
+    val names = arrayListOf(
         "Acamar",
         "Adahn",        // The alternate personality for The Nameless One in "Planescape: Torment"
         "Aldea",

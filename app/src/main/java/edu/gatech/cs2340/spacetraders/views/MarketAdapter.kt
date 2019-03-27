@@ -61,14 +61,9 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
         this.contextSub = contextSub
     }
 
-    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-        super.onAttachedToRecyclerView(recyclerView)
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): MarketViewHolder {
         var v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.market_card, viewGroup, false)
-        var vh = MarketViewHolder(v)
-        return vh
+        return MarketViewHolder(v)
     }
 
     override fun getItemCount(): Int {
@@ -77,14 +72,14 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 
 
     override fun onBindViewHolder(marketViewHolder: MarketViewHolder, i: Int) {
-        marketViewHolder.name.setText(productSet.elementAt(i).key.name.toString())
+        marketViewHolder.name.setText(productSet.elementAt(i).key.name)
         marketViewHolder.number.setText(productSet.elementAt(i).value.toString())
         marketViewHolder.price.setText(priceMap.get(productSet.elementAt(i).key).toString() + " credits")
 
         if (isBuyable) {
             marketViewHolder.transactionButton.setText("Buy")
             marketViewHolder.transactionButton.setOnClickListener(object : View.OnClickListener {
-                override fun onClick(view: View): Unit {
+                override fun onClick(view: View) {
                     try {
                         if (viewModel.getPlayerCreds() < priceMap.get(productSet.elementAt(i).key) as Int) {
                             Toast.makeText(contextSub, "Not enough money to buy", Toast.LENGTH_LONG).show()
@@ -104,7 +99,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
         } else {
             marketViewHolder.transactionButton.setText("Sell")
             marketViewHolder.transactionButton.setOnClickListener(object : View.OnClickListener {
-                override fun onClick(view: View): Unit {
+                override fun onClick(view: View) {
                     try {
                         viewModel.sell(productSet.elementAt(i).key, 1)
                         notifyDataSetChanged()

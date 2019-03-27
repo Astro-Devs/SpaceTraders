@@ -7,9 +7,7 @@ import android.util.Log
  * @param difficulty the game difficulty to play on
  * @param player the instance of the player that represents the user
  */
-class Game(difficulty: GameDifficulty, player: Player) {
-    private val player = player
-    private val difficulty = difficulty
+class Game(private val difficulty: GameDifficulty, private val player: Player) {
     private var universe: Universe = Universe()
     private lateinit var marketPlace: MarketPlace
 
@@ -118,16 +116,6 @@ class Game(difficulty: GameDifficulty, player: Player) {
      */
     fun sell(player: Player, product: Products, quantity: Int): Int {
         return marketPlace.sell(player, product, quantity)
-    }
-
-    /**
-     * Getter to get map of current player inventory - the map's key is a product and it returns the number of that
-     * product as the value
-     *
-     * @return map of inventory
-     */
-    fun getPlayerInventory(): Map<Products, Int> {
-        return player.getInventoryMap()
     }
 
     override fun toString(): String {
