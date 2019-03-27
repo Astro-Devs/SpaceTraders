@@ -38,7 +38,7 @@ class UniverseActivity : AppCompatActivity() {
         this.populateUniverseData()
 
         var creditsDisplay: TextView = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        creditsDisplay.text = viewModel.getPlayerCreds().toString()
 
 
         mediaPlayer = MediaPlayer.create(applicationContext, R.raw.alienplanetscreen)
@@ -57,7 +57,7 @@ class UniverseActivity : AppCompatActivity() {
         super.onResume()
         mediaPlayer.start()
         var creditsDisplay: TextView = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        creditsDisplay.text = viewModel.getPlayerCreds().toString()
     }
 
     override fun onStop() {

@@ -80,24 +80,24 @@ class ShipActivity : AppCompatActivity() {
         currentPlanetImage.setImageResource(planetImg)
 
         var currentPlanetName: TextView = findViewById(R.id.currPlanetName)
-        currentPlanetName.setText(planet.planetName)
+        currentPlanetName.text = planet.planetName
 
         var currentPlanetLocation: TextView = findViewById(R.id.currPlanetLocation)
-        currentPlanetLocation.setText("(${planet.location.xPositionLocal}, ${planet.location.yPositionLocal})")
+        currentPlanetLocation.text = "(${planet.location.xPositionLocal}, ${planet.location.yPositionLocal})"
 
         var currentPlanetTech: TextView = findViewById(R.id.currPlanetTech)
-        currentPlanetTech.setText(planet.techLevel.toString())
+        currentPlanetTech.text = planet.techLevel.toString()
 
         var currentPlanetRes: TextView = findViewById(R.id.currPlanetResource)
-        currentPlanetRes.setText(planet.resources.toString())
+        currentPlanetRes.text = planet.resources.toString()
     }
 
     fun updateCreditsFuel() {
         var fuelDisplay: TextView = findViewById(R.id.fuelText)
-        fuelDisplay.setText(viewModel.getShipFuel().toString())
+        fuelDisplay.text = viewModel.getShipFuel().toString()
 
         var creditsDisplay: TextView = findViewById(R.id.creditsText)
-        creditsDisplay.setText(viewModel.getPlayerCreds().toString())
+        creditsDisplay.text = viewModel.getPlayerCreds().toString()
     }
 
 }

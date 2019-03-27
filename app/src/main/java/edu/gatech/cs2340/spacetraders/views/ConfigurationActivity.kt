@@ -57,12 +57,12 @@ class ConfigurationActivity : AppCompatActivity() {
      * @param view the button that was pressed
      */
     fun onDonePressed(view: View) {
-        var name: String? = nameField.getText().toString()
-        var pilotPts: Int = Integer.parseInt(pilotField.getText().toString())
-        var engineerPts: Int = Integer.parseInt(engineerField.getText().toString())
-        var traderPts: Int = Integer.parseInt(traderField.getText().toString())
-        var fighterPts: Int = Integer.parseInt(fighterField.getText().toString())
-        var gameDiff: GameDifficulty = diffSpinner.getSelectedItem() as GameDifficulty
+        var name: String? = nameField.text.toString()
+        var pilotPts: Int = Integer.parseInt(pilotField.text.toString())
+        var engineerPts: Int = Integer.parseInt(engineerField.text.toString())
+        var traderPts: Int = Integer.parseInt(traderField.text.toString())
+        var fighterPts: Int = Integer.parseInt(fighterField.text.toString())
+        var gameDiff: GameDifficulty = diffSpinner.selectedItem as GameDifficulty
 
         var isValid: Boolean = viewModel.onOk(name, pilotPts, engineerPts, traderPts, fighterPts, gameDiff)
         if (!isValid) {

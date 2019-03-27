@@ -67,10 +67,10 @@ class TravelAdapter : RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
     }
 
     override fun onBindViewHolder(travelViewHolder: TravelViewHolder, i: Int) {
-        travelViewHolder.name.setText(solarList.get(i).planetName)
-        travelViewHolder.location.setText("(${solarList.get(i).location.xPositionLocal}, ${solarList.get(i).location.yPositionLocal})")
-        travelViewHolder.res.setText(solarList.get(i).resources.toString())
-        travelViewHolder.techlev.setText(solarList.get(i).techLevel.toString())
+        travelViewHolder.name.text = solarList.get(i).planetName
+        travelViewHolder.location.text = "(${solarList.get(i).location.xPositionLocal}, ${solarList.get(i).location.yPositionLocal})"
+        travelViewHolder.res.text = solarList.get(i).resources.toString()
+        travelViewHolder.techlev.text = solarList.get(i).techLevel.toString()
         travelViewHolder.img.setImageResource(ImageList.imageList.get(i))
         travelViewHolder.travelButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
