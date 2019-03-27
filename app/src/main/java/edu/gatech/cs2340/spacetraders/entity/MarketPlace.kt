@@ -80,8 +80,8 @@ class MarketPlace(
      * and its inventory quantity
      */
     fun getBuyableProducts(): MutableSet<MutableMap.MutableEntry<Products, Int>> {
-        val buyableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
-        val setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
+        var buyableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
+        var setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = HashSet(buyableSet)
         for (entry in buyableSet) {
             if (techLevel.level < entry.key.MTLU.level) {
                 setToShow.remove(entry)
@@ -98,8 +98,8 @@ class MarketPlace(
      * and its inventory quantity
      */
     fun getSellableProducts(playerInventory: Inventory): MutableSet<MutableMap.MutableEntry<Products, Int>> {
-        val sellableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
-        val setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
+        var sellableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
+        var setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = HashSet(sellableSet)
         for (entry in sellableSet) {
             if (techLevel.level < entry.key.MTLU.level) {
                 setToShow.remove(entry)
