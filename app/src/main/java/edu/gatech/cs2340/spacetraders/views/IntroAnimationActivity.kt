@@ -9,7 +9,6 @@ import android.widget.VideoView
 import edu.gatech.cs2340.spacetraders.R
 
 
-
 class IntroAnimationActivity : AppCompatActivity() {
 
     private lateinit var videoView: VideoView

@@ -14,7 +14,7 @@ import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
 import edu.gatech.cs2340.spacetraders.viewmodel.UniverseViewModel
 
-class ShipActivity: AppCompatActivity() {
+class ShipActivity : AppCompatActivity() {
 
     private lateinit var viewModel: UniverseViewModel
     private lateinit var currentPlanet: SolarSystem

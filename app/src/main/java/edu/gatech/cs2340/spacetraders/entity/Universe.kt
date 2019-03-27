@@ -241,7 +241,6 @@ class Universe {
     }
 
 
-
     /**
      * Workaround to 4000 byte limit to a log entry, printing to the logcat
      * @param tag the tag to search in the logcat

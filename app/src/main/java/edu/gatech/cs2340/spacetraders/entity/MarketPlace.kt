@@ -90,7 +90,7 @@ class MarketPlace(
      */
     fun getSellableProducts(playerInventory: Inventory): MutableSet<MutableMap.MutableEntry<Products, Int>> {
         var sellableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = playerInventory.getProductSet()
-        var iter : Iterator<MutableMap.MutableEntry<Products, Int>> = sellableSet.iterator()
+        var iter: Iterator<MutableMap.MutableEntry<Products, Int>> = sellableSet.iterator()
         while (iter.hasNext()) {
             var entry = iter.next()
             if (techLevel.level < entry.key.MTLU.level) {

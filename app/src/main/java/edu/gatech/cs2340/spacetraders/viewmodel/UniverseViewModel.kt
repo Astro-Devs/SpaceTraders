@@ -13,7 +13,6 @@ class UniverseViewModel : ViewModel() {
     var modelFacade: ModelFacade = ModelFacade.getInstance()
 
 
-
     /**
      * Provide the universe view with the universe array list
      * @return the array list of the universe
