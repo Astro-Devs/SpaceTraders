@@ -52,7 +52,8 @@ class StartActivity : AppCompatActivity() {
      */
     fun onNewGamePressed(view: View) {
         keepPlaying = true
-        val configIntent = Intent(applicationContext, ConfigurationActivity::class.java)
-        startActivityForResult(configIntent, 0)
+        val configIntent = Intent(applicationContext, IntroAnimationActivity::class.java)
+        //startActivityForResult(configIntent, 0)
+        startActivity(configIntent)
     }
 }

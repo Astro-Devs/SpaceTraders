@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             tools:context=".views.IntroAnimationActivity"
+                                             tools:showIn="@layout/intro_animation">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"/>
+
+        <Button
+                android:id="@+id/skipVideoButton"
+                android:layout_width="20mm"
+                android:layout_height="14mm"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@id/videoView"
+                android:text="SKIP VIDEO"
+                android:fontFamily="@font/orbitron"
+                android:textSize="17dp"/>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
