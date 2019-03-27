@@ -5,6 +5,13 @@ import android.util.Log
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
+//TODO: error: fuel cant be bought if cargo capacity is exceeded
+//EX: capacity is 10, can't buy fuel
+
+//TODO: add toast to show that traveling to planet was successful/unsuccessful
+
+//TODO: error: after traveling to a planet that cant travel anywhere else, sprite defaults to home park sprite
+
 /**
  * MarketPlace class that provides all services related to buying/selling and stocking Inventories
  *
