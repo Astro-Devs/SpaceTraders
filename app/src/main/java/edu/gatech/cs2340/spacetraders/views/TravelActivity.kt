@@ -103,7 +103,7 @@ class TravelActivity : AppCompatActivity() {
      * Populate the view with data about each planet in the universe.
      */
     fun populateUniverseData() {
-        var adapter = TravelAdapter(planetArray, viewModel)
+        var adapter = TravelAdapter(planetArray, viewModel, this)
         recycler.adapter = adapter
     }
 }
