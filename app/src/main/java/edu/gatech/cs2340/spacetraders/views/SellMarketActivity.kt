@@ -30,7 +30,7 @@ class SellMarketActivity : AppCompatActivity() {
         productSellSet = viewModel.getSellableMarket()
         productPrice = viewModel.getPriceMap()
 
-        recycler = findViewById(R.id.market_recycler) as RecyclerView
+        recycler = findViewById(R.id.market_recycler)
         var llmVar = LinearLayoutManager(this)
         recycler.layoutManager = llmVar
 
