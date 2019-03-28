@@ -83,7 +83,7 @@ class MarketPlace(
         var buyableSet: MutableSet<MutableMap.MutableEntry<Products, Int>> = planetInventory.getProductSet()
         var setToShow : MutableSet<MutableMap.MutableEntry<Products, Int>> = HashSet(buyableSet)
         for (entry in buyableSet) {
-            if (techLevel.level < entry.key.MTLU.level) {
+            if (techLevel.level < entry.key.MTLP.level) {
                 setToShow.remove(entry)
             }
         }

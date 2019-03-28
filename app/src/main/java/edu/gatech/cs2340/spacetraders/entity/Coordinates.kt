@@ -8,7 +8,7 @@ import java.io.Serializable
  * @param yPosition the y position of the given planet
  */
 
-class Coordinates(xPosition: Int, yPosition: Int) {
+class Coordinates(xPosition: Int, yPosition: Int) : Serializable{
 
     val xPositionLocal: Int = xPosition
     val yPositionLocal: Int = yPosition

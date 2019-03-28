@@ -8,8 +8,7 @@ import java.io.Serializable
  * @param difficulty the game difficulty to play on
  * @param player the instance of the player that represents the user
  */
-
-class Game(private val difficulty: GameDifficulty, private val player: Player) {
+class Game(private val difficulty: GameDifficulty, private val player: Player) : Serializable{
     private var universe: Universe = Universe()
     private lateinit var marketPlace: MarketPlace
 

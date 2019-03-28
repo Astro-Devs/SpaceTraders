@@ -75,11 +75,12 @@ class ShipActivity : AppCompatActivity() {
         var saveButton: Button = findViewById(R.id.saveButton)
         //var facade: ModelFacade = ModelFacade.getInstance()
         //var lkj: ModelFacade = modelFac
-        var facade: ModelFacade = modelFac
+//        var facade: ModelFacade = modelFac
         saveButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 var facade: ModelFacade = ModelFacade.getInstance()
-                var file: File = File("data.bin")
+                var file = File(this@ShipActivity.filesDir,"data.bin")
+                Log.d("onSave", "made save file")
                 facade.save(file)
 
             }

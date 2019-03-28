@@ -45,8 +45,8 @@ class UniverseViewModel : ViewModel() {
         return modelFacade.travel(destination)
     }
 
-//    fun getCurrentPlanet(): SolarSystem {
-//        return modelFacade.getCurrentPlanet()
-//    }
+    fun getCurrentPlanet(): SolarSystem {
+        return modelFacade.getCurrentPlanet()
+    }
 
 }
