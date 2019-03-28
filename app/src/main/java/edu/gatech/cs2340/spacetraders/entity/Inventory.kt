@@ -1,9 +1,11 @@
 package edu.gatech.cs2340.spacetraders.entity
 
+import java.io.Serializable
+
 /**
  * Inventory class that holds Products and their corresponding quantities
  */
-class Inventory {
+class Inventory : Serializable{
     var productMap: HashMap<Products, Int> = HashMap()
     var capacity: Int = 0
 

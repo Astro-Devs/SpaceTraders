@@ -1,11 +1,14 @@
 package edu.gatech.cs2340.spacetraders.entity
 
+import java.io.Serializable
+
 /**
  * Coordinates class that represents the grid map of the universe
  * @param xPosition the x position of the given planet
  * @param yPosition the y position of the given planet
  */
-class Coordinates(xPosition: Int, yPosition: Int) {
+
+class Coordinates(xPosition: Int, yPosition: Int) : Serializable{
 
     val xPositionLocal: Int = xPosition
     val yPositionLocal: Int = yPosition

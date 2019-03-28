@@ -2,13 +2,14 @@ package edu.gatech.cs2340.spacetraders.entity
 
 import android.util.Log
 import kotlin.random.Random
+import java.io.Serializable
 
 /**
  * Game class that represents an instance of the class
  * @param difficulty the game difficulty to play on
  * @param player the instance of the player that represents the user
  */
-class Game(private val difficulty: GameDifficulty, private val player: Player) {
+class Game(private val difficulty: GameDifficulty, private val player: Player) : Serializable{
     private var universe: Universe = Universe()
     private lateinit var marketPlace: MarketPlace
 

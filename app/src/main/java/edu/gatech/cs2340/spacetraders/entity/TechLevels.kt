@@ -1,11 +1,13 @@
 package edu.gatech.cs2340.spacetraders.entity
 
+import java.io.Serializable
+
 /**
  * Enum that lists the different tech levels
  * for the solar systems
  * @param level the number corresponding to the tech level
  */
-enum class TechLevels(val level: Int) {
+enum class TechLevels(val level: Int) : Serializable{
     PREAGRICULTURE(0),
     AGRICULTURE(1),
     MEDIEVAL(2),

@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetraders.entity
 
+import java.io.Serializable
+
 /**
  * General Player class that simulates the user's attributes
  * @param name the name of the player
@@ -10,7 +12,7 @@ package edu.gatech.cs2340.spacetraders.entity
 class Player constructor(
     val name: String, var skillArr: IntArray, var credits: Int = 10000,
     var ship: Ship = Ship()
-) {
+) : Serializable{
 
     var playerInventory: Inventory
 
