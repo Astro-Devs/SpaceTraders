@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
 import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
@@ -70,16 +71,13 @@ class ShipActivity : AppCompatActivity() {
         })
 
         var saveButton: Button = findViewById(R.id.saveButton)
-        //var facade: ModelFacade = ModelFacade.getInstance()
-        //var lkj: ModelFacade = modelFac
-//        var facade: ModelFacade = modelFac
         saveButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 var facade: ModelFacade = ModelFacade.getInstance()
                 var file = File(this@ShipActivity.filesDir,"data.bin")
                 Log.d("onSave", "made save file")
                 facade.save(file)
-
+                Toast.makeText(this@ShipActivity, "Saved Game!", Toast.LENGTH_SHORT).show()
             }
         })
     }
