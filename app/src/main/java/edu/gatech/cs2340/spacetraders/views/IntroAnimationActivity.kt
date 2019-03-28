@@ -9,6 +9,10 @@ import android.widget.VideoView
 import edu.gatech.cs2340.spacetraders.R
 
 
+/**
+ * The Intro Animation View class,
+ * shows the animation when you click the new game button
+ */
 class IntroAnimationActivity : AppCompatActivity() {
 
     private lateinit var videoView: VideoView
