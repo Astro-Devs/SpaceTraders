@@ -62,13 +62,14 @@ class StartActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Loads saved data when "load game" button pressed
+     */
     fun onLoadGamePressed(view: View) {
         var facade: ModelFacade = getInstance()
         var file = File(this@StartActivity.filesDir, "data.bin")
         facade.load(file)
         val intent = Intent(applicationContext, ShipActivity::class.java)
-        //startActivityForResult(configIntent, 0)
         startActivity(intent)
-
     }
 }
