@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.spacetraders.entity
 
 import android.util.Log
+import kotlin.random.Random
 
 /**
  * Game class that represents an instance of the class
@@ -35,12 +36,12 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) {
      * Initialize the marketPlace, stock the marketPlace with appropriate products, and initialize priceMap given the
      * Solar System's parameters
      */
-    fun initializeMarketPlace() {
+    fun initializeMarketPlace(randomEvent : RandomEvent = RandomEvent.NOEVENT) {
         val playerLocation: Coordinates = player.getLocation()
         val currentPlanetInventory: Inventory = universe.getPlanetInventory(playerLocation)
         val currentPlanetTechLevel: TechLevels = universe.getPlanetTechLevel(playerLocation)
         val currentPlanetResources: Resources = universe.getPlanetResources(playerLocation)
-        marketPlace = MarketPlace(currentPlanetInventory, currentPlanetTechLevel, currentPlanetResources)
+        marketPlace = MarketPlace(currentPlanetInventory, currentPlanetTechLevel, currentPlanetResources, randomEvent)
 
         marketPlace.stockInventory()
         marketPlace.initializePrices(player)
@@ -186,7 +187,8 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) {
                 player.setLocation(destination)
                 player.subtractFuel(fuelToUse)
                 Log.d("travel", "traveled to: " + destination + " Fuel left: " + player.getShipFuel())
-                initializeMarketPlace()
+                val randomEventList : Array<RandomEvent> = RandomEvent.values()
+                initializeMarketPlace(randomEventList[Random.nextInt(0, randomEventList.size)])
                 return true
             }
 
@@ -197,4 +199,7 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) {
         return universe.getPlanet(player.getLocation())
     }
 
+    fun getCurrentRandomEvent() : RandomEvent {
+        return marketPlace.randomEvent
+    }
 }

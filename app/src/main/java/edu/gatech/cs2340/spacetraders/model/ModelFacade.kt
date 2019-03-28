@@ -127,4 +127,8 @@ class ModelFacade private constructor() {
     fun getCurrentPlanet(): SolarSystem {
         return newGame.getCurrentPlanet()
     }
+
+    fun getCurrentRandomEvent(): RandomEvent {
+        return newGame.getCurrentRandomEvent()
+    }
 }
