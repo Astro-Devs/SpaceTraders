@@ -137,11 +137,6 @@ class ModelFacade private constructor() {
         return newGame.getCurrentPlanet()
     }
 
-
-    fun getCurrentRandomEvent(): RandomEvent {
-        return newGame.getCurrentRandomEvent()
-    }
-
     /**
      * Method to allow the game load data from save file
      */
