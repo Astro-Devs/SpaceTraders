@@ -53,12 +53,14 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
 //        this.buy(player, Products.WATER, 1)
 //        var credits : Int = player.credits
 //        var inventorySize : Int = player.getTotalAmountInInventory()
-//        Log.d("Solar System", "Fur Price: $furPrice, After buy credits: $credits, After buy Inventory size: $inventorySize")
+//        Log.d("Solar System", "Fur Price: $furPrice, After buy credits: $credits,
+//              After buy Inventory size: $inventorySize")
 //        Log.d("Solar System", "Current Planet " + currentPlanetInventory.toString())
 //        this.sell(player, Products.FUR, 1)
 //        credits = player.credits
 //        inventorySize = player.getTotalAmountInInventory()
-//        Log.d("Solar System", "Fur Price: $furPrice, After sell credits: $credits, After sell Inventory size: $inventorySize")
+//        Log.d("Solar System", "Fur Price: $furPrice, After sell credits: $credits,
+//              After sell Inventory size: $inventorySize")
 //        Log.d("Solar System", "Current Planet " + currentPlanetInventory.toString())
         //
     }
@@ -102,7 +104,8 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
      * @param player the player buying the products
      * @param product the product the player is buying
      * @param quantity the amount of the product the player is buying
-     * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough cargo capacity", 2 = "Not enough credits"
+     * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough cargo capacity",
+     * 2 = "Not enough credits"
      */
     fun buy(player: Player, product: Products, quantity: Int): Int {
         return marketPlace.buy(player, product, quantity)

@@ -64,7 +64,8 @@ class ModelFacade private constructor() {
     /**
      * Getter for "buying" market
      *
-     * @return Set holding elements of the buyable map (map takes in products as key and has number of that product as value)
+     * @return Set holding elements of the buyable map
+     * (map takes in products as key and has number of that product as value)
      */
     fun getBuyableMarket(): Set<MutableMap.MutableEntry<Products, Int>> {
         return newGame.getBuyableProducts()

@@ -52,5 +52,6 @@ class BuyMarketActivity : AppCompatActivity() {
     private fun populateMarketData() {
         val adapter = MarketAdapter(productBuySet, productPrice, true, viewModel, creditsDisplay, this)
         recycler.adapter = adapter
+        adapter.notifyDataSetChanged()
     }
 }

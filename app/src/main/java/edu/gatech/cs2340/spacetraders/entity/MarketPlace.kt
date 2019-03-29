@@ -9,9 +9,8 @@ import kotlin.random.Random
 //TODO: error: fuel cant be bought if cargo capacity is exceeded
 //EX: capacity is 10, can't buy fuel
 
-//TODO: add toast to show that traveling to planet was successful/unsuccessful
-
-//TODO: error: after traveling to a planet that cant travel anywhere else, sprite defaults to home park sprite
+//error: after traveling to a planet that cant travel anywhere else, sprite defaults to home park sprite
+//working on implementing this in the model, so it can be saved too
 
 /**
  * MarketPlace class that provides all services related to buying/selling and stocking Inventories
@@ -30,7 +29,8 @@ class MarketPlace(
     var priceMap: HashMap<Products, Int> = HashMap()
 
     /**
-     * Stocks the current Solar System's Inventory with products based on the current Solar System's tech level and resource level
+     * Stocks the current Solar System's Inventory with products based on the current
+     * Solar System's tech level and resource level
      */
     fun stockInventory() {
         val initialStockAmount: Int = this.getTotalAmountOfBuyableProducts()
@@ -163,7 +163,8 @@ class MarketPlace(
      * @param player the player buying the products
      * @param product the product the player is buying
      * @param quantity the amount of the product the player is buying
-     * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough cargo capacity", 2 = "Not enough credits"
+     * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough cargo capacity",
+     * 2 = "Not enough credits"
      */
     fun buy(player: Player, product: Products, quantity: Int): Int {
         if (player.getTotalAmountInInventory() + quantity > player.getShipCargoCapacity() && product != Products.FUEL) {
@@ -195,7 +196,8 @@ class MarketPlace(
      */
     fun sell(player: Player, product: Products, quantity: Int): Int {
         if ((player.getAmountOf(product) - quantity) < 0) {
-            return 1// May throw an exception or return an Int/Boolean to indicate the player is selling more than they own
+            return 1// May throw an exception or return an Int/Boolean to indicate the player is selling more than they
+                    // own
         } else {
             player.removeFromInventory(product, quantity)
             planetInventory.add(product, quantity)

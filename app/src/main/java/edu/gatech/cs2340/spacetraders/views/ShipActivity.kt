@@ -98,7 +98,8 @@ class ShipActivity : AppCompatActivity() {
         currentPlanetName.text = planet.planetName
 
         val currentPlanetLocation: TextView = findViewById(R.id.currPlanetLocation)
-        currentPlanetLocation.text = "(${planet.location.xPositionLocal}, ${planet.location.yPositionLocal})"
+        currentPlanetLocation.text = String.format("(${planet.location.xPositionLocal}," +
+                "${planet.location.yPositionLocal})")
 
         val currentPlanetTech: TextView = findViewById(R.id.currPlanetTech)
         currentPlanetTech.text = planet.techLevel.toString()
