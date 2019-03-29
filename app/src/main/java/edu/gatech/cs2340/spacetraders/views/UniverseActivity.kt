@@ -70,7 +70,7 @@ class UniverseActivity : AppCompatActivity() {
     /**
      * Populate the view with data about each planet in the universe.
      */
-    fun populateUniverseData() {
+    private fun populateUniverseData() {
         val adapter = UniAdapter(planetArray)
         recycler.adapter = adapter
     }

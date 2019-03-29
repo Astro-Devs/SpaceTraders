@@ -32,12 +32,12 @@ class Universe : Serializable{
      *
      * @return the randomly generated coordinates
      */
-    fun randomCoordinatesGenerator(): Coordinates {
+    private fun randomCoordinatesGenerator(): Coordinates {
         return Coordinates(Random.nextInt(100), Random.nextInt(100))
     }
 
-    val map: HashMap<Coordinates, SolarSystem> = HashMap()
-    val names = arrayListOf(
+    private val map: HashMap<Coordinates, SolarSystem> = HashMap()
+    private val names = arrayListOf(
         "Acamar",
         "Adahn",        // The alternate personality for The Nameless One in "Planescape: Torment"
         "Aldea",
@@ -180,7 +180,7 @@ class Universe : Serializable{
             }
         }
         for ((key, value) in map) {
-            largeLog("Solar System: ", key.toString() + " \n" + value.toString())
+            largeLog("Solar System: ", "$key \n$value")
         }
     }
 

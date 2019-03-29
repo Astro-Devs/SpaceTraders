@@ -12,7 +12,7 @@ import java.io.Serializable
 class Ship(
     var location: Coordinates = Coordinates(50, 50),
     var fuel: Int = 100,
-    var shipType: ShipType = ShipType.GNAT
+    private var shipType: ShipType = ShipType.GNAT
 ) : Serializable{
 
     /**

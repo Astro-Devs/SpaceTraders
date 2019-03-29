@@ -6,7 +6,7 @@ import java.io.Serializable
  * Inventory class that holds Products and their corresponding quantities
  */
 class Inventory : Serializable{
-    var productMap: HashMap<Products, Int> = HashMap()
+    private var productMap: HashMap<Products, Int> = HashMap()
     var capacity: Int = 0
 
     /**
@@ -44,10 +44,10 @@ class Inventory : Serializable{
      * @return the amount of the product in the Inventory
      */
     fun getAmountOf(product: Products): Int {
-        if (!productMap.containsKey(product)) {
-            return 0
+        return if (!productMap.containsKey(product)) {
+            0
         } else {
-            return productMap[product]!!
+            productMap[product]!!
         }
     }
 

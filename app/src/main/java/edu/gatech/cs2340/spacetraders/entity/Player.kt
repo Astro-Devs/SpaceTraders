@@ -10,14 +10,13 @@ import java.io.Serializable
  * @param ship the player's spaceship to traverse the galaxy
  */
 class Player constructor(
-    val name: String, var skillArr: IntArray, var credits: Int = 10000,
-    var ship: Ship = Ship()
+    val name: String, private var skillArr: IntArray, var credits: Int = 10000,
+    private var ship: Ship = Ship()
 ) : Serializable{
 
-    var playerInventory: Inventory
+    var playerInventory: Inventory = Inventory()
 
     init {
-        playerInventory = Inventory()
         this.addToInventory(Products.FUEL, ship.getShipFuel())
     }
 

@@ -33,8 +33,8 @@ class ImageList {
             imageList.add(R.drawable.planet18)
             imageList.add(R.drawable.planet19)
             imageList.add(R.drawable.planet20)
-            Collections.shuffle(imageList)
-            currImage = imageList.get(0)
+            imageList.shuffle()
+            currImage = imageList[0]
         }
     }
 }

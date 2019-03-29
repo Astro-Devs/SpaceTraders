@@ -20,7 +20,7 @@ class ModelFacade private constructor() {
      * Companion object for the model facade
      */
     companion object {
-        var modelFac: ModelFacade = ModelFacade()
+        private var modelFac: ModelFacade = ModelFacade()
         lateinit var newGame: Game
 
         fun getInstance(): ModelFacade {

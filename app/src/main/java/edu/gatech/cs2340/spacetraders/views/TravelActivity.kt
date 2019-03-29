@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import edu.gatech.cs2340.spacetraders.R
@@ -48,30 +47,24 @@ class TravelActivity : AppCompatActivity() {
 
         buyMarketButton = findViewById(R.id.buyMarketButton)
 
-        buyMarketButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                val inventoryIntent = Intent(applicationContext, BuyMarketActivity::class.java)
-                startActivityForResult(inventoryIntent, 0)
-            }
-        })
+        buyMarketButton.setOnClickListener {
+            val inventoryIntent = Intent(applicationContext, BuyMarketActivity::class.java)
+            startActivityForResult(inventoryIntent, 0)
+        }
 
         sellMarketButton = findViewById(R.id.sellMarketButton)
 
-        sellMarketButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                val inventoryIntent = Intent(applicationContext, SellMarketActivity::class.java)
-                startActivityForResult(inventoryIntent, 0)
-            }
-        })
+        sellMarketButton.setOnClickListener {
+            val inventoryIntent = Intent(applicationContext, SellMarketActivity::class.java)
+            startActivityForResult(inventoryIntent, 0)
+        }
 
         universeButton = findViewById(R.id.universeButton)
 
-        universeButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                val uniIntent = Intent(applicationContext, UniverseActivity::class.java)
-                startActivityForResult(uniIntent, 0)
-            }
-        })
+        universeButton.setOnClickListener {
+            val uniIntent = Intent(applicationContext, UniverseActivity::class.java)
+            startActivityForResult(uniIntent, 0)
+        }
 
         mediaPlayer = MediaPlayer.create(applicationContext, R.raw.alienplanetscreen)
 
@@ -102,7 +95,7 @@ class TravelActivity : AppCompatActivity() {
     /**
      * Populate the view with data about each planet in the universe.
      */
-    fun populateUniverseData() {
+    private fun populateUniverseData() {
         val adapter = TravelAdapter(planetArray, viewModel, this)
         recycler.adapter = adapter
     }

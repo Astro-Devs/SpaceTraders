@@ -1,6 +1,5 @@
 package edu.gatech.cs2340.spacetraders.views
 
-import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -15,35 +14,20 @@ import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
  * Adapter for recyclerview to display universe elements via a cardview
  *
  */
-class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
+class UniAdapter(private var solarList: List<SolarSystem>) : RecyclerView.Adapter<UniAdapter.UniViewHolder>() {
 
     /**
      * Inner class which overrides the recycler view holder and sets the cardview elements
      *
      */
-    class UniViewHolder : RecyclerView.ViewHolder {
+    class UniViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var cv: CardView
-        var name: TextView
-        var img: ImageView
-        var res: TextView
-        var techlev: TextView
-        var location: TextView
+        var name: TextView = itemView.findViewById(R.id.planetName)
+        var img: ImageView = itemView.findViewById(R.id.planetIMG)
+        var res: TextView = itemView.findViewById(R.id.planetResource)
+        var techlev: TextView = itemView.findViewById(R.id.planetTech)
+        var location: TextView = itemView.findViewById(R.id.planetLocation)
 
-        constructor(itemView: View) : super(itemView) {
-            cv = itemView.findViewById(R.id.uni_card)
-            name = itemView.findViewById(R.id.planetName)
-            img = itemView.findViewById(R.id.planetIMG)
-            res = itemView.findViewById(R.id.planetResource)
-            techlev = itemView.findViewById(R.id.planetTech)
-            location = itemView.findViewById(R.id.planetLocation)
-        }
-    }
-
-    private var solarList: List<SolarSystem>
-
-    constructor(solarList: List<SolarSystem>) : super() {
-        this.solarList = solarList
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): UniViewHolder {
@@ -56,12 +40,12 @@ class UniAdapter : RecyclerView.Adapter<UniAdapter.UniViewHolder> {
     }
 
     override fun onBindViewHolder(uniViewHolder: UniViewHolder, i: Int) {
-        uniViewHolder.name.text = solarList.get(i).planetName
-        uniViewHolder.location.text = String.format("(${solarList.get(i).location.xPositionLocal}," +
-                "${solarList.get(i).location.yPositionLocal})")
-        uniViewHolder.res.text = solarList.get(i).resources.toString()
-        uniViewHolder.techlev.text = solarList.get(i).techLevel.toString()
-        uniViewHolder.img.setImageResource(ImageList.imageList.get(i))
+        uniViewHolder.name.text = solarList[i].planetName
+        uniViewHolder.location.text = String.format("(${solarList[i].location.xPositionLocal}," +
+                "${solarList[i].location.yPositionLocal})")
+        uniViewHolder.res.text = solarList[i].resources.toString()
+        uniViewHolder.techlev.text = solarList[i].techLevel.toString()
+        uniViewHolder.img.setImageResource(ImageList.imageList[i])
     }
 
 }

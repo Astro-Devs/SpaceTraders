@@ -21,11 +21,11 @@ import kotlin.random.Random
  * @param randomEvent the randomEvent that is currently occurring in the Solar System
  */
 class MarketPlace(
-    var planetInventory: Inventory, var techLevel: TechLevels, var resources: Resources,
+    private var planetInventory: Inventory, private var techLevel: TechLevels, var resources: Resources,
     var randomEvent: RandomEvent = RandomEvent.NOEVENT
 ) : Serializable{
 
-    var productArray: Array<Products> = Products.values()
+    private var productArray: Array<Products> = Products.values()
     var priceMap: HashMap<Products, Int> = HashMap()
 
     /**
@@ -118,7 +118,7 @@ class MarketPlace(
      *
      * @return the total amount of products you can buy from the Solar System
      */
-    fun getTotalAmountOfBuyableProducts(): Int {
+    private fun getTotalAmountOfBuyableProducts(): Int {
         val buyableSet: Set<MutableMap.MutableEntry<Products, Int>> = this.getBuyableProducts()
         return buyableSet.size
     }
@@ -130,7 +130,7 @@ class MarketPlace(
      * @param product the product to calculate the price for
      * @return the price of the product
      */
-    fun calculatePrice(product: Products): Int {
+    private fun calculatePrice(product: Products): Int {
         val base: Int = product.BASEPRICE
         val ipl: Int = product.IPL
         val levelDifference: Int = techLevel.level - product.MTLP.level
@@ -171,16 +171,16 @@ class MarketPlace(
             Log.d("Cargo", "cargo is full cannot buy more items")
             return 1// May throw an exception or return an Int to indicate not enough cargo capacity
         } else {
-            if (player.credits - (priceMap[product]!! * quantity) < 0) {
+            return if (player.credits - (priceMap[product]!! * quantity) < 0) {
                 Log.d("Invalid credits", "not enough credits to buy item " + player.credits)
-                return 2// May throw an exception or return an Int to indicate not enough credits
+                2// May throw an exception or return an Int to indicate not enough credits
             } else {
                 planetInventory.remove(product, quantity)
                 player.addToInventory(product, quantity)
                 player.credits = player.credits - (priceMap[product]!! * quantity)
                 player.setShipFuel(player.playerInventory.getAmountOf(Products.FUEL))
                 Log.d("fuel", "current fuel levels: " + player.getShipFuel())
-                return 0
+                0
             }
         }
     }
@@ -195,16 +195,16 @@ class MarketPlace(
      * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough of the product owned"
      */
     fun sell(player: Player, product: Products, quantity: Int): Int {
-        if ((player.getAmountOf(product) - quantity) < 0) {
-            return 1// May throw an exception or return an Int/Boolean to indicate the player is selling more than they
-                    // own
+        return if ((player.getAmountOf(product) - quantity) < 0) {
+            1// May throw an exception or return an Int/Boolean to indicate the player is selling more than they
+            // own
         } else {
             player.removeFromInventory(product, quantity)
             planetInventory.add(product, quantity)
             player.credits = player.credits + (priceMap[product]!! * quantity)
             player.setShipFuel(player.playerInventory.getAmountOf(Products.FUEL))
             Log.d("fuel", "current fuel levels: " + player.getShipFuel())
-            return 0
+            0
         }
     }
 

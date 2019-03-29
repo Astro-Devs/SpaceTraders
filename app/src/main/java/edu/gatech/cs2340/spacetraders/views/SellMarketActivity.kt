@@ -48,7 +48,7 @@ class SellMarketActivity : AppCompatActivity() {
     /**
      * Populate the view with data about product and its price and quantity
      */
-    fun populateMarketData() {
+    private fun populateMarketData() {
         val adapter = MarketAdapter(productSellSet, productPrice, false, viewModel, creditsDisplay, this)
         recycler.adapter = adapter
     }

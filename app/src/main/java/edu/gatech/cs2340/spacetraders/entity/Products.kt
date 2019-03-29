@@ -20,7 +20,7 @@ import java.io.Serializable
 enum class Products(
     val MTLP: TechLevels, val MTLU: TechLevels, val TTP: TechLevels, val BASEPRICE: Int,
     val IPL: Int, val Var: Int, val RE: RandomEvent, val CR: Resources, val ER: Resources,
-    val MTL: Int, val MTH: Int
+    private val MTL: Int, private val MTH: Int
 ) : Serializable{
     FUEL(
         TechLevels.PREAGRICULTURE, TechLevels.PREAGRICULTURE, TechLevels.INDUSTRIAL, 100,

@@ -28,7 +28,7 @@ class ConfigViewModel : ViewModel() {
         name: String?, pilotPts: Int, engineerPts: Int, traderPts: Int, fighterPts: Int,
         gameDiff: GameDifficulty
     ): Boolean {
-        if (name != null && name.isNotEmpty() && (pilotPts + engineerPts + traderPts + fighterPts) == 16) {
+        return if (name != null && name.isNotEmpty() && (pilotPts + engineerPts + traderPts + fighterPts) == 16) {
 
             //call modelFacade functions to create game/player instance
             val arrSkill: IntArray = intArrayOf(pilotPts, engineerPts, traderPts, fighterPts)
@@ -36,9 +36,9 @@ class ConfigViewModel : ViewModel() {
             modelFacade.createGame(gameDiff, player)
             //
 
-            return true
+            true
         } else {
-            return false
+            false
         }
     }
 }

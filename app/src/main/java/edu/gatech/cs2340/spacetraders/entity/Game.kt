@@ -1,8 +1,8 @@
 package edu.gatech.cs2340.spacetraders.entity
 
 import android.util.Log
-import kotlin.random.Random
 import java.io.Serializable
+import kotlin.random.Random
 
 /**
  * Game class that represents an instance of the class
@@ -46,7 +46,7 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
 
         marketPlace.stockInventory()
         marketPlace.initializePrices(player)
-        Log.d("Solar System", "Current Planet " + currentPlanetInventory.toString())
+        Log.d("Solar System", "Current Planet $currentPlanetInventory")
         //Tests
 //        val furPrice : Int = this.getPriceMap()[Products.FUR]!!
 //        this.buy(player, Products.FUR, 3)
@@ -124,7 +124,7 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
     }
 
     override fun toString(): String {
-        return "Game with difficulty: $difficulty, " + player.toString()
+        return "Game with difficulty: $difficulty, $player"
     }
 
     /**

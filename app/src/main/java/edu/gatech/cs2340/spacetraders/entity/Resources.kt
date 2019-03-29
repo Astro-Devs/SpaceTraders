@@ -7,7 +7,7 @@ import java.io.Serializable
  * for the solar systems
  * @param level the number corresponding to the resources
  */
-enum class Resources(val level: Int) : Serializable{
+enum class Resources(private val level: Int) : Serializable{
     NOSPECIALRESOURCES(0),
     MINERALRICH(1),
     MINERALPOOR(2),

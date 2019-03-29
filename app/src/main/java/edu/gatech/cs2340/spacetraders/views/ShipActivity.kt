@@ -5,16 +5,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import edu.gatech.cs2340.spacetraders.R
 import edu.gatech.cs2340.spacetraders.entity.SolarSystem
+import edu.gatech.cs2340.spacetraders.model.ModelFacade
 import edu.gatech.cs2340.spacetraders.viewmodel.ImageList
 import edu.gatech.cs2340.spacetraders.viewmodel.UniverseViewModel
-import edu.gatech.cs2340.spacetraders.model.ModelFacade
 import java.io.File
 
 
@@ -39,47 +38,37 @@ class ShipActivity : AppCompatActivity() {
         updateCreditsFuel()
 
         val travelListButton: Button = findViewById(R.id.travelPlanetButton)
-        travelListButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                val travelIntent = Intent(applicationContext, TravelActivity::class.java)
-                startActivityForResult(travelIntent, 0)
-            }
-        })
+        travelListButton.setOnClickListener {
+            val travelIntent = Intent(applicationContext, TravelActivity::class.java)
+            startActivityForResult(travelIntent, 0)
+        }
 
         val buyButton: Button = findViewById(R.id.buyMarketButton)
-        buyButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                val buyIntent = Intent(applicationContext, BuyMarketActivity::class.java)
-                startActivityForResult(buyIntent, 0)
-            }
-        })
+        buyButton.setOnClickListener {
+            val buyIntent = Intent(applicationContext, BuyMarketActivity::class.java)
+            startActivityForResult(buyIntent, 0)
+        }
 
         val sellButton: Button = findViewById(R.id.sellMarketButton)
-        sellButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                val sellIntent = Intent(applicationContext, SellMarketActivity::class.java)
-                startActivityForResult(sellIntent, 0)
-            }
-        })
+        sellButton.setOnClickListener {
+            val sellIntent = Intent(applicationContext, SellMarketActivity::class.java)
+            startActivityForResult(sellIntent, 0)
+        }
 
         val uniButton: Button = findViewById(R.id.universeButton)
-        uniButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                val uniIntent = Intent(applicationContext, UniverseActivity::class.java)
-                startActivityForResult(uniIntent, 0)
-            }
-        })
+        uniButton.setOnClickListener {
+            val uniIntent = Intent(applicationContext, UniverseActivity::class.java)
+            startActivityForResult(uniIntent, 0)
+        }
 
         val saveButton: Button = findViewById(R.id.saveButton)
-        saveButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                val facade: ModelFacade = ModelFacade.getInstance()
-                val file = File(this@ShipActivity.filesDir,"data.bin")
-                Log.d("onSave", "made save file")
-                facade.save(file)
-                Toast.makeText(this@ShipActivity, "Saved Game!", Toast.LENGTH_SHORT).show()
-            }
-        })
+        saveButton.setOnClickListener {
+            val facade: ModelFacade = ModelFacade.getInstance()
+            val file = File(this@ShipActivity.filesDir,"data.bin")
+            Log.d("onSave", "made save file")
+            facade.save(file)
+            Toast.makeText(this@ShipActivity, "Saved Game!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onResume() {
@@ -90,7 +79,7 @@ class ShipActivity : AppCompatActivity() {
         Log.d("onResume()", "current planet is " + currentPlanet.planetName)
     }
 
-    fun updatePlanetInfo(planetImg: Int, planet: SolarSystem) {
+    private fun updatePlanetInfo(planetImg: Int, planet: SolarSystem) {
         val currentPlanetImage: ImageView = findViewById(R.id.currPlanetIMG)
         currentPlanetImage.setImageResource(planetImg)
 
@@ -108,7 +97,7 @@ class ShipActivity : AppCompatActivity() {
         currentPlanetRes.text = planet.resources.toString()
     }
 
-    fun updateCreditsFuel() {
+    private fun updateCreditsFuel() {
         val fuelDisplay: TextView = findViewById(R.id.fuelText)
         fuelDisplay.text = viewModel.getShipFuel().toString()
 
