@@ -166,7 +166,7 @@
                     />
 
                 </RelativeLayout>
-                >
+
             </android.support.v7.widget.CardView>
             <!--PLANET 3-->
             <android.support.v7.widget.CardView

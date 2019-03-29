@@ -20,7 +20,7 @@ import edu.gatech.cs2340.spacetraders.viewmodel.InventoryViewModel
  */
 class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 
-    class MarketViewHolder : RecyclerView.ViewHolder {
+    class MarketViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var cv: CardView
         var name: TextView
@@ -28,7 +28,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
         var number: TextView
         var transactionButton: Button
 
-        constructor(itemView: View) : super(itemView) {
+        init {
             cv = itemView.findViewById(R.id.market_card)
             name = itemView.findViewById(R.id.productName)
             price = itemView.findViewById(R.id.productPrice)

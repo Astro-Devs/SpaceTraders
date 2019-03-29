@@ -70,11 +70,11 @@ class ShipActivity : AppCompatActivity() {
             }
         })
 
-        var saveButton: Button = findViewById(R.id.saveButton)
+        val saveButton: Button = findViewById(R.id.saveButton)
         saveButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                var facade: ModelFacade = ModelFacade.getInstance()
-                var file = File(this@ShipActivity.filesDir,"data.bin")
+                val facade: ModelFacade = ModelFacade.getInstance()
+                val file = File(this@ShipActivity.filesDir,"data.bin")
                 Log.d("onSave", "made save file")
                 facade.save(file)
                 Toast.makeText(this@ShipActivity, "Saved Game!", Toast.LENGTH_SHORT).show()
