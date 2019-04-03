@@ -76,7 +76,6 @@ class MarketAdapter(
                     }
                     notifyDataSetChanged()
                     creditsDisplay.text = viewModel.getPlayerCreds().toString()
-//                    Log.d("buy list size", productArrayList.size.toString())
 
                 } catch (e: Exception) {
                     productArrayList.removeAt(marketViewHolder.adapterPosition)
@@ -88,7 +87,6 @@ class MarketAdapter(
             marketViewHolder.transactionButton.text = String.format("Sell")
             marketViewHolder.transactionButton.setOnClickListener {
                 try {
-                    // Fix selling 1 product with 1 quantity not deleting the card
                     viewModel.sell(productSet.elementAt(marketViewHolder.adapterPosition).key, 1)
                     creditsDisplay.text = viewModel.getPlayerCreds().toString()
                     if (productArrayList.elementAt(marketViewHolder.adapterPosition).value == 0) {

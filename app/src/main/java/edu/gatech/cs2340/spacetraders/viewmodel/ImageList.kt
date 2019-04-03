@@ -12,6 +12,11 @@ class ImageList {
         var imageList = ArrayList<Int>()
         var currImage: Int = 0
 
+        /**
+         * Gets all the images from the res folder and populates them into an ArrayList. Then
+         * shuffles the images so evertime there is a new game, there is a new arrangement of
+         * images
+         */
         fun populatePlanetImages() {
             imageList.add(R.drawable.planet1)
             imageList.add(R.drawable.planet2)

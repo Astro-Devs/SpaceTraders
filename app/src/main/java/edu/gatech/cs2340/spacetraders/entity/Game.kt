@@ -62,7 +62,6 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
 //        Log.d("Solar System", "Fur Price: $furPrice, After sell credits: $credits,
 //              After sell Inventory size: $inventorySize")
 //        Log.d("Solar System", "Current Planet " + currentPlanetInventory.toString())
-        //
     }
 
     /**
@@ -136,6 +135,11 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
         return player.credits
     }
 
+    /**
+     * Getter for ship fuel
+     *
+     * @return amount of fuel left in ship
+     */
     fun getShipFuel(): Int {
         return player.getShipFuel()
     }
@@ -143,7 +147,7 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
     /**
      * Getter for player object
      *
-     * @return
+     * @return player
      */
     fun getPlayer(): Player {
         return player
@@ -152,6 +156,7 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
     /**
      * checks to see if ship cargo is full - used to see if player can buy more objects
      *
+     * @param quantity number of items bought
      * @return boolean value for if cargo is full
      */
     fun isCargoFull(quantity: Int): Boolean {
@@ -176,6 +181,13 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
         return travelList
     }
 
+    /**
+     * Takes in a destination, and moves the ship to that location if there is enough fuel
+     * If the travel successfully happens, returns true. If it fails, retuurns false
+     *
+     * @param destination the target location
+     * @return boolean value for if travel was success or failure
+     */
     fun travel(destination: Coordinates): Boolean {
         val fuelToUse = Math.floor((universe.distance(player.getLocation(), destination))).toInt()
         when {
@@ -199,10 +211,20 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
         }
     }
 
+    /**
+     * Getter for the current planet the ship is on
+     *
+     * @return the SolarSystem player is on
+     */
     fun getCurrentPlanet(): SolarSystem {
         return universe.getPlanet(player.getLocation())
     }
 
+    /**
+     * Getter for random event on planet
+     *
+     * @return the RandomEvent on the current planet
+     */
     fun getCurrentRandomEvent() : RandomEvent {
         Log.d("random event", marketPlace.randomEvent.name)
         return marketPlace.randomEvent

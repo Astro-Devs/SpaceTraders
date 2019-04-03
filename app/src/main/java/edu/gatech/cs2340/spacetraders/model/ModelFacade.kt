@@ -104,6 +104,8 @@ class ModelFacade private constructor() {
     /**
      * Sell function to be used in the view - from the marketplace
      *
+     * @param products the product to sell
+     * @param quantity how many of the product to sell
      * @return int if product sold or not
      */
     fun sell(products: Products, quantity: Int): Int {
@@ -113,24 +115,47 @@ class ModelFacade private constructor() {
     /**
      * Buy function to be used in view - from marketplace
      *
+     * @param products product to buy
+     * @param quantity how many of the product to buy
      * @return int if product bought or not
      */
     fun buy(products: Products, quantity: Int): Int {
         return newGame.buy(newGame.getPlayer(), products, quantity)
     }
 
+    /**
+     * travel() function from the Game
+     *
+     * @param destination the target to travel to
+     * @return boolean value if travel succeeded or not
+     */
     fun travel(destination: Coordinates): Boolean {
         return newGame.travel(destination)
     }
 
+    /**
+     * Getter for ship fuel
+     *
+     * @return the amount of ship fuel
+     */
     fun getShipFuel(): Int {
         return newGame.getShipFuel()
     }
 
+    /**
+     * Getter for current planet
+     *
+     * @return current planet
+     */
     fun getCurrentPlanet(): SolarSystem {
         return newGame.getCurrentPlanet()
     }
 
+    /**
+     * Getter for random event
+     *
+     * @return the RandomEvent on the current planet
+     */
     fun getCurrentRandomEvent(): RandomEvent {
         return newGame.getCurrentRandomEvent()
     }

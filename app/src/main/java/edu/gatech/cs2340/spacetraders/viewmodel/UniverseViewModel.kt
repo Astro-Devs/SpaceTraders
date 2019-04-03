@@ -38,18 +38,38 @@ class UniverseViewModel : ViewModel() {
         return modelFacade.getPlayerCredits()
     }
 
+    /**
+     * Getter for ship fuel
+     * @return fuel left in ship
+     */
     fun getShipFuel(): Int {
         return modelFacade.getShipFuel()
     }
 
+    /**
+     * travel() method to travel to a destination
+     *
+     * @param destination the location to travel to
+     * @return boolean if travel succeeded or not
+     */
     fun travel(destination: Coordinates): Boolean {
         return modelFacade.travel(destination)
     }
 
+    /**
+     * Getter for current planet
+     *
+     * @return current planet
+     */
     fun getCurrentPlanet(): SolarSystem {
         return modelFacade.getCurrentPlanet()
     }
 
+    /**
+     * Getter for random event
+     *
+     * @return the RandomEvent of the current planet
+     */
     fun getRandomEvent(): RandomEvent {
         return modelFacade.getCurrentRandomEvent()
     }

@@ -79,6 +79,12 @@ class ShipActivity : AppCompatActivity() {
         Log.d("onResume()", "current planet is " + currentPlanet.planetName)
     }
 
+    /**
+     * Updates all the information to be placed on the CardView for the planet
+     *
+     * @param planetImg the id for the image
+     * @param planet the current planet to update info on
+     */
     private fun updatePlanetInfo(planetImg: Int, planet: SolarSystem) {
         val currentPlanetImage: ImageView = findViewById(R.id.currPlanetIMG)
         currentPlanetImage.setImageResource(planetImg)
@@ -97,6 +103,10 @@ class ShipActivity : AppCompatActivity() {
         currentPlanetRes.text = planet.resources.toString()
     }
 
+    /**
+     * Updates misc values on the screen with their corresponding values from the model.
+     * Currently updates the fuel, credits and randomevent
+     */
     private fun updateCreditsFuel() {
         val fuelDisplay: TextView = findViewById(R.id.fuelText)
         fuelDisplay.text = viewModel.getShipFuel().toString()

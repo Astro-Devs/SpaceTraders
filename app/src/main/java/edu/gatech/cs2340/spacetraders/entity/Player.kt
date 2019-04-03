@@ -30,6 +30,11 @@ class Player constructor(
         return ship.location
     }
 
+    /**
+     * Setter for setting the new location of the ship
+     *
+     * @param newCoords the new coordinates to set the location to
+     */
     fun setLocation(newCoords: Coordinates) {
         ship.location = newCoords
     }
@@ -71,11 +76,21 @@ class Player constructor(
         return ship.getShipFuel()
     }
 
+    /**
+     * Removes fuel from the ship
+     *
+     * @param fuelTraveled the fuel used in a travel()
+     */
     fun subtractFuel(fuelTraveled: Int) {
         ship.fuel -= fuelTraveled
         this.removeFromInventory(Products.FUEL, fuelTraveled)
     }
 
+    /**
+     * Sets the ship's fuel to a static amount
+     *
+     * @param fuelAmt the amount to set the fuel to
+     */
     fun setShipFuel(fuelAmt: Int) {
         ship.fuel = fuelAmt
     }

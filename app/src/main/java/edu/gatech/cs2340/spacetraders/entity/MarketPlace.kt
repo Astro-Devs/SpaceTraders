@@ -100,11 +100,6 @@ class MarketPlace(
                 setToShow.remove(entry)
             }
         }
-//        for (entry in sellableSet) {
-//            if (techLevel.level < entry.key.MTLU.level) {
-//                sellableSet.remove(entry)
-//            }
-//        }
         return setToShow
     }
 

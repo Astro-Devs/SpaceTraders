@@ -214,6 +214,12 @@ class Universe : Serializable{
         return map[coordinates]!!.planetInventory
     }
 
+    /**
+     * Getter for current planet
+     *
+     * @param coordinates the coordinates the ship/player is on
+     * @return the SolarSystem corresponding to the location
+     */
     fun getPlanet(coordinates: Coordinates): SolarSystem {
         return map[coordinates]!!
     }
