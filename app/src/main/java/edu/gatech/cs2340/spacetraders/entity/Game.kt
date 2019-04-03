@@ -204,6 +204,7 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
     }
 
     fun getCurrentRandomEvent() : RandomEvent {
+        Log.d("random event", marketPlace.randomEvent.name)
         return marketPlace.randomEvent
     }
 }

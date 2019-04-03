@@ -103,6 +103,9 @@ class ShipActivity : AppCompatActivity() {
 
         val creditsDisplay: TextView = findViewById(R.id.creditsText)
         creditsDisplay.text = viewModel.getPlayerCreds().toString()
+
+        val randomDisplay: TextView = findViewById(R.id.randomEvent)
+        randomDisplay.text = String.format("Random event: " + viewModel.getRandomEvent().name)
     }
 
 }
