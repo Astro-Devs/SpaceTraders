@@ -30,7 +30,7 @@ class Inventory : Serializable{
      * @param quantity the amount of the product to remove from Inventory
      */
     fun remove(product: Products, quantity: Int) {
-        if (productMap[product]!! - quantity <= 0) {
+        if (productMap[product]!! - quantity < 0) {
             productMap.remove(product)
         } else {
             productMap[product] = productMap[product]!! - quantity

@@ -36,6 +36,8 @@ class MarketAdapter(
     }
 
     private var productSet: Set<MutableMap.MutableEntry<Products, Int>> = productMap
+    private var productArrayList = ArrayList<MutableMap.MutableEntry<Products, Int>>(productSet)
+    private var productHashSet = productSet.toHashSet()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): MarketViewHolder {
         val v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.market_card, viewGroup, false)
@@ -43,31 +45,39 @@ class MarketAdapter(
     }
 
     override fun getItemCount(): Int {
-        return productSet.size
+        return productArrayList.size
     }
 
 
     override fun onBindViewHolder(marketViewHolder: MarketViewHolder, i: Int) {
 
-        marketViewHolder.name.text = productSet.elementAt(marketViewHolder.adapterPosition).key.name
-        marketViewHolder.number.text = productSet.elementAt(marketViewHolder.adapterPosition).value.toString()
-        marketViewHolder.price.text = String.format(priceMap[productSet.elementAt(marketViewHolder.adapterPosition).key].toString() + " credits")
+        marketViewHolder.name.text = productArrayList.elementAt(marketViewHolder.adapterPosition).key.name
+        marketViewHolder.number.text = productArrayList.elementAt(marketViewHolder.adapterPosition).value.toString()
+        marketViewHolder.price.text = String.format(priceMap[productArrayList.elementAt(marketViewHolder.adapterPosition).key].toString() + " credits")
 
         if (isBuyable) {
             marketViewHolder.transactionButton.text = String.format("Buy")
             marketViewHolder.transactionButton.setOnClickListener {
                 try {
-                    if (viewModel.getPlayerCreds() < priceMap[productSet.elementAt(marketViewHolder.adapterPosition).key] as Int) {
+                    if (viewModel.getPlayerCreds() < priceMap[productArrayList.elementAt(marketViewHolder.adapterPosition).key] as Int) {
                         Toast.makeText(contextSub, "Not enough money to buy", Toast.LENGTH_LONG).show()
                     }
-                    if (viewModel.isCargoFull() && productSet.elementAt(marketViewHolder.adapterPosition).key != Products.FUEL) {
+                    if (viewModel.isCargoFull() && productArrayList.elementAt(marketViewHolder.adapterPosition).key != Products.FUEL) {
                         Toast.makeText(contextSub, "Cargo is full!", Toast.LENGTH_LONG).show()
                     }
-                    viewModel.buy(productSet.elementAt(marketViewHolder.adapterPosition).key, 1)
+                    viewModel.buy(productArrayList.elementAt(marketViewHolder.adapterPosition).key, 1)
+                    Log.d("buy", "quantity remaining " + productArrayList.elementAt(marketViewHolder.adapterPosition).value)
+                    if (productArrayList.elementAt(marketViewHolder.adapterPosition).value == 0) {
+                        productArrayList.removeAt(marketViewHolder.adapterPosition)
+                        notifyItemRemoved(marketViewHolder.adapterPosition)
+                    }
                     notifyDataSetChanged()
                     creditsDisplay.text = viewModel.getPlayerCreds().toString()
+//                    Log.d("buy list size", productArrayList.size.toString())
 
                 } catch (e: Exception) {
+                    productArrayList.removeAt(marketViewHolder.adapterPosition)
+                    notifyItemRemoved(marketViewHolder.adapterPosition)
                     Log.d("Buy", "Buy set is empty, cannot buy anymore")
                 }
             }
@@ -76,16 +86,21 @@ class MarketAdapter(
             marketViewHolder.transactionButton.setOnClickListener {
                 try {
                     // Fix selling 1 product with 1 quantity not deleting the card
-                    Log.d("Sell", "Trying to sell 1 " + productSet.elementAt(i).key)
                     viewModel.sell(productSet.elementAt(marketViewHolder.adapterPosition).key, 1)
-                    notifyDataSetChanged()
-                    notifyItemRemoved(marketViewHolder.adapterPosition)
                     creditsDisplay.text = viewModel.getPlayerCreds().toString()
-
+                    if (productArrayList.elementAt(marketViewHolder.adapterPosition).value == 0) {
+                        productArrayList.remove(productArrayList.elementAt(marketViewHolder.adapterPosition))
+                        notifyItemRemoved(marketViewHolder.adapterPosition)
+                    }
+                    notifyDataSetChanged()
+                    Log.d("sell list size", viewModel.getBuyableMarket().size.toString())
                 } catch (e: Exception) {
+                    productArrayList.remove(productArrayList.elementAt(marketViewHolder.adapterPosition))
+                    notifyItemRemoved(marketViewHolder.adapterPosition)
                     Log.d("Sell", "Sell set is empty, cannot sell anymore")
                 }
             }
         }
     }
+
 }
