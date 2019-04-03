@@ -6,11 +6,6 @@ import java.io.Serializable
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
-//TODO: error: fuel cant be bought if cargo capacity is exceeded
-//EX: capacity is 10, can't buy fuel
-
-//error: after traveling to a planet that cant travel anywhere else, sprite defaults to home park sprite
-//working on implementing this in the model, so it can be saved too
 
 /**
  * MarketPlace class that provides all services related to buying/selling and stocking Inventories

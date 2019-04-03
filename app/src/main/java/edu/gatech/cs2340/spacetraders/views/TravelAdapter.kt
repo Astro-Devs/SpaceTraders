@@ -69,6 +69,7 @@ class TravelAdapter(
                     contextSub, "You are already on " + solarList[i].planetName + "!",
                     Toast.LENGTH_LONG
                 ).show()
+                notifyDataSetChanged()
             }
         }
     }

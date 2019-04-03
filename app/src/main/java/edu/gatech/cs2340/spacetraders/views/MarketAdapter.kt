@@ -37,7 +37,6 @@ class MarketAdapter(
 
     private var productSet: Set<MutableMap.MutableEntry<Products, Int>> = productMap
     private var productArrayList = ArrayList<MutableMap.MutableEntry<Products, Int>>(productSet)
-    private var productHashSet = productSet.toHashSet()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): MarketViewHolder {
         val v: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.market_card, viewGroup, false)
@@ -53,20 +52,24 @@ class MarketAdapter(
 
         marketViewHolder.name.text = productArrayList.elementAt(marketViewHolder.adapterPosition).key.name
         marketViewHolder.number.text = productArrayList.elementAt(marketViewHolder.adapterPosition).value.toString()
-        marketViewHolder.price.text = String.format(priceMap[productArrayList.elementAt(marketViewHolder.adapterPosition).key].toString() + " credits")
+        marketViewHolder.price.text = String.format(
+            priceMap[productArrayList.elementAt(marketViewHolder.adapterPosition).key].toString() + " credits")
 
         if (isBuyable) {
             marketViewHolder.transactionButton.text = String.format("Buy")
             marketViewHolder.transactionButton.setOnClickListener {
                 try {
-                    if (viewModel.getPlayerCreds() < priceMap[productArrayList.elementAt(marketViewHolder.adapterPosition).key] as Int) {
+                    if (viewModel.getPlayerCreds() <
+                        priceMap[productArrayList.elementAt(marketViewHolder.adapterPosition).key] as Int) {
                         Toast.makeText(contextSub, "Not enough money to buy", Toast.LENGTH_LONG).show()
                     }
-                    if (viewModel.isCargoFull() && productArrayList.elementAt(marketViewHolder.adapterPosition).key != Products.FUEL) {
+                    if (viewModel.isCargoFull()
+                        && productArrayList.elementAt(marketViewHolder.adapterPosition).key != Products.FUEL) {
                         Toast.makeText(contextSub, "Cargo is full!", Toast.LENGTH_LONG).show()
                     }
                     viewModel.buy(productArrayList.elementAt(marketViewHolder.adapterPosition).key, 1)
-                    Log.d("buy", "quantity remaining " + productArrayList.elementAt(marketViewHolder.adapterPosition).value)
+                    Log.d("buy", "quantity remaining " +
+                            productArrayList.elementAt(marketViewHolder.adapterPosition).value)
                     if (productArrayList.elementAt(marketViewHolder.adapterPosition).value == 0) {
                         productArrayList.removeAt(marketViewHolder.adapterPosition)
                         notifyItemRemoved(marketViewHolder.adapterPosition)
