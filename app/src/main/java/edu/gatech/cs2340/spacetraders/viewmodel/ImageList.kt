@@ -14,7 +14,7 @@ class ImageList {
 
         /**
          * Gets all the images from the res folder and populates them into an ArrayList. Then
-         * shuffles the images so evertime there is a new game, there is a new arrangement of
+         * shuffles the images so every time there is a new game, there is a new arrangement of
          * images
          */
         fun populatePlanetImages() {

@@ -115,7 +115,7 @@ class MarketPlace(
 
     /**
      * Calculates the price for a product given the following economic model :
-     * (base + (ipl*levelDifference) + variance) * randomeEventMultiplier * crMultiplier * erMultiplier
+     * (base + (ipl*levelDifference) + variance) * randomEventMultiplier * crMultiplier * erMultiplier
      *
      * @param product the product to calculate the price for
      * @return the price of the product
