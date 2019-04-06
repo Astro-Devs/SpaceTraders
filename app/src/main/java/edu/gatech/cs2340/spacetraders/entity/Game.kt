@@ -190,7 +190,7 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
      * @return boolean value for if travel was success or failure
      */
     fun travel(destination: Coordinates): Boolean {
-        val fuelToUse = Math.floor((universe.distance(player.getLocation(), destination))).toInt()
+        val fuelToUse = calcFuelToUse(player.getLocation(), destination)
         when {
             fuelToUse == 0 -> {
                 Log.d("travel", "already on the planet, cannot travel!")
@@ -210,6 +210,10 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
             }
 
         }
+    }
+
+    fun calcFuelToUse(coord1: Coordinates, coord2: Coordinates): Int {
+        return Math.floor((universe.distance(coord1, coord2))).toInt()
     }
 
     /**
