@@ -246,6 +246,14 @@ class Universe : Serializable{
         return sorted
     }
 
+    /**
+     * Getter for the map, used for JUnit testing
+     * @return map the map of coordinates to the solar system
+     */
+    fun getMap(): HashMap<Coordinates, SolarSystem> {
+        return map
+    }
+
 
     /**
      * Workaround to 4000 byte limit to a log entry, printing to the logcat
