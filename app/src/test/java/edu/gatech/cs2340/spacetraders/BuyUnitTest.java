@@ -92,7 +92,7 @@ public class BuyUnitTest {
     public void buyNegativeProduct() {
         int initialPlanetProductAmount = currentPlanetInventory.getAmountOf(Products.WATER);
         testGame.buy(testPlayer, Products.WATER, -1);
-        Assert.assertEquals("Player credits should not be decremented", 10000,
+        Assert.assertEquals("Player credits should not change", 10000,
                 testPlayer.getCredits());
         Assert.assertFalse("New product should not be added to player inventory",
                 testPlayer.getAmountOf(Products.WATER) > 0);
