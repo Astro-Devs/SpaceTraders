@@ -36,7 +36,7 @@ class Universe : Serializable{
         return Coordinates(Random.nextInt(100), Random.nextInt(100))
     }
 
-    private val map: HashMap<Coordinates, SolarSystem> = HashMap()
+    private var map: HashMap<Coordinates, SolarSystem> = HashMap()
     private val names = arrayListOf(
         "Acamar",
         "Adahn",        // The alternate personality for The Nameless One in "Planescape: Torment"
@@ -254,7 +254,13 @@ class Universe : Serializable{
         return map
     }
 
-
+    /**
+     * Setter for the map, used for JUnit testing
+     * @param newMap the new hashmap that map should be
+     */
+    fun setMap(newMap: HashMap<Coordinates, SolarSystem>) {
+        map = newMap
+    }
     /**
      * Workaround to 4000 byte limit to a log entry, printing to the logcat
      * @param tag the tag to search in the logcat

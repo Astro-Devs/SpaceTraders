@@ -99,6 +99,15 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
     }
 
     /**
+     * Setter for the universe for JUnit Testing
+     *
+     * @param newUniverse new universe
+     */
+    fun setUniverse(newUniverse: Universe) {
+        universe = newUniverse
+    }
+
+    /**
      * Process a "buy" transaction between player and the current Solar System
      *
      * @param player the player buying the products
