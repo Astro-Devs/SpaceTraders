@@ -32,10 +32,10 @@ public class BuyUnitTest {
         int initialPlanetProductAmount = currentPlanetInventory.getAmountOf(Products.WATER);
         testGame.buy(testPlayer, Products.WATER, 1);
         Assert.assertTrue("Player credits not decremented properly", testPlayer.getCredits() < 10000);
-        Assert.assertEquals("Failed to add product to player inventory", testPlayer.getAmountOf(Products.WATER),
-                1);
+        Assert.assertEquals("Failed to add product to player inventory", 1,
+                testPlayer.getAmountOf(Products.WATER));
         Assert.assertEquals("Failed to remove product from planet inventory",
-                currentPlanetInventory.getAmountOf(Products.WATER), initialPlanetProductAmount - 1);
+                initialPlanetProductAmount - 1, currentPlanetInventory.getAmountOf(Products.WATER));
     }
 
     @Test
@@ -44,10 +44,10 @@ public class BuyUnitTest {
         int initialPlanetProductAmount = currentPlanetInventory.getAmountOf(Products.WATER);
         testGame.buy(testPlayer, Products.WATER, 2);
         Assert.assertTrue("Player credits not decremented properly", testPlayer.getCredits() < 10000);
-        Assert.assertEquals("Failed to add products to player inventory",
-                testPlayer.getAmountOf(Products.WATER), 2);
+        Assert.assertEquals("Failed to add products to player inventory", 2,
+                testPlayer.getAmountOf(Products.WATER));
         Assert.assertEquals("Failed to remove products from planet inventory",
-                currentPlanetInventory.getAmountOf(Products.WATER), initialPlanetProductAmount - 2);
+                initialPlanetProductAmount - 2, currentPlanetInventory.getAmountOf(Products.WATER));
     }
 
     @Test
@@ -55,11 +55,12 @@ public class BuyUnitTest {
         testPlayer.addToInventory(Products.WATER, 10);
         int initialPlanetProductAmount = currentPlanetInventory.getAmountOf(Products.WATER);
         testGame.buy(testPlayer, Products.WATER, 1);
-        Assert.assertEquals("Player credits should not be decremented", testPlayer.getCredits(), 10000);
-        Assert.assertNotEquals("New product should not be added to player inventory",
-                testPlayer.getAmountOf(Products.WATER), 11);
+        Assert.assertEquals("Player credits should not be decremented", 10000,
+                testPlayer.getCredits());
+        Assert.assertNotEquals("New product should not be added to player inventory", 11,
+                testPlayer.getAmountOf(Products.WATER));
         Assert.assertEquals("Product should not be removed from planet inventory",
-                currentPlanetInventory.getAmountOf(Products.WATER), initialPlanetProductAmount);
+                initialPlanetProductAmount, currentPlanetInventory.getAmountOf(Products.WATER));
     }
 
     @Test
@@ -67,11 +68,11 @@ public class BuyUnitTest {
         testPlayer.setCredits(0);
         int initialPlanetProductAmount = currentPlanetInventory.getAmountOf(Products.WATER);
         testGame.buy(testPlayer, Products.WATER, 1);
-        Assert.assertEquals("Player credits should not be decremented", testPlayer.getCredits(), 0);
-        Assert.assertNotEquals("New product should not be added to player inventory",
-                testPlayer.getAmountOf(Products.WATER), 1);
+        Assert.assertEquals("Player credits should not be decremented", 0, testPlayer.getCredits());
+        Assert.assertNotEquals("New product should not be added to player inventory", 1,
+                testPlayer.getAmountOf(Products.WATER));
         Assert.assertEquals("Product should not be removed from planet inventory",
-                currentPlanetInventory.getAmountOf(Products.WATER), initialPlanetProductAmount);
+                initialPlanetProductAmount, currentPlanetInventory.getAmountOf(Products.WATER));
 
     }
 
@@ -79,24 +80,24 @@ public class BuyUnitTest {
     public void buyZeroProduct() {
         int initialPlanetProductAmount = currentPlanetInventory.getAmountOf(Products.WATER);
         testGame.buy(testPlayer, Products.WATER, 0);
-        Assert.assertEquals("Player credits should not be decremented",
-                testPlayer.getCredits(), 10000);
+        Assert.assertEquals("Player credits should not be decremented", 10000,
+                testPlayer.getCredits());
         Assert.assertFalse("New product should not be added to player inventory",
                 testPlayer.getAmountOf(Products.WATER) > 0);
         Assert.assertEquals("Product should not be removed from planet inventory",
-                currentPlanetInventory.getAmountOf(Products.WATER), initialPlanetProductAmount);
+                initialPlanetProductAmount, currentPlanetInventory.getAmountOf(Products.WATER));
     }
 
     @Test
     public void buyNegativeProduct() {
         int initialPlanetProductAmount = currentPlanetInventory.getAmountOf(Products.WATER);
         testGame.buy(testPlayer, Products.WATER, -1);
-        Assert.assertEquals("Player credits should not be decremented",
-                testPlayer.getCredits(), 10000);
+        Assert.assertEquals("Player credits should not be decremented", 10000,
+                testPlayer.getCredits());
         Assert.assertFalse("New product should not be added to player inventory",
                 testPlayer.getAmountOf(Products.WATER) > 0);
         Assert.assertEquals("Product should not be removed from planet inventory",
-                currentPlanetInventory.getAmountOf(Products.WATER), initialPlanetProductAmount);
+                initialPlanetProductAmount, currentPlanetInventory.getAmountOf(Products.WATER));
     }
 
 
