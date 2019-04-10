@@ -13,6 +13,7 @@ class ModelFacade private constructor() {
     /**
      * Companion object for the model facade
      */
+    private var futureVisiblilityflag: Boolean = true   //variable for making mini game disappear
     companion object {
         private var modelFac: ModelFacade = ModelFacade()
         lateinit var newGame: Game
@@ -21,6 +22,22 @@ class ModelFacade private constructor() {
             return modelFac
         }
 
+    }
+
+    /**
+     * Getter for future visibility flag
+     * @return Boolean if the flag is going to visible or not
+     */
+    fun getFlag(): Boolean {
+        return futureVisiblilityflag
+    }
+
+    /**
+     * Setter for future visibility flag
+     * @param bool set future visibility
+     */
+    fun setFlag(bool: Boolean) {
+        futureVisiblilityflag = bool
     }
 
 
@@ -158,6 +175,14 @@ class ModelFacade private constructor() {
      */
     fun getCurrentRandomEvent(): RandomEvent {
         return newGame.getCurrentRandomEvent()
+    }
+
+    /**
+     * Add credits to player
+     * @param addCredits amount of credits to be added
+     */
+    fun addCreditsToPlayer(addCredits: Int) {
+        newGame.addCreditsToPlayer(addCredits)
     }
 
     /**

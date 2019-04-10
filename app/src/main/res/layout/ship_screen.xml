@@ -330,5 +330,18 @@
             android:layout_above="@+id/universeButton"
             android:layout_marginBottom="14dp"/>
 
+    <Button android:layout_width="350dp"
+            android:layout_height="43dp"
+            android:fontFamily="@font/orbitron"
+            android:background="@drawable/done_button_background"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:text="Play Minigame!"
+            android:id="@+id/miniGameButton"
+            android:layout_above="@+id/saveButton"
+            android:layout_marginBottom="14dp"
+            android:visibility="gone"/>
+
 
 </RelativeLayout>

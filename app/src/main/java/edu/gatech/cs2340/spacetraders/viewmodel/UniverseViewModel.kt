@@ -74,4 +74,12 @@ class UniverseViewModel : ViewModel() {
         return modelFacade.getCurrentRandomEvent()
     }
 
+    /**
+     * Add credits to player
+     * @param addCredits amount of credits to be added
+     */
+    fun addCreditsToPlayer(addCredits: Int) {
+        modelFacade.addCreditsToPlayer(addCredits)
+    }
+
 }

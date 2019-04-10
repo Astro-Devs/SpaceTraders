@@ -57,7 +57,6 @@ class StartActivity : AppCompatActivity() {
     fun onNewGamePressed(@Suppress("UNUSED_PARAMETER")view: View) {
         keepPlaying = true
         val configIntent = Intent(applicationContext, IntroAnimationActivity::class.java)
-        //startActivityForResult(configIntent, 0)
         startActivity(configIntent)
 
     }

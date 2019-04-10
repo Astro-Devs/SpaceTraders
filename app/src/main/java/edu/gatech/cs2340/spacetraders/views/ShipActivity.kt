@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -21,6 +22,7 @@ class ShipActivity : AppCompatActivity() {
 
     private lateinit var viewModel: UniverseViewModel
     private lateinit var currentPlanet: SolarSystem
+    private lateinit var modelFac: ModelFacade
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +31,8 @@ class ShipActivity : AppCompatActivity() {
         ImageList.populatePlanetImages()
 
         viewModel = ViewModelProviders.of(this).get(UniverseViewModel::class.java)
+
+        modelFac = ModelFacade.getInstance()
 
         currentPlanet = viewModel.getCurrentPlanet()
 
@@ -68,6 +72,19 @@ class ShipActivity : AppCompatActivity() {
             Log.d("onSave", "made save file")
             facade.save(file)
             Toast.makeText(this@ShipActivity, "Saved Game!", Toast.LENGTH_SHORT).show()
+        }
+
+        val miniGameButton: Button = findViewById(R.id.miniGameButton)
+        if(modelFac.getFlag()) {
+            miniGameButton.visibility = View.VISIBLE
+        }
+        modelFac.setFlag(false)
+        miniGameButton.setOnClickListener{
+            val intent = Intent(applicationContext, MiniGameActivity::class.java)
+            startActivity(intent)
+            if(!modelFac.getFlag()) {
+                miniGameButton.visibility = View.GONE
+            }
         }
     }
 

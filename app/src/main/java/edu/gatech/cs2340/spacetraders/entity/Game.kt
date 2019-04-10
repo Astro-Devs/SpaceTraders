@@ -164,6 +164,14 @@ class Game(private val difficulty: GameDifficulty, private val player: Player) :
     }
 
     /**
+     * Add credits to player
+     * @param addCredits amount of credits to be added
+     */
+    fun addCreditsToPlayer(addCredits: Int) {
+        player.credits += addCredits
+    }
+
+    /**
      * checks to see if ship cargo is full - used to see if player can buy more objects
      *
      * @param quantity number of items bought
