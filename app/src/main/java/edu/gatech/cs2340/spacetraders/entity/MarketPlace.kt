@@ -186,10 +186,14 @@ class MarketPlace(
      * @param player the player selling the products
      * @param product the product the player is selling
      * @param quantity the amount of the product the player is selling
-     * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough of the product owned"
+     * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough of the product owned",
+     * 2 = "Can't sell a negative quantity"
      */
     fun sell(player: Player, product: Products, quantity: Int): Int {
-        return if ((player.getAmountOf(product) - quantity) < 0) {
+        return if (quantity < 0) {
+            Log.d("Invalid quantity", "Can't sell a negative quantity of products")
+            2
+        } else if ((player.getAmountOf(product) - quantity) < 0) {
             1// May throw an exception or return an Int/Boolean to indicate the player is selling more than they
             // own
         } else {
