@@ -154,9 +154,13 @@ class MarketPlace(
      * @param product the product the player is buying
      * @param quantity the amount of the product the player is buying
      * @return an Int indicating the success of the operation: 0 = success, 1 = "Not enough cargo capacity",
-     * 2 = "Not enough credits"
+     * 2 = "Not enough credits", 3 = "Can't buy a negative quantity"
      */
     fun buy(player: Player, product: Products, quantity: Int): Int {
+        if (quantity < 0) {
+            Log.d("Invalid quantity", "Can't buy a negative quantity of products")
+            return 3
+        }
         if (player.getTotalAmountInInventory() + quantity > player.getShipCargoCapacity() && product != Products.FUEL) {
             Log.d("Cargo", "cargo is full cannot buy more items")
             return 1// May throw an exception or return an Int to indicate not enough cargo capacity
